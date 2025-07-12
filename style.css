@@ -1,0 +1,103 @@
+body {
+  font-family: "Segoe UI", sans-serif;
+  line-height: 1.7;
+}
+
+.navbar-brand {
+  font-weight: bold;
+}
+
+h2 {
+  font-weight: 600;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+.service-card h5 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.card-custom {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  transition: all 0.4s ease;
+  border-radius: 1rem;
+}
+
+.card-custom:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
+}
+
+.card-custom i {
+  transition: color 0.3s ease;
+}
+
+.card-custom:hover i {
+  color: #0d6efd;
+}
+
+.social-icons a:hover {
+  color: #007bff;
+}
+.home-section {
+  position: relative;
+  text-shadow: 1px 1px 4px rgb(255, 255, 255);
+
+}
+.img-wrapper {
+  overflow: hidden;
+}
+
+.thumb-box {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.thumb-img {
+  transition: transform 0.3s ease;
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border: 5px;
+  pointer-events: none;
+}
+
+.thumb-box:hover .thumb-img {
+  transform: scale(1.05);
+}
+
+.plus-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px 14px;
+  border-radius: 50%;
+  opacity: 0;
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+.thumb-box:hover .plus-icon {
+  opacity: 1;
+}
+
+#previewArea img {
+  max-height: 300px;
+  object-fit: contain;
+}
+
+.project-caption {
+  font-weight: 500;
+  font-size: 0.9rem;
+  border-radius: 0 0 5px 5px;
+}
