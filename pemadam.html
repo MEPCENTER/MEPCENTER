@@ -1,85 +1,403 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>5.2 PEMADAM KEBAKARAN</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panduan Sistem Pemadam Kebakaran</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Internal CSS -->
+    <style>
+        /* Import Font (optional, for better typography) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f8f9fa;
-      color: #212529;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa; /* Softer background */
+        }
 
-    .article-header {
-      background-color: #dc3545;
-      color: white;
-      padding: 2rem;
-      border-radius: 0 0 12px 12px;
-      text-align: center;
-    }
+        /* Custom header gradient for Plumbing */
+        .header-gradient {
+            background: #0d6efd; /* Fallback */
+            background: linear-gradient(135deg, #0d6efd, #17a2b8);
+        }
 
-    .article-content {
-      background-color: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
+        /* Custom header gradient for Fire Protection */
+        .header-gradient-fire {
+            background: #dc3545; /* Fallback */
+            background: linear-gradient(135deg, #b02a37, #dc3545);
+        }
 
-    h1, h2 {
-      font-weight: 600;
-    }
+        /* Texture overlay for the header */
+        .header-gradient::before, .header-gradient-fire::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+            opacity: 0.08;
+            z-index: 0;
+        }
 
-    ul {
-      padding-left: 1.2rem;
-    }
+        .tracking-widest {
+            letter-spacing: .1em;
+        }
 
-    ul li {
-      margin-bottom: 0.75rem;
-    }
+        /* New: Styling for subsection header images */
+        .subsection-image-container {
+            border-radius: 0.75rem; /* Softer corners */
+            overflow: hidden;
+        }
 
-    @media (max-width: 576px) {
-      .article-header {
-        padding: 1.5rem 1rem;
-      }
+        .subsection-image-container img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
 
-      .article-content {
-        padding: 1.5rem 1rem;
-      }
-    }
-  </style>
+        .subsection-image-container img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Section Title for Plumbing */
+        .section-title {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #343a40;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title i {
+            color: #0d6efd;
+            margin-right: 0.75rem;
+            font-size: 1.5rem; /* Match font size */
+            line-height: 1;
+        }
+
+        /* Section Title for Fire Protection */
+        .section-title-fire {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #343a40;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 0.5rem;
+        }
+
+        .section-title-fire i {
+            color: #dc3545;
+            margin-right: 0.75rem;
+            font-size: 1.5rem; /* Match font size */
+            line-height: 1;
+        }
+
+
+        /* Goal/Purpose cards for Plumbing */
+        .goal-card {
+            background-color: #f8f9fa;
+            border-left: 5px solid #0d6efd;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+        }
+
+        .goal-card .section-title {
+            border-bottom: none;
+            padding-bottom: 0;
+            font-size: 1.25rem; /* Slightly smaller in card */
+        }
+
+        .goal-card .section-title i {
+            font-size: 1.25rem;
+        }
+
+        .goal-card ul {
+            list-style-type: '✓  ';
+            padding-left: 1.25rem;
+        }
+
+        /* Goal/Purpose cards for Fire Protection */
+        .goal-card-fire {
+            background-color: #f8f9fa;
+            border-left: 5px solid #dc3545;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+        }
+
+        .goal-card-fire .section-title-fire {
+            border-bottom: none;
+            padding-bottom: 0;
+            font-size: 1.25rem; /* Slightly smaller in card */
+        }
+
+        .goal-card-fire .section-title-fire i {
+            font-size: 1.25rem;
+        }
+
+        .goal-card-fire ul {
+            list-style-type: '✓  ';
+            padding-left: 1.25rem;
+        }
+
+
+        /* Gallery Card Styles */
+        .gallery-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            overflow: hidden;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .gallery-card .card-img-top {
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+        }
+
+        /* Styling for formula box */
+        .formula-box {
+            background-color: #e9ecef;
+            padding: 0.75rem 1rem;
+            border-radius: 0.25rem;
+            font-family: 'Courier New', Courier, monospace;
+            color: #343a40;
+            border: 1px solid #dee2e6;
+        }
+
+        /* Simple scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e9ecef;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #adb5bd;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6c757d;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-light">
 
-  <header class="article-header">
-    <div class="container">
-      <h1 class="mb-1">5.2 PEMADAM KEBAKARAN</h1>
-      <p class="lead mb-0">Sistem Pencegahan dan Penanggulangan Api di Bangunan</p>
-    </div>
-  </header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">Panduan MEP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="plumbing.html">Panduan Plumbing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="pemadam.html">Pemadam Kebakaran</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="hvac.html">Panduan HVAC</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="elektrikal.html">Panduan Elektrikal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="elektronik.html">Panduan Elektronik</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-  <main class="container my-5">
-    <div class="article-content">
-      <h2>Tujuan Sistem Pemadam Kebakaran</h2>
-      <p>
-        Sistem pemadam kebakaran dalam bangunan bertujuan untuk mendeteksi, mengendalikan, dan memadamkan api sejak dini guna mencegah penyebaran kebakaran serta menjaga keselamatan jiwa dan aset.
-      </p>
+    <main class="container my-4 my-md-5">
+        <article class="card shadow-lg border-0">
+            <!-- Header -->
+            <header class="card-header text-white p-4 p-md-5 rounded-top-2 header-gradient-fire position-relative overflow-hidden">
+                <div class="position-relative z-1">
+                    <h1 class="h6 text-uppercase fw-bold tracking-widest opacity-75">PROTEKSI KEBAKARAN</h1>
+                    <h2 class="h2 fw-bolder mt-2">Sistem Pemadam Kebakaran Aktif & Pasif</h2>
+                </div>
+            </header>
 
-      <h2>Komponen Utama Sistem</h2>
-      <ul>
-        <li><strong>Sprinkler:</strong> Sistem penyemprot otomatis yang aktif saat suhu ruang mencapai ambang tertentu. Umumnya terhubung ke jaringan pipa air bertekanan tinggi.</li>
-        <li><strong>Hidran:</strong> Titik air bertekanan tinggi yang dapat digunakan petugas atau penghuni gedung untuk memadamkan api secara manual menggunakan selang.</li>
-        <li><strong>Pemadam Api Ringan (APAR):</strong> Alat portabel untuk memadamkan api skala kecil, tersedia di lokasi strategis seperti koridor dan area publik.</li>
-        <li><strong>Instalasi Transportasi Vertikal (Lift):</strong> Dalam kondisi darurat, lift khusus kebakaran harus tersedia untuk evakuasi atau akses petugas.</li>
-      </ul>
+            <div class="card-body p-4 p-md-5">
 
-      <p>
-        Seluruh sistem ini harus dipasang sesuai standar keselamatan nasional dan diuji secara berkala untuk memastikan fungsinya saat kondisi darurat.
-      </p>
-    </div>
-  </main>
+                <!-- SECTION 2.1: Sistem Sprinkler Otomatis -->
+                <header class="mb-4">
+                    <h2 class="h6 text-uppercase fw-bold tracking-widest text-muted">2.1</h2>
+                    <h3 class="h3 fw-bolder mt-1 text-danger">Sistem Sprinkler Otomatis</h3>
+                </header>
+                
+                <div class="subsection-image-container my-4 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1617753138374-42b77a335a2d?q=80&w=1740&auto=format&fit=crop" alt="Kepala sprinkler otomatis di langit-langit">
+                </div>
 
+                <p class="lead text-muted">
+                    Sistem sprinkler otomatis adalah proteksi kebakaran aktif yang mendeteksi panas dan memadamkan api secara mandiri dengan menyemprotkan air, aktif sebelum api menyebar luas.
+                </p>
+
+                <hr class="my-5">
+                
+                <section>
+                    <h4 class="section-title-fire"><i class="bi bi-gear-wide-connected"></i>Cara Kerja Sistem</h4>
+                    <ul class="list-group list-group-numbered ps-md-5 mt-4">
+                        <li class="list-group-item border-0">Elemen sensitif suhu pada kepala sprinkler pecah saat panas mencapai ambang batas (68-74°C).</li>
+                        <li class="list-group-item border-0">Air bertekanan keluar dari kepala sprinkler yang aktif dan menyemprot area terbakar.</li>
+                        <li class="list-group-item border-0">Hanya kepala sprinkler yang terpapar panas yang aktif, bukan seluruhnya serentak.</li>
+                    </ul>
+                </section>
+                
+                <hr class="my-5">
+
+                <section>
+                    <h4 class="section-title-fire"><i class="bi bi-bricks"></i>Komponen Utama</h4>
+                    <div class="table-responsive ps-md-5 mt-4">
+                        <table class="table table-bordered table-hover">
+                            <thead class="table-light">
+                                <tr><th>Komponen</th><th>Fungsi</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Sprinkler Head</td><td>Kepala semprot otomatis yang aktif pada suhu tertentu.</td></tr>
+                                <tr><td>Alarm Valve</td><td>Mengatur zona sistem, memicu alarm jika sprinkler aktif.</td></tr>
+                                <tr><td>Jockey & Fire Pump</td><td>Menjaga tekanan dan suplai air saat sistem aktif.</td></tr>
+                                <tr><td>Reservoir Air</td><td>Menyediakan pasokan air minimum selama 30–60 menit.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                
+                <!-- SEPARATOR -->
+                <hr class="my-5 border-2 opacity-50">
+                
+                <!-- SECTION 2.2: Sistem Hidran -->
+                <header class="mb-4">
+                    <h2 class="h6 text-uppercase fw-bold tracking-widest text-muted">2.2</h2>
+                    <h3 class="h3 fw-bolder mt-1 text-danger">Sistem Hidran</h3>
+                </header>
+                
+                <div class="subsection-image-container my-4 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1629822998249-5a815a55749f?q=80&w=1740&auto=format&fit=crop" alt="Pilar hidran luar ruangan berwarna merah">
+                </div>
+
+                <p class="lead text-muted">
+                    Sistem hidran menyediakan sumber air bertekanan tinggi untuk pemadaman manual oleh petugas terlatih. Ini adalah pertahanan utama dalam pengendalian api secara langsung.
+                </p>
+
+                <hr class="my-5">
+                
+                 <section>
+                    <h4 class="section-title-fire"><i class="bi bi-tools"></i>Konfigurasi Pompa</h4>
+                     <ul class="list-group ps-md-5 mt-4">
+                        <li class="list-group-item border-0 d-flex align-items-start"><i class="bi bi-dot fs-3 lh-1"></i><div><strong>Jockey Pump:</strong> Menjaga tekanan sistem saat idle.</div></li>
+                        <li class="list-group-item border-0 d-flex align-items-start"><i class="bi bi-dot fs-3 lh-1"></i><div><strong>Electric Pump:</strong> Pompa utama yang aktif saat tekanan turun.</div></li>
+                        <li class="list-group-item border-0 d-flex align-items-start"><i class="bi bi-dot fs-3 lh-1"></i><div><strong>Diesel Pump:</strong> Pompa cadangan saat listrik padam.</div></li>
+                    </ul>
+                </section>
+                
+                <!-- SEPARATOR -->
+                <hr class="my-5 border-2 opacity-50">
+
+                <!-- SECTION 2.3: APAR -->
+                <header class="mb-4">
+                    <h2 class="h6 text-uppercase fw-bold tracking-widest text-muted">2.3</h2>
+                    <h3 class="h3 fw-bolder mt-1 text-danger">Pemadam Api Ringan (APAR)</h3>
+                </header>
+                
+                <div class="subsection-image-container my-4 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1608221925302-ecd3a5378735?q=80&w=1887&auto=format&fit=crop" alt="Alat Pemadam Api Ringan (APAR) di dinding">
+                </div>
+
+                <p class="lead text-muted">
+                    APAR adalah alat portabel untuk memadamkan kebakaran kecil secara cepat sebelum api membesar. Ini adalah lini pertahanan paling awal dan mudah diakses.
+                </p>
+
+                <hr class="my-5">
+
+                <section>
+                    <h4 class="section-title-fire"><i class="bi bi-moisture"></i>Jenis Media Pemadam</h4>
+                    <div class="table-responsive ps-md-5 mt-4">
+                        <table class="table table-bordered table-hover">
+                            <thead class="table-light">
+                                <tr><th>Media Pemadam</th><th>Digunakan Untuk Kebakaran Kelas</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Dry Chemical Powder (DCP)</td><td>A, B, C (Padat, Cair, Gas)</td></tr>
+                                <tr><td>Foam (Busa)</td><td>B (Cairan Mudah Terbakar)</td></tr>
+                                <tr><td>CO₂ (Carbon Dioxide)</td><td>E (Peralatan Listrik & Elektronik)</td></tr>
+                                <tr><td>Clean Agent</td><td>Ruang Server & IT (Tidak Meninggalkan Residu)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <hr class="my-5">
+
+                <section>
+                    <h4 class="section-title-fire"><i class="bi bi-geo-alt-fill"></i>Aturan Penempatan</h4>
+                    <ul class="list-group list-group-numbered ps-md-5 mt-4">
+                        <li class="list-group-item border-0">Dipasang di area yang mudah terlihat dan dijangkau.</li>
+                        <li class="list-group-item border-0">Tinggi pemasangan: 90–120 cm dari lantai.</li>
+                        <li class="list-group-item border-0">Jarak antar APAR maksimal 15 meter.</li>
+                        <li class="list-group-item border-0">Wajib tersedia di dekat panel listrik, dapur, dan jalur evakuasi.</li>
+                    </ul>
+                </section>
+
+                <!-- SEPARATOR -->
+                <hr class="my-5 border-2 opacity-50">
+
+                <!-- SECTION 2.4: Fire Suppression -->
+                <header class="mb-4">
+                    <h2 class="h6 text-uppercase fw-bold tracking-widest text-muted">2.4</h2>
+                    <h3 class="h3 fw-bolder mt-1 text-danger">Sistem Fire Suppression</h3>
+                </header>
+
+                <div class="subsection-image-container my-4 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1558004868-b73a4d5d1538?q=80&w=1740&auto=format&fit=crop" alt="Sistem fire suppression di ruang server">
+                </div>
+            
+                <p class="lead text-muted">
+                    Sistem pemadam otomatis yang menggunakan media selain air (gas, kimia) untuk area kritis di mana air dapat merusak aset, seperti ruang server, panel listrik, atau dapur komersial.
+                </p>
+
+                <hr class="my-5">
+            
+                <section>
+                    <h4 class="section-title-fire"><i class="bi bi-shield-check"></i>Keunggulan Fire Suppression</h4>
+                    <ul class="list-group ps-md-5 mt-4">
+                        <li class="list-group-item border-0 d-flex align-items-start"><i class="bi bi-check-circle-fill text-success me-2 mt-1"></i><div>Tidak merusak peralatan elektronik, arsip, dan aset bernilai.</div></li>
+                        <li class="list-group-item border-0 d-flex align-items-start"><i class="bi bi-check-circle-fill text-success me-2 mt-1"></i><div>Respon otomatis dalam hitungan detik, sangat efektif untuk ruangan tertutup.</div></li>
+                        <li class="list-group-item border-0 d-flex align-items-start"><i class="bi bi-check-circle-fill text-success me-2 mt-1"></i><div>Tidak meninggalkan residu (khususnya tipe Clean Agent).</div></li>
+                    </ul>
+                </section>
+                
+                <hr class="my-5">
+
+                <div class="goal-card-fire">
+                    <h4 class="section-title-fire"><i class="bi bi-bullseye"></i>Tujuan Desain Sistem Proteksi Kebakaran</h4>
+                    <ul class="mt-3 ps-4">
+                        <li>Memberikan perlindungan kebakaran otomatis 24 jam.</li>
+                        <li>Menjaga keselamatan penghuni dan properti.</li>
+                        <li>Menjadi garis pertahanan sebelum tim pemadam tiba.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </article>
+    </main>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

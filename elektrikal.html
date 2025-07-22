@@ -1,98 +1,377 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>5.4 ELEKTRIKAL</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Panduan Sistem Elektrikal</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Internal CSS -->
+    <style>
+        /* Import Font (optional, for better typography) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f8f9fa;
-      color: #212529;
-    }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f9fa; /* Softer background */
+        }
 
-    .article-header {
-      background-color: #6f42c1;
-      color: white;
-      padding: 2rem;
-      border-radius: 0 0 12px 12px;
-      text-align: center;
-    }
+        /* Nav Bar */
+        .navbar-nav .nav-link {
+            transition: color 0.2s ease-in-out;
+        }
+        .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+            color: #fff !important;
+        }
 
-    .article-content {
-      background-color: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
+        /* --- Header Gradients --- */
+        .header-gradient { /* Plumbing */
+            background: linear-gradient(135deg, #0d6efd, #17a2b8);
+        }
+        .header-gradient-fire { /* Fire Protection */
+            background: linear-gradient(135deg, #b02a37, #dc3545);
+        }
+        .header-gradient-hvac { /* HVAC */
+            background: linear-gradient(135deg, #20c997, #17a2b8);
+        }
+        .header-gradient-electrical { /* Electrical */
+            background: linear-gradient(135deg, #ffc107, #fd7e14);
+        }
 
-    h1, h2, h4 {
-      font-weight: 600;
-    }
+        /* Texture overlay for all headers */
+        .header-gradient::before, .header-gradient-fire::before, .header-gradient-hvac::before, .header-gradient-electrical::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+            opacity: 0.08;
+            z-index: 0;
+        }
 
-    ul {
-      padding-left: 1.2rem;
-    }
+        .tracking-widest { letter-spacing: .1em; }
 
-    ul li {
-      margin-bottom: 0.75rem;
-    }
+        .subsection-image-container {
+            border-radius: 0.75rem;
+            overflow: hidden;
+        }
+        .subsection-image-container img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .subsection-image-container img:hover {
+            transform: scale(1.05);
+        }
 
-    @media (max-width: 576px) {
-      .article-header {
-        padding: 1.5rem 1rem;
-      }
+        /* --- Section Titles --- */
+        .section-title, .section-title-fire, .section-title-hvac, .section-title-electrical {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: #343a40;
+            display: flex;
+            align-items: center;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 0.5rem;
+        }
+        .section-title i { color: #0d6efd; }
+        .section-title-fire i { color: #dc3545; }
+        .section-title-hvac i { color: #20c997; }
+        .section-title-electrical i { color: #ffc107; }
 
-      .article-content {
-        padding: 1.5rem 1rem;
-      }
-    }
-  </style>
+        .section-title i, .section-title-fire i, .section-title-hvac i, .section-title-electrical i {
+            margin-right: 0.75rem;
+            font-size: 1.5rem;
+            line-height: 1;
+        }
+        
+        /* --- Goal/Purpose cards --- */
+        .goal-card, .goal-card-fire, .goal-card-hvac, .goal-card-electrical {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+        }
+        .goal-card { border-left: 5px solid #0d6efd; }
+        .goal-card-fire { border-left: 5px solid #dc3545; }
+        .goal-card-hvac { border-left: 5px solid #20c997; }
+        .goal-card-electrical { border-left: 5px solid #ffc107; }
+
+        .goal-card .section-title,
+        .goal-card-fire .section-title-fire,
+        .goal-card-hvac .section-title-hvac,
+        .goal-card-electrical .section-title-electrical {
+            border-bottom: none;
+            padding-bottom: 0;
+            font-size: 1.25rem;
+        }
+        .goal-card .section-title i,
+        .goal-card-fire .section-title-fire i,
+        .goal-card-hvac .section-title-hvac i,
+        .goal-card-electrical .section-title-electrical i {
+            font-size: 1.25rem;
+        }
+        .goal-card ul, .goal-card-fire ul, .goal-card-hvac ul, .goal-card-electrical ul {
+            list-style-type: '✓  ';
+            padding-left: 1.25rem;
+        }
+
+        /* Gallery Card Styles */
+        .gallery-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            overflow: hidden;
+        }
+        .gallery-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15) !important;
+        }
+        .gallery-card .card-img-top {
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+        }
+
+        /* Formula Box */
+        .formula-box {
+            background-color: #e9ecef;
+            padding: 0.75rem 1rem;
+            border-radius: 0.25rem;
+            font-family: 'Courier New', Courier, monospace;
+            color: #343a40;
+            border: 1px solid #dee2e6;
+        }
+
+        /* Simple scrollbar styling */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #e9ecef; }
+        ::-webkit-scrollbar-thumb {
+            background: #adb5bd;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover { background: #6c757d; }
+    </style>
 </head>
-<body>
+<body class="bg-light">
 
-  <header class="article-header">
-    <div class="container">
-      <h1 class="mb-1">5.4 ELEKTRIKAL</h1>
-      <p class="lead mb-0">Sistem Kelistrikan dan Proteksi Petir Bangunan</p>
-    </div>
-  </header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">Panduan MEP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="plumbing.html">Panduan Plumbing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pemadam.html">Pemadam Kebakaran</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="hvac.html">Panduan HVAC</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="elektrikal.html">Panduan Elektrikal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="elektronik.html">Panduan Elektronik</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-  <main class="container my-5">
-    <div class="article-content">
-      <h2>Sistem Elektrikal dalam Bangunan</h2>
-      <p>
-        Instalasi elektrikal mencakup seluruh jaringan distribusi tenaga listrik dalam bangunan, mulai dari sumber daya utama, sistem pencahayaan, sistem darurat, hingga perlindungan dari lonjakan petir. Perencanaan harus memenuhi standar keamanan dan efisiensi energi.
-      </p>
+    <main class="container my-4 my-md-5">
+        <article class="card shadow-lg border-0">
+            <!-- Header -->
+            <header class="card-header text-white p-4 p-md-5 rounded-top-2 header-gradient-electrical position-relative overflow-hidden">
+                <div class="position-relative z-1">
+                    <h1 class="h6 text-uppercase fw-bold tracking-widest opacity-75">PANDUAN ELEKTRIKAL</h1>
+                    <h2 class="h2 fw-bolder mt-2">Sistem Distribusi, Proteksi, dan Penerangan</h2>
+                </div>
+            </header>
 
-      <h4>1. Instalasi Listrik dan Distribusi Tenaga Listrik</h4>
-      <p>
-        Merupakan sistem utama yang menyalurkan listrik dari gardu induk atau panel utama (MDP) ke panel-panel distribusi (SDP) dan titik-titik pemakaian. Termasuk juga penempatan kabel, tray, dan konduktor sesuai daya dan jalur distribusi.
-      </p>
+            <div class="card-body p-4 p-md-5">
 
-      <h4>2. Instalasi Genset dan Distribusi Listrik Darurat</h4>
-      <p>
-        Sistem backup kelistrikan dengan menggunakan genset untuk mengalirkan listrik saat terjadi pemadaman. Biasanya digunakan untuk area vital seperti lift, tangga darurat, sistem alarm, dan lampu penerangan umum.
-      </p>
+                <!-- SECTION 4.1: Instalasi Listrik & Distribusi -->
+                <header class="mb-4">
+                    <h2 class="h6 text-uppercase fw-bold tracking-widest text-muted">4.1</h2>
+                    <h3 class="h3 fw-bolder mt-1" style="color: #fd7e14;">Instalasi & Distribusi Tenaga Listrik</h3>
+                </header>
+                
+                <div class="subsection-image-container my-4 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1740&auto=format&fit=crop" alt="Panel distribusi listrik tegangan rendah (LVMDP)">
+                </div>
 
-      <h4>3. Instalasi Penerangan (Indoor/Outdoor)</h4>
-      <p>
-        Meliputi seluruh sistem pencahayaan di dalam dan luar bangunan, baik untuk fungsi operasional maupun estetika. Termasuk lampu utama, lampu taman, lampu tangga darurat, dan facade lighting.
-      </p>
+                <p class="lead text-muted">
+                    Sistem ini adalah tulang punggung kelistrikan bangunan, menyalurkan tenaga dari sumber utama (PLN/Trafo/Genset) ke seluruh titik beban seperti penerangan, stop kontak, dan peralatan mekanis secara aman dan efisien.
+                </p>
 
-      <h4>4. Instalasi Penangkal Petir</h4>
-      <p>
-        Sistem proteksi eksternal untuk mengalihkan arus petir ke tanah. Terdiri dari terminal udara (splitzen), konduktor penyalur, dan grounding system, guna mencegah kerusakan perangkat dan kebakaran.
-      </p>
+                <hr class="my-5">
+                
+                <section>
+                    <h4 class="section-title-electrical"><i class="bi bi-bricks"></i>Komponen Utama</h4>
+                    <div class="table-responsive ps-md-5 mt-4">
+                        <table class="table table-bordered table-hover">
+                            <thead class="table-light">
+                                <tr><th>Komponen</th><th>Fungsi</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Panel LVMDP</td><td>Titik distribusi utama dari sumber listrik.</td></tr>
+                                <tr><td>Panel Sub-Distribusi (SDP)</td><td>Panel sekunder untuk pembagian per area atau lantai.</td></tr>
+                                <tr><td>MCB, MCCB, ELCB</td><td>Proteksi sistem terhadap arus lebih dan kebocoran arus.</td></tr>
+                                <tr><td>Kabel & Kabel Tray</td><td>Media penghantar dan jalur pelindung kabel.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                
+                <!-- SEPARATOR -->
+                <hr class="my-5 border-2 opacity-50">
 
-      <h4>5. Instalasi Pentanahan (Grounding System)</h4>
-      <p>
-        Sistem pengamanan dengan menghubungkan rangkaian listrik ke tanah. Tujuannya untuk mencegah kejutan listrik dan melindungi peralatan dari lonjakan tegangan akibat gangguan atau sambaran petir.
-      </p>
-    </div>
-  </main>
+                <!-- SECTION 4.2: Genset & Tenaga Darurat -->
+                <header class="mb-4">
+                    <h2 class="h6 text-uppercase fw-bold tracking-widest text-muted">4.2</h2>
+                    <h3 class="h3 fw-bolder mt-1" style="color: #fd7e14;">Instalasi Genset & Tenaga Darurat</h3>
+                </header>
+                
+                <div class="subsection-image-container my-4 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1599643477877-53a85a21a28a?q=80&w=1740&auto=format&fit=crop" alt="Generator set (genset) diesel untuk tenaga darurat">
+                </div>
 
+                <p class="lead text-muted">
+                    Sistem yang menyediakan pasokan listrik cadangan secara otomatis saat sumber utama (PLN) padam, menjamin kontinuitas operasional untuk fasilitas vital melalui panel ATS (Automatic Transfer Switch).
+                </p>
+
+                <hr class="my-5">
+                
+                <section>
+                    <h4 class="section-title-electrical"><i class="bi bi-exclamation-diamond-fill"></i>Jenis Beban Darurat</h4>
+                    <ul class="list-group ps-md-5 mt-4">
+                        <li class="list-group-item border-0 d-flex align-items-start"><i class="bi bi-dot fs-3 lh-1"></i><div><strong>Beban Vital (Critical):</strong> Panel UGD, sistem keamanan, alarm kebakaran.</div></li>
+                        <li class="list-group-item border-0 d-flex align-items-start"><i class="bi bi-dot fs-3 lh-1"></i><div><strong>Beban Penting (Priority):</strong> Penerangan darurat, lift evakuasi, pompa air.</div></li>
+                        <li class="list-group-item border-0 d-flex align-items-start"><i class="bi bi-dot fs-3 lh-1"></i><div><strong>Beban Non-Darurat:</strong> AC biasa, stop kontak umum (tidak dialiri genset).</div></li>
+                    </ul>
+                </section>
+                
+                <!-- SEPARATOR -->
+                <hr class="my-5 border-2 opacity-50">
+
+                <!-- SECTION 4.3: Instalasi Penerangan -->
+                <header class="mb-4">
+                    <h2 class="h6 text-uppercase fw-bold tracking-widest text-muted">4.3</h2>
+                    <h3 class="h3 fw-bolder mt-1" style="color: #fd7e14;">Instalasi Penerangan (Indoor & Outdoor)</h3>
+                </header>
+                
+                <div class="subsection-image-container my-4 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1618220252344-88b9a184b8f0?q=80&w=1740&auto=format&fit=crop" alt="Instalasi lampu modern di dalam ruangan">
+                </div>
+
+                <p class="lead text-muted">
+                    Sistem distribusi listrik yang dirancang khusus untuk menyediakan cahaya buatan, baik untuk kenyamanan, keamanan, maupun fungsi operasional, dengan mempertimbangkan efisiensi energi dan estetika.
+                </p>
+
+                <hr class="my-5">
+
+                <section>
+                    <h4 class="section-title-electrical"><i class="bi bi-brightness-high-fill"></i>Standar Tingkat Penerangan (Lux)</h4>
+                    <div class="table-responsive ps-md-5 mt-4">
+                        <table class="table table-bordered table-hover">
+                            <thead class="table-light">
+                                <tr><th>Area</th><th>Rekomendasi Lux (SNI/CIBSE)</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Ruang Kerja</td><td>300–500 lux</td></tr>
+                                <tr><td>Koridor & Toilet</td><td>100–200 lux</td></tr>
+                                <tr><td>Area Parkir</td><td>50–100 lux</td></tr>
+                                <tr><td>Taman</td><td>30–75 lux</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- SEPARATOR -->
+                <hr class="my-5 border-2 opacity-50">
+                
+                <!-- SECTION 4.4: Penangkal Petir -->
+                <header class="mb-4">
+                    <h2 class="h6 text-uppercase fw-bold tracking-widest text-muted">4.4</h2>
+                    <h3 class="h3 fw-bolder mt-1" style="color: #fd7e14;">Instalasi Penangkal Petir</h3>
+                </header>
+
+                <div class="subsection-image-container my-4 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1600187569138-16e65a713926?q=80&w=1740&auto=format&fit=crop" alt="Penangkal petir di atap gedung tinggi saat badai">
+                </div>
+            
+                <p class="lead text-muted">
+                   Sistem proteksi yang dirancang untuk menangkap dan mengalihkan arus petir langsung ke tanah, melindungi bangunan, sistem listrik, dan penghuni dari kerusakan akibat sambaran petir.
+                </p>
+
+                <hr class="my-5">
+            
+                <section>
+                    <h4 class="section-title-electrical"><i class="bi bi-shield-shaded"></i>Sistem Proteksi Internal (SPD)</h4>
+                     <ul class="list-group ps-md-5 mt-4">
+                        <li class="list-group-item border-0"><strong>SPD Tipe 1:</strong> Dipasang di panel utama untuk proteksi sambaran langsung.</li>
+                        <li class="list-group-item border-0"><strong>SPD Tipe 2:</strong> Dipasang di sub-panel untuk proteksi lonjakan tegangan dari luar.</li>
+                        <li class="list-group-item border-0"><strong>SPD Tipe 3:</strong> Dipasang dekat peralatan sensitif (komputer, server).</li>
+                    </ul>
+                </section>
+
+                <!-- SEPARATOR -->
+                <hr class="my-5 border-2 opacity-50">
+
+                <!-- SECTION 4.5: Pentanahan (Grounding) -->
+                <header class="mb-4">
+                    <h2 class="h6 text-uppercase fw-bold tracking-widest text-muted">4.5</h2>
+                    <h3 class="h3 fw-bolder mt-1" style="color: #fd7e14;">Instalasi Pentanahan (Grounding)</h3>
+                </header>
+
+                <div class="subsection-image-container my-4 shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1596499868351-5121334e2329?q=80&w=1740&auto=format&fit=crop" alt="Batang grounding tembaga yang terpasang di tanah">
+                </div>
+            
+                <p class="lead text-muted">
+                    Sistem krusial yang menghubungkan instalasi listrik atau struktur logam ke bumi untuk mengalirkan arus gangguan, mencegah tegangan sentuh berbahaya, dan melindungi peralatan dari lonjakan tegangan.
+                </p>
+
+                <hr class="my-5">
+            
+                <section>
+                    <h4 class="section-title-electrical"><i class="bi bi-graph-down-arrow"></i>Target Tahanan Tanah</h4>
+                     <div class="table-responsive ps-md-5 mt-4">
+                        <table class="table table-bordered table-hover">
+                            <thead class="table-light">
+                                <tr><th>Kategori Sistem</th><th>Nilai Maksimal Resistansi (Ohm)</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Sistem Listrik Umum (LV)</td><td>≤ 5 Ω</td></tr>
+                                <tr><td>Sistem IT / Server / Elektronik</td><td>≤ 2 Ω</td></tr>
+                                <tr><td>Sistem Penangkal Petir</td><td>≤ 10 Ω (ideal ≤ 5 Ω)</td></tr>
+                                <tr><td>Gardu / Trafo</td><td>≤ 1 Ω (khusus)</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                
+                <hr class="my-5">
+
+                <div class="goal-card-electrical">
+                    <h4 class="section-title-electrical"><i class="bi bi-bullseye"></i>Tujuan Desain Sistem Listrik</h4>
+                    <ul class="mt-3 ps-4">
+                        <li>Menyediakan daya listrik yang stabil, aman, dan berkelanjutan.</li>
+                        <li>Mencegah gangguan sistem akibat hubung singkat atau beban lebih.</li>
+                        <li>Memastikan fleksibilitas untuk ekspansi beban di masa depan.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </article>
+    </main>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
