@@ -46,7 +46,7 @@ ul {
   .home-section {
   position: relative;
   text-shadow: 1px 1px 4px rgb(255, 255, 255);
-  background-image: url('img/1.png');
+  background-image: url('img/3.png');
   background-size: cover;
   background-position: center center;
   min-height: 60vh;
@@ -109,3 +109,4 @@ ul {
   font-size: 0.9rem;
   border-radius: 0 0 5px 5px;
 }
+
