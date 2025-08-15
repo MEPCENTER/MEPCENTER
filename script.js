@@ -8,9 +8,10 @@ document.addEventListener("DOMContentLoaded", function () {
     box.addEventListener("click", function () {
       const img = this.querySelector("img");
       previewImage.src = img.dataset.full;
-      previewDesc.textContent = img.dataset.desc;
+      previewDesc.innerHTML = img.dataset.desc;
       previewArea.classList.remove("d-none");
       previewArea.scrollIntoView({ behavior: "smooth" });
     });
   });
 });
+
