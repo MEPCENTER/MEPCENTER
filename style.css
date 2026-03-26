@@ -1,131 +1,111 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@300;400;600&display=swap');
-
-:root {
-    --bg-dark: #050505;
-    --neon-blue: #00f3ff;
-    --neon-glow: rgba(0, 243, 255, 0.4);
-    --deep-blue: #0015ff;
-    --glass: rgba(255, 255, 255, 0.03);
-    --glass-border: rgba(0, 243, 255, 0.15);
-    --text-muted: #94a3b8;
-}
-
 body {
-    background-color: var(--bg-dark);
-    color: #ffffff;
-    font-family: 'Inter', sans-serif;
-    overflow-x: hidden;
-}
-
-h1, h2, h3, h4, .navbar-brand {
-    font-family: 'Space+Grotesk', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-/* --- Futuristic Background --- */
-.bg-vibe {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    z-index: -1;
-    background: radial-gradient(circle at 50% 50%, #0a0a0a, #000);
-}
-
-.nebula {
-    position: absolute;
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, var(--deep-blue), transparent 70%);
-    filter: blur(120px);
-    opacity: 0.15;
-    animation: float 20s infinite alternate;
-}
-
-@keyframes float {
-    from { transform: translate(-10%, -10%) scale(1); }
-    to { transform: translate(20%, 20%) scale(1.2); }
-}
-
-/* --- Navbar --- */
-.navbar {
-    background: rgba(5, 5, 5, 0.85) !important;
-    backdrop-filter: blur(15px);
-    border-bottom: 1px solid var(--glass-border);
+  font-family: "Segoe UI", sans-serif;
+  line-height: 1.7;
 }
 
 .navbar-brand {
-    color: var(--neon-blue) !important;
-    text-shadow: 0 0 10px var(--neon-glow);
+  font-weight: bold;
 }
 
-.nav-link {
-    color: var(--text-muted) !important;
-    transition: 0.3s;
-    font-size: 0.9rem;
+h2 {
+  font-weight: 600;
 }
 
-.nav-link:hover {
-    color: var(--neon-blue) !important;
-    text-shadow: 0 0 8px var(--neon-blue);
+ul {
+  padding-left: 20px;
 }
 
-/* --- Sections --- */
-.home-section { min-height: 80vh; padding-top: 120px; }
-.home-section h2 { color: var(--neon-blue); text-shadow: 0 0 15px var(--neon-glow); }
-.home-section h3 { font-size: 3rem; margin: 15px 0; }
-
+.service-card h5 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
 .card-custom {
-    background: var(--glass) !important;
-    border: 1px solid var(--glass-border) !important;
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    transition: 0.4s;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  transition: all 0.4s ease;
+  border-radius: 1rem;
 }
 
 .card-custom:hover {
-    border-color: var(--neon-blue) !important;
-    box-shadow: 0 0 25px var(--neon-glow);
-    transform: translateY(-10px);
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
 }
 
 .card-custom i {
-    color: var(--neon-blue) !important;
-    font-size: 2.2rem;
-    filter: drop-shadow(0 0 8px var(--neon-blue));
+  transition: color 0.3s ease;
 }
 
-/* --- Gallery Grid 2 Kolom Mobile --- */
+.card-custom:hover i {
+  color: #0d6efd;
+}
+
+.social-icons a:hover {
+  color: #007bff;
+}
+  .home-section {
+  position: relative;
+  text-shadow: 1px 1px 4px rgb(255, 255, 255);
+  background-image: url('img/3.png');
+  background-size: cover;
+  background-position: center center;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.img-wrapper {
+  overflow: hidden;
+}
+
 .thumb-box {
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid var(--glass-border);
-    transition: 0.3s;
-    position: relative;
-    background: #000;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
 
-.thumb-box:hover {
-    border-color: var(--neon-blue);
-    box-shadow: 0 0 15px var(--neon-glow);
+.thumb-img {
+  transition: transform 0.3s ease;
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border: 5px;
+  pointer-events: none;
+}
+
+.thumb-box:hover .thumb-img {
+  transform: scale(1.05);
+}
+
+.plus-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px 14px;
+  border-radius: 50%;
+  opacity: 0;
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+.thumb-box:hover .plus-icon {
+  opacity: 1;
+}
+
+#previewArea img {
+  max-height: 300px;
+  object-fit: contain;
 }
 
 .project-caption {
-    background: rgba(0, 0, 0, 0.85) !important;
-    border-top: 1px solid var(--glass-border);
-    color: var(--neon-blue) !important;
-    font-weight: 600;
+  font-weight: 500;
+  font-size: 0.9rem;
+  border-radius: 0 0 5px 5px;
 }
-
-/* Responsivitas HP */
-@media (max-width: 768px) {
-    .home-section h3 { font-size: 1.8rem; }
-    #gallery .row > div {
-        width: 50% !important; /* Paksa 2 kolom */
-        padding: 5px !important;
-    }
-    .project-caption { font-size: 0.65rem; padding: 5px !important; }
-}
-
-/* Lightbox Content Styling */
-.glightbox-container .gslide-description { background: #080808; color: #fff; }
-.glightbox-container .gslide-title { color: var(--neon-blue); font-family: 'Space Grotesk'; border-bottom: 1px solid #333; margin-bottom: 10px; }
-.glightbox-container .gslide-desc-content ul { padding-left: 20px; color: #ccc; }
