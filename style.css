@@ -1,4 +1,3 @@
-/* --- Google Fonts --- */
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@300;400;600&display=swap');
 
 :root {
@@ -11,7 +10,6 @@
     --text-muted: #94a3b8;
 }
 
-/* Base Styling */
 body {
     background-color: var(--bg-dark);
     color: #ffffff;
@@ -35,21 +33,21 @@ h1, h2, h3, h4, .navbar-brand {
 
 .nebula {
     position: absolute;
-    width: 500px; height: 500px;
+    width: 600px; height: 600px;
     background: radial-gradient(circle, var(--deep-blue), transparent 70%);
-    filter: blur(100px);
+    filter: blur(120px);
     opacity: 0.15;
-    animation: float 15s infinite alternate;
+    animation: float 20s infinite alternate;
 }
 
 @keyframes float {
     from { transform: translate(-10%, -10%) scale(1); }
-    to { transform: translate(20%, 20%) scale(1.3); }
+    to { transform: translate(20%, 20%) scale(1.2); }
 }
 
-/* --- Navbar Neon --- */
+/* --- Navbar --- */
 .navbar {
-    background: rgba(5, 5, 5, 0.8) !important;
+    background: rgba(5, 5, 5, 0.85) !important;
     backdrop-filter: blur(15px);
     border-bottom: 1px solid var(--glass-border);
 }
@@ -61,8 +59,8 @@ h1, h2, h3, h4, .navbar-brand {
 
 .nav-link {
     color: var(--text-muted) !important;
-    font-size: 0.85rem;
     transition: 0.3s;
+    font-size: 0.9rem;
 }
 
 .nav-link:hover {
@@ -70,23 +68,17 @@ h1, h2, h3, h4, .navbar-brand {
     text-shadow: 0 0 8px var(--neon-blue);
 }
 
-/* --- Hero Section --- */
-.home-section {
-    min-height: 80vh;
-    padding-top: 120px;
-}
-
+/* --- Sections --- */
+.home-section { min-height: 80vh; padding-top: 120px; }
 .home-section h2 { color: var(--neon-blue); text-shadow: 0 0 15px var(--neon-glow); }
 .home-section h3 { font-size: 3rem; margin: 15px 0; }
-.home-section .lead { color: var(--text-muted); border-left: 3px solid var(--neon-blue); padding-left: 15px; }
 
-/* --- Service Cards --- */
 .card-custom {
     background: var(--glass) !important;
     border: 1px solid var(--glass-border) !important;
     backdrop-filter: blur(10px);
     border-radius: 15px;
-    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: 0.4s;
 }
 
 .card-custom:hover {
@@ -101,10 +93,7 @@ h1, h2, h3, h4, .navbar-brand {
     filter: drop-shadow(0 0 8px var(--neon-blue));
 }
 
-.card-custom h5 { color: #fff; }
-.card-custom p { color: var(--text-muted) !important; }
-
-/* --- Gallery & Mobile Grid --- */
+/* --- Gallery Grid 2 Kolom Mobile --- */
 .thumb-box {
     border-radius: 12px;
     overflow: hidden;
@@ -114,48 +103,29 @@ h1, h2, h3, h4, .navbar-brand {
     background: #000;
 }
 
-.thumb-box img {
-    transition: 0.5s;
-    opacity: 0.8;
-}
-
-.thumb-box:hover img {
-    opacity: 1;
-    transform: scale(1.05);
+.thumb-box:hover {
+    border-color: var(--neon-blue);
+    box-shadow: 0 0 15px var(--neon-glow);
 }
 
 .project-caption {
     background: rgba(0, 0, 0, 0.85) !important;
     border-top: 1px solid var(--glass-border);
     color: var(--neon-blue) !important;
-    font-size: 0.75rem;
     font-weight: 600;
 }
 
-/* --- Footer --- */
-footer {
-    border-top: 1px solid var(--glass-border);
-    background: #000 !important;
-}
-
-footer h5 { color: var(--neon-blue); text-shadow: 0 0 5px var(--neon-glow); }
-
-/* --- Mobile Specific (2 Columns Gallery) --- */
+/* Responsivitas HP */
 @media (max-width: 768px) {
     .home-section h3 { font-size: 1.8rem; }
     #gallery .row > div {
-        width: 50% !important; 
+        width: 50% !important; /* Paksa 2 kolom */
         padding: 5px !important;
     }
     .project-caption { font-size: 0.65rem; padding: 5px !important; }
 }
 
-/* GLightbox Description Style */
-.glightbox-container .gslide-description {
-    background: #0a0a0a;
-    color: #ccc;
-}
-.glightbox-container .gslide-title {
-    color: var(--neon-blue);
-    font-family: 'Space Grotesk';
-}
+/* Lightbox Content Styling */
+.glightbox-container .gslide-description { background: #080808; color: #fff; }
+.glightbox-container .gslide-title { color: var(--neon-blue); font-family: 'Space Grotesk'; border-bottom: 1px solid #333; margin-bottom: 10px; }
+.glightbox-container .gslide-desc-content ul { padding-left: 20px; color: #ccc; }
