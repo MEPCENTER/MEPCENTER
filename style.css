@@ -1,78 +1,84 @@
-/* --- PENGATURAN WARNA DASAR (VARIABEL) --- */
+/* --- TAMBAHAN MODE MALAM NEON (TIDAK MERUBAH ORI) --- */
+
+/* Variabel Warna Neon */
 :root {
-  /* Mode Malam (Default) */
-  --bg-color: #0b0e14;      /* Arang Gelap */
-  --card-bg: #11141b;       /* Box Gelap */
-  --text-main: #ffffff;     /* Putih */
-  --text-muted: #adb5bd;    /* Abu-abu Terang */
-  --neon: #00d4ff;          /* Biru Neon */
-  --neon-border: rgba(0, 212, 255, 0.3);
+  --neon-blue: #00d4ff;
+  --dark-charcoal: #0b0e14;
+  --box-bg: #11141b;
 }
 
-/* Override untuk Mode Siang */
-body.light-mode {
-  --bg-color: #ffffff;
-  --card-bg: #f8f9fa;
-  --text-main: #212529;
-  --text-muted: #6c757d;
-  --neon: #007bff;          /* Biru Standar */
-  --neon-border: rgba(0, 123, 255, 0.2);
+/* 1. Default Mode Malam (Langsung Aktif) */
+body.dark-mode {
+  background-color: var(--dark-charcoal) !important;
+  color: #ffffff !important;
 }
 
-/* --- APLIKASI WARNA KE ELEMEN --- */
-body {
-  background-color: var(--bg-color) !important;
-  color: var(--text-main) !important;
-  transition: background 0.3s ease;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* 2. Penyesuaian Halaman Index & About */
+body.dark-mode #about, 
+body.dark-mode .bg-light {
+  background-color: #0d1117 !important;
+  color: #ffffff !important;
 }
 
-/* Navbar */
-.navbar {
-  border-bottom: 2px solid var(--neon);
-  box-shadow: 0 0 15px var(--neon-border);
+/* 3. Penyesuaian Card (Service & Gallery) */
+body.dark-mode .card-custom, 
+body.dark-mode .mep-card, 
+body.dark-mode .mep-box {
+  background-color: var(--box-bg) !important;
+  border: 1px solid rgba(0, 212, 255, 0.2) !important;
+  color: #ffffff !important;
 }
 
-/* About Section & BG Light */
-#about, .bg-light {
-  background-color: var(--bg-color) !important;
-  color: var(--text-main) !important;
+/* Efek Hover Neon (Tetap mempertahankan transisi Ori Mas) */
+body.dark-mode .card-custom:hover, 
+body.dark-mode .mep-card:hover {
+  border-color: var(--neon-blue) !important;
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.4) !important;
+  background-color: #161b22 !important;
 }
 
-/* Kartu Service & Box MEP */
-.service-card, .mep-card, .mep-box {
-  background-color: var(--card-bg) !important;
-  border: 1px solid var(--neon-border) !important;
-  color: var(--text-main) !important;
+/* 4. Warna Teks Neon */
+body.dark-mode h2, 
+body.dark-mode h4, 
+body.dark-mode h5, 
+body.dark-mode .nav-link,
+body.dark-mode .mep-title {
+  color: var(--neon-blue) !important;
 }
 
-.service-card:hover, .mep-card:hover {
-  border-color: var(--neon) !important;
-  box-shadow: 0 0 20px var(--neon-border);
+/* 5. Penyesuaian Navbar Neon */
+body.dark-mode .navbar {
+  border-bottom: 2px solid var(--neon-blue);
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
 }
 
-/* Teks & Link */
-h2, h4, h5, .nav-link, .mep-title {
-  color: var(--neon) !important;
-}
-
-.text-muted {
-  color: var(--text-muted) !important;
-}
-
-/* Tombol Toggle */
+/* 6. Tombol Switch Mode (Style Sederhana) */
 #theme-toggle {
   cursor: pointer;
-  padding: 5px 15px;
+  padding: 5px 12px;
   border-radius: 20px;
-  border: 1px solid var(--neon);
+  border: 1px solid var(--neon-blue);
   background: transparent;
-  color: var(--neon);
-  font-size: 0.85rem;
+  color: var(--neon-blue);
+  font-size: 0.8rem;
   transition: 0.3s;
+  margin-left: 10px;
 }
 
 #theme-toggle:hover {
-  background: var(--neon);
+  background: var(--neon-blue);
   color: #000;
 }
+
+/* 7. Penyesuaian Gambar Gallery */
+body.dark-mode .project-caption {
+  background-color: #11141b !important;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+/* 8. Mode Siang (Kembali ke Ori) */
+body.light-mode {
+  background-color: #ffffff !important;
+  color: #212529 !important;
+}
+/* End Tambahan */
