@@ -6,29 +6,28 @@
   <title>Apa itu MEP? - MEP Center</title>
   <link rel="icon" type="image/jpeg" href="img/ok1.png">
   
-  <!-- AOS Animation -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-  <!-- Bootstrap & FontAwesome -->
+  <!-- CSS Original Mas & Library -->
+  <link rel="stylesheet" href="style.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <link rel="stylesheet" href="style.css"/>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
   <style>
-    /* 1. TEMA DARK MODE (IDENTIK DENGAN INDEX) */
+    /* --- TAMBAHAN KHUSUS MODE MALAM NEON (INTERNAL) --- */
     :root {
       --neon-blue: #00d4ff;
-      --dark-bg: #0b0e14; /* Arang Gelap */
-      --card-bg: #161b22;
+      --dark-bg: #0b0e14;
+      --card-bg: #11141b;
     }
 
+    /* Default Mode Malam Aktif */
     body.dark-mode {
-      background-color: var(--dark-bg);
-      color: #ffffff;
-      transition: all 0.4s ease;
+      background-color: var(--dark-bg) !important;
+      color: #ffffff !important;
     }
 
-    /* Navbar Neon Style */
-    .navbar {
+    /* Navbar Neon */
+    body.dark-mode .navbar {
       border-bottom: 2px solid var(--neon-blue);
       box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
     }
@@ -37,6 +36,52 @@
       color: var(--neon-blue) !important;
     }
 
+    /* Penyesuaian Tulisan Sub-Judul */
+    body.dark-mode .text-muted {
+      color: #adb5bd !important;
+    }
+
+    /* Grid & Card Box (Tetap pakai class .card-custom milik Mas) */
+    .mep-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      margin-top: 50px;
+    }
+
+    body.dark-mode .card-custom {
+      background: var(--card-bg) !important;
+      border: 1px solid rgba(0, 212, 255, 0.2) !important;
+      color: #ffffff !important;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px !important;
+    }
+
+    /* Hover Neon (Mempercantik hover .card-custom asli Mas) */
+    body.dark-mode .card-custom:hover {
+      border-color: var(--neon-blue) !important;
+      box-shadow: 0 0 25px rgba(0, 212, 255, 0.5) !important;
+      transform: translateY(-10px);
+    }
+
+    /* Warna Icon Merah sesuai gambar referensi Mas */
+    .mep-icon {
+      font-size: 50px;
+      color: #ff4d4d; 
+      margin-bottom: 20px;
+      filter: drop-shadow(0 0 5px rgba(255, 77, 77, 0.3));
+    }
+
+    .mep-title {
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+
+    /* Tombol Toggle */
     #theme-toggle {
       cursor: pointer;
       padding: 5px 15px;
@@ -45,75 +90,18 @@
       background: transparent;
       color: var(--neon-blue);
       font-size: 0.85rem;
-      transition: 0.3s;
+      margin-left: 15px;
     }
-
-    /* 2. STYLING GRID BOX (ALA GAMBAR REFERENSI) */
-    .mep-section {
-      padding: 100px 0;
-    }
-
-    .mep-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 25px;
-      margin-top: 50px;
-    }
-
-    .mep-card {
-      background: #11141b;
-      border: 1px solid #2d333b;
-      border-radius: 20px;
-      padding: 50px 20px;
-      text-align: center;
-      text-decoration: none;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    /* Efek Hover Neon & Animasi */
-    .mep-card:hover {
-      border-color: var(--neon-blue);
-      box-shadow: 0 0 25px rgba(0, 212, 255, 0.5);
-      transform: translateY(-12px);
-    }
-
-    .mep-icon-box {
-      font-size: 45px;
-      color: #ff4d4d; /* Merah Neon sesuai gambar Mas */
-      margin-bottom: 20px;
-      filter: drop-shadow(0 0 5px rgba(255, 77, 77, 0.3));
-    }
-
-    .mep-title {
-      font-weight: 800;
-      font-size: 1.3rem;
-      color: #ffffff;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-    }
-
-    .mep-desc {
-      font-size: 0.85rem;
-      color: #8b949e;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    /* Footer identik */
-    footer { border-top: 1px solid #2d333b; }
   </style>
 </head>
 
 <body class="dark-mode">
 
-<!-- NAVBAR -->
+<!-- NAVBAR (Identik dengan Index) -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
   <div class="container">
     <a class="navbar-brand" href="index.html">
-        <img src="img/ok2.png" alt="Logo MEP" width="40" height="40" class="me-2">
+        <img src="img/ok2.png" alt="Logo" width="40" height="40" class="me-2">
         MEP Center</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
@@ -124,9 +112,9 @@
         <li class="nav-item"><a class="nav-link" href="index.html#about">About |</a></li>
         <li class="nav-item"><a class="nav-link" href="index.html#services">Services |</a></li>
         <li class="nav-item"><a class="nav-link" href="index.html#gallery">Gallery |</a></li>
-        <li class="nav-item"><a class="nav-link" href="mep.html" style="color: #fff !important; font-weight: bold;">Apa itu MEP? |</a></li>
+        <li class="nav-item"><a class="nav-link active" href="mep.html" style="font-weight:bold; color:#fff !important;">Apa itu MEP? |</a></li>
         <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
-        <li class="nav-item ms-lg-3">
+        <li class="nav-item">
           <button id="theme-toggle">
             <i id="theme-icon" class="fas fa-sun"></i> <span id="theme-text">Mode Siang</span>
           </button>
@@ -136,49 +124,49 @@
   </div>
 </nav>
 
-<!-- CONTENT CATEGORY GRID -->
-<section class="mep-section">
+<!-- KONTEN UTAMA -->
+<section class="py-5">
   <div class="container">
-    <div class="text-center mb-5" data-aos="fade-up">
-        <h2 class="display-5 fw-bold" style="color: var(--neon-blue);">KATEGORI SISTEM MEP</h2>
-        <p class="text-muted">Pilih kategori untuk melihat detail perencanaan teknis</p>
+    <div class="text-center mb-5" data-aos="fade-down">
+      <h2 class="display-6 fw-bold">KATEGORI SISTEM MEP</h2>
+      <p class="text-muted">Pilih kategori untuk melihat detail perencanaan teknis</p>
     </div>
 
     <div class="mep-grid">
       
       <!-- ELEKTRIKAL -->
-      <a href="elektrikal.html" class="mep-card" data-aos="fade-up" data-aos-delay="100">
-        <div class="mep-icon-box"><i class="fas fa-bolt"></i></div>
-        <span class="mep-title">ELEKTRIKAL</span>
-        <span class="mep-desc">Power Distribution</span>
+      <a href="elektrikal.html" class="card-custom" data-aos="zoom-in" data-aos-delay="100">
+        <div class="mep-icon"><i class="fas fa-bolt"></i></div>
+        <div class="mep-title">ELEKTRIKAL</div>
+        <small class="text-muted">Power Distribution</small>
       </a>
 
       <!-- ELEKTRONIK -->
-      <a href="elektronik.html" class="mep-card" data-aos="fade-up" data-aos-delay="200">
-        <div class="mep-icon-box"><i class="fas fa-network-wired"></i></div>
-        <span class="mep-title">ELEKTRONIK</span>
-        <span class="mep-desc">Data & Communication</span>
+      <a href="elektronik.html" class="card-custom" data-aos="zoom-in" data-aos-delay="200">
+        <div class="mep-icon"><i class="fas fa-network-wired"></i></div>
+        <div class="mep-title">ELEKTRONIK</div>
+        <small class="text-muted">Communication System</small>
       </a>
 
       <!-- HVAC -->
-      <a href="hvac.html" class="mep-card" data-aos="fade-up" data-aos-delay="300">
-        <div class="mep-icon-box"><i class="fas fa-wind"></i></div>
-        <span class="mep-title">HVAC</span>
-        <span class="mep-desc">Air Conditioning</span>
+      <a href="hvac.html" class="card-custom" data-aos="zoom-in" data-aos-delay="300">
+        <div class="mep-icon"><i class="fas fa-fan"></i></div>
+        <div class="mep-title">HVAC</div>
+        <small class="text-muted">Air Conditioning</small>
       </a>
 
-      <!-- PEMADAM -->
-      <a href="pemadam.html" class="mep-card" data-aos="fade-up" data-aos-delay="400">
-        <div class="mep-icon-box"><i class="fas fa-fire-extinguisher"></i></div>
-        <span class="mep-title">PEMADAM</span>
-        <span class="mep-desc">Fire Protection</span>
+      <!-- PEMADAM KEBAKARAN -->
+      <a href="pemadam.html" class="card-custom" data-aos="zoom-in" data-aos-delay="400">
+        <div class="mep-icon"><i class="fas fa-fire-extinguisher"></i></div>
+        <div class="mep-title">PEMADAM</div>
+        <small class="text-muted">Fire Protection</small>
       </a>
 
       <!-- PLUMBING -->
-      <a href="plumbing.html" class="mep-card" data-aos="fade-up" data-aos-delay="500">
-        <div class="mep-icon-box"><i class="fas fa-droplet"></i></div>
-        <span class="mep-title">PLUMBING</span>
-        <span class="mep-desc">Water & Sanitary</span>
+      <a href="plumbing.html" class="card-custom" data-aos="zoom-in" data-aos-delay="500">
+        <div class="mep-icon"><i class="fas fa-faucet-piping"></i></div>
+        <div class="mep-title">PLUMBING</div>
+        <small class="text-muted">Water & Sanitary</small>
       </a>
 
     </div>
@@ -186,36 +174,31 @@
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-dark text-white py-4 text-center">
+<footer class="bg-dark text-white py-4 mt-5 text-center">
   <div class="container">
-    <small>&copy; 2025 MEP Center. All rights reserved.</small>
+    <p class="mb-0 small">&copy; 2025 MEP Center. All rights reserved.</p>
   </div>
 </footer>
 
 <!-- SCRIPTS -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
-  // Initialize AOS
   AOS.init({ duration: 1000, once: true });
 
-  // Theme Toggle Logic
-  const themeToggle = document.getElementById('theme-toggle');
-  const themeIcon = document.getElementById('theme-icon');
-  const themeText = document.getElementById('theme-text');
-  const body = document.body;
+  const btn = document.getElementById('theme-toggle');
+  const icon = document.getElementById('theme-icon');
+  const txt = document.getElementById('theme-text');
 
-  themeToggle.addEventListener('click', () => {
-    body.classList.toggle('dark-mode');
-    if (body.classList.contains('dark-mode')) {
-      themeIcon.classList.replace('fa-moon', 'fa-sun');
-      themeText.innerText = "Mode Siang";
-    } else {
-      themeIcon.classList.replace('fa-sun', 'fa-moon');
-      themeText.innerText = "Mode Malam";
-    }
+  btn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    
+    // Ganti Icon & Teks tombol
+    icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+    txt.innerText = isDark ? 'Mode Siang' : 'Mode Malam';
   });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
