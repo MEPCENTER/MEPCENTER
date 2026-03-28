@@ -1,84 +1,111 @@
-/* --- TAMBAHAN MODE MALAM NEON (TIDAK MERUBAH ORI) --- */
-
-/* Variabel Warna Neon */
-:root {
-  --neon-blue: #00d4ff;
-  --dark-charcoal: #0b0e14;
-  --box-bg: #11141b;
+body {
+  font-family: "Segoe UI", sans-serif;
+  line-height: 1.7;
 }
 
-/* 1. Default Mode Malam (Langsung Aktif) */
-body.dark-mode {
-  background-color: var(--dark-charcoal) !important;
-  color: #ffffff !important;
+.navbar-brand {
+  font-weight: bold;
 }
 
-/* 2. Penyesuaian Halaman Index & About */
-body.dark-mode #about, 
-body.dark-mode .bg-light {
-  background-color: #0d1117 !important;
-  color: #ffffff !important;
+h2 {
+  font-weight: 600;
 }
 
-/* 3. Penyesuaian Card (Service & Gallery) */
-body.dark-mode .card-custom, 
-body.dark-mode .mep-card, 
-body.dark-mode .mep-box {
-  background-color: var(--box-bg) !important;
-  border: 1px solid rgba(0, 212, 255, 0.2) !important;
-  color: #ffffff !important;
+ul {
+  padding-left: 20px;
 }
 
-/* Efek Hover Neon (Tetap mempertahankan transisi Ori Mas) */
-body.dark-mode .card-custom:hover, 
-body.dark-mode .mep-card:hover {
-  border-color: var(--neon-blue) !important;
-  box-shadow: 0 0 20px rgba(0, 212, 255, 0.4) !important;
-  background-color: #161b22 !important;
+.service-card h5 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.card-custom {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  transition: all 0.4s ease;
+  border-radius: 1rem;
 }
 
-/* 4. Warna Teks Neon */
-body.dark-mode h2, 
-body.dark-mode h4, 
-body.dark-mode h5, 
-body.dark-mode .nav-link,
-body.dark-mode .mep-title {
-  color: var(--neon-blue) !important;
+.card-custom:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
 }
 
-/* 5. Penyesuaian Navbar Neon */
-body.dark-mode .navbar {
-  border-bottom: 2px solid var(--neon-blue);
-  box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+.card-custom i {
+  transition: color 0.3s ease;
 }
 
-/* 6. Tombol Switch Mode (Style Sederhana) */
-#theme-toggle {
+.card-custom:hover i {
+  color: #0d6efd;
+}
+
+.social-icons a:hover {
+  color: #007bff;
+}
+  .home-section {
+  position: relative;
+  text-shadow: 1px 1px 4px rgb(255, 255, 255);
+  background-image: url('img/3.png');
+  background-size: cover;
+  background-position: center center;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.img-wrapper {
+  overflow: hidden;
+}
+
+.thumb-box {
   cursor: pointer;
-  padding: 5px 12px;
-  border-radius: 20px;
-  border: 1px solid var(--neon-blue);
-  background: transparent;
-  color: var(--neon-blue);
-  font-size: 0.8rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.thumb-img {
+  transition: transform 0.3s ease;
+  display: block;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border: 5px;
+  pointer-events: none;
+}
+
+.thumb-box:hover .thumb-img {
+  transform: scale(1.05);
+}
+
+.plus-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  color: white;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px 14px;
+  border-radius: 50%;
+  opacity: 0;
   transition: 0.3s;
-  margin-left: 10px;
+  pointer-events: none;
 }
 
-#theme-toggle:hover {
-  background: var(--neon-blue);
-  color: #000;
+.thumb-box:hover .plus-icon {
+  opacity: 1;
 }
 
-/* 7. Penyesuaian Gambar Gallery */
-body.dark-mode .project-caption {
-  background-color: #11141b !important;
-  border: 1px solid rgba(0, 212, 255, 0.2);
+#previewArea img {
+  max-height: 300px;
+  object-fit: contain;
 }
 
-/* 8. Mode Siang (Kembali ke Ori) */
-body.light-mode {
-  background-color: #ffffff !important;
-  color: #212529 !important;
+.project-caption {
+  font-weight: 500;
+  font-size: 0.9rem;
+  border-radius: 0 0 5px 5px;
 }
-/* End Tambahan */
