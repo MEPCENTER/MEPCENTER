@@ -13,73 +13,104 @@
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
   <style>
-    /* --- TEMA NEON FUTURISTIC --- */
+    /* --- SISTEM TEMA OTOMATIS --- */
     :root {
-      --neon-blue: #00d4ff;
-      --dark-bg: #0b0e14;
-      --card-bg: #161b22;
+      /* MODE SIANG (Original) */
+      --bg-body: #ffffff;
+      --bg-card: #f8f9fa;
+      --text-main: #212529;
+      --text-muted: #6c757d;
+      --neon-blue: #007bff;
+      --border-color: #dee2e6;
+      --bg-formula: #e9ecef;
     }
 
     body.dark-mode {
-      background-color: var(--dark-bg) !important;
-      color: #ffffff !important;
-      transition: 0.3s;
+      /* MODE MALAM (Arang Neon) */
+      --bg-body: #0b0e14;
+      --bg-card: #161b22;
+      --text-main: #ffffff;
+      --text-muted: #adb5bd;
+      --neon-blue: #00d4ff;
+      --border-color: rgba(0, 212, 255, 0.2);
+      --bg-formula: #000000;
     }
 
-    /* Navbar Khusus */
+    body {
+      background-color: var(--bg-body) !important;
+      color: var(--text-main) !important;
+      transition: all 0.3s ease;
+    }
+
+    /* Navbar */
     .navbar {
       border-bottom: 2px solid var(--neon-blue);
-      box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
     }
-    body.dark-mode .nav-link {
+    .nav-link {
       color: var(--neon-blue) !important;
-      font-size: 0.9rem;
-    }
-    body.dark-mode .nav-link:hover {
-      text-shadow: 0 0 10px var(--neon-blue);
-      color: #fff !important;
     }
 
-    /* Styling Konten & Gambar */
+    /* Content Box (Blok yang tadinya hitam terus) */
     .content-box {
-      background: var(--card-bg);
-      border: 1px solid rgba(0, 212, 255, 0.2);
+      background-color: var(--bg-card) !important;
+      border: 1px solid var(--border-color) !important;
       border-radius: 15px;
       padding: 40px;
       margin-bottom: 50px;
+      transition: all 0.3s ease;
     }
 
     .category-img {
       max-width: 100%;
       height: auto;
       border-radius: 10px;
-      border: 1px solid var(--neon-blue);
-      box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+      border: 2px solid var(--neon-blue);
       margin: 30px 0;
     }
 
     h1, h2, h3, h4, h5 { color: var(--neon-blue) !important; font-weight: bold; }
-    hr { border-color: var(--neon-blue); opacity: 0.3; margin: 30px 0; }
+    .text-muted { color: var(--text-muted) !important; }
+    hr { border-color: var(--neon-blue); opacity: 0.3; }
 
-    /* Tabel Neon */
-    .table-neon { color: #fff; border: 1px solid rgba(0, 212, 255, 0.2); margin-top: 20px; }
-    .table-neon th { background: rgba(0, 212, 255, 0.1); color: var(--neon-blue); }
-    .table-neon td, .table-neon th { border: 1px solid rgba(0, 212, 255, 0.1); padding: 15px; }
+    /* Tabel Otomatis */
+    .table-neon { 
+      color: var(--text-main) !important; 
+      border: 1px solid var(--border-color); 
+      width: 100%;
+      margin-top: 20px;
+    }
+    .table-neon th { 
+      background: var(--neon-blue); 
+      color: #fff !important; 
+      padding: 12px;
+    }
+    .table-neon td { 
+      border: 1px solid var(--border-color); 
+      padding: 12px;
+    }
+
+    /* Blok Formula/Rumus */
+    .formula-block {
+      background-color: var(--bg-formula) !important;
+      border: 1px solid var(--neon-blue);
+      border-radius: 10px;
+      padding: 20px;
+      text-align: center;
+      margin: 20px 0;
+    }
 
     /* Tombol Toggle */
     #theme-toggle {
-      cursor: pointer; padding: 4px 12px; border-radius: 20px;
+      cursor: pointer; padding: 6px 15px; border-radius: 20px;
       border: 1px solid var(--neon-blue); background: transparent; color: var(--neon-blue);
-      font-size: 0.8rem; margin-left: 10px;
+      font-size: 0.85rem; transition: 0.3s;
     }
-
-    ul, ol { margin-bottom: 25px; }
-    li { margin-bottom: 10px; }
-    .section-title { border-left: 5px solid var(--neon-blue); padding-left: 15px; margin-bottom: 30px; }
+    #theme-toggle:hover { background: var(--neon-blue); color: #fff; }
   </style>
 </head>
 
-<body class="dark-mode">
+<body class="dark-mode"> <!-- Start as Dark Mode -->
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -88,16 +119,13 @@
         <img src="img/ok2.png" alt="Logo" width="40" height="40" class="me-2">
         MEP Center
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav align-items-center">
         <li class="nav-item"><a class="nav-link" href="elektrikal.html">| Elektrikal</a></li>
         <li class="nav-item"><a class="nav-link" href="elektronik.html">| Elektronik</a></li>
         <li class="nav-item"><a class="nav-link" href="hvac.html">| HVAC</a></li>
         <li class="nav-item"><a class="nav-link" href="plumbing.html">| Plumbing</a></li>
-        <li class="nav-item">
+        <li class="nav-item ms-lg-3">
           <button id="theme-toggle">
             <i id="theme-icon" class="fas fa-sun"></i> <span id="theme-text">Mode Siang</span>
           </button>
@@ -107,158 +135,115 @@
   </div>
 </nav>
 
-<!-- HEADER -->
-<header class="py-5 text-center">
-  <div class="container" data-aos="fade-down">
-    <h1 class="display-3">FIRE PROTECTION SYSTEM</h1>
-    <p class="lead text-muted">Sistem Proteksi Kebakaran Aktif & Pasif - MEP Center Division</p>
-    <hr style="width: 150px; margin: 20px auto; border-width: 3px;">
-  </div>
-</header>
-
 <!-- CONTENT -->
-<div class="container">
+<div class="container py-5">
 
-  <h2 class="section-title" data-aos="fade-right">II. PEMADAM KEBAKARAN</h2>
+  <h1 class="text-center mb-5" data-aos="fade-down">II. PEMADAM KEBAKARAN</h1>
 
-  <!-- 2.1 Sprinkler -->
+  <!-- 2.1 SPRINKLER -->
   <section class="content-box" data-aos="fade-up">
     <h3>2.1 Sistem Sprinkler Otomatis (Automatic Sprinkler System)</h3>
-    <p><strong>📌 Definisi & Fungsi:</strong> Sistem sprinkler otomatis adalah salah satu bagian utama dari sistem proteksi kebakaran aktif yang dirancang untuk mendeteksi panas secara otomatis dan memadamkan api dengan cara menyemprotkan air dari kepala sprinkler. Sistem ini bekerja secara mandiri, tanpa perlu intervensi manusia, dan aktif dalam respon awal kebakaran sebelum api menyebar luas.</p>
+    <p>📌 <strong>Definisi & Fungsi:</strong> Sistem sprinkler otomatis adalah salah satu bagian utama dari sistem proteksi kebakaran aktif yang dirancang untuk mendeteksi panas secara otomatis dan memadamkan api dengan cara menyemprotkan air dari kepala sprinkler. Sistem ini bekerja secara mandiri, tanpa perlu intervensi manusia, dan aktif dalam respon awal kebakaran sebelum api menyebar luas.</p>
     
     <div class="text-center">
-      <img src="img/kintil.png" alt="Gambar Sprinkler" class="category-img" data-aos="zoom-in">
+      <img src="img/kintil.png" alt="Gambar Sprinkler" class="category-img">
     </div>
 
     <hr>
     <h5>✅ Cara Kerja Sistem Sprinkler</h5>
     <ul>
-      <li>Tiap kepala sprinkler dilengkapi dengan elemen sensitif suhu (biasanya kaca berisi cairan).</li>
-      <li>Saat suhu ruangan mencapai ambang tertentu (biasanya 68–74°C), cairan memuai dan pecah.</li>
-      <li>Ini memicu keluarnya air bertekanan dari pipa dan menyemprot area yang terbakar.</li>
-      <li>Hanya kepala yang aktif yang menyemprot, bukan seluruh sistem sekaligus.</li>
+      <li>Tiap kepala sprinkler dilengkapi dengan elemen sensitif suhu (biasanya kaca berisi cairan)</li>
+      <li>Saat suhu ruangan mencapai ambang tertentu (biasanya 68–74°C), cairan memuai dan pecah</li>
+      <li>Ini memicu keluarnya air bertekanan dari pipa dan menyemprot area yang terbakar</li>
+      <li>Hanya kepala yang aktif yang menyemprot, bukan seluruh sistem sekaligus</li>
     </ul>
 
     <h5>🧩 Komponen Utama Sistem Sprinkler</h5>
-    <table class="table-neon w-100">
+    <table class="table-neon">
       <thead><tr><th>Komponen</th><th>Fungsi</th></tr></thead>
       <tbody>
-        <tr><td>Sprinkler Head</td><td>Kepala semprot otomatis aktif pada suhu tertentu</td></tr>
-        <tr><td>Pipa Distribusi</td><td>Jaringan pipa galvanis/CPVC pembawa air bertekanan</td></tr>
-        <tr><td>Alarm Valve</td><td>Mengatur zona sistem & memicu alarm</td></tr>
+        <tr><td>Sprinkler Head</td><td>Kepala semprot otomatis yang aktif pada suhu tertentu</td></tr>
+        <tr><td>Pipa Distribusi</td><td>Jaringan pipa (biasanya galvanis atau CPVC) yang membawa air bertekanan</td></tr>
+        <tr><td>Alarm Valve</td><td>Mengatur zona sistem, memicu alarm jika sprinkler aktif</td></tr>
         <tr><td>Jockey Pump</td><td>Menjaga tekanan pipa saat sistem idle</td></tr>
-        <tr><td>Fire Pump</td><td>Pompa utama untuk suplai air tekanan tinggi</td></tr>
-        <tr><td>Reservoir</td><td>Pasokan air minimum selama 30–60 menit</td></tr>
-      </tbody>
-    </table>
-
-    <h5 class="mt-4">⚙️ Jenis Sistem Sprinkler</h5>
-    <table class="table-neon w-100">
-      <thead><tr><th>Jenis Sistem</th><th>Deskripsi & Aplikasi</th></tr></thead>
-      <tbody>
-        <tr><td>Wet System</td><td>Pipa selalu terisi air – Kantor, Apartemen</td></tr>
-        <tr><td>Dry System</td><td>Pipa isi udara – Cold storage, Basement</td></tr>
-        <tr><td>Pre-action</td><td>Aktif setelah dua deteksi (Heat+Smoke) – Server Room</td></tr>
-        <tr><td>Deluge</td><td>Semua kepala terbuka – Industri risiko tinggi</td></tr>
+        <tr><td>Fire Pump</td><td>Pompa utama saat aktivasi sistem untuk suplai air bertekanan tinggi</td></tr>
+        <tr><td>Reservoir</td><td>Menyediakan pasokan air minimum selama 30–60 menit</td></tr>
       </tbody>
     </table>
   </section>
 
-  <!-- 2.2 Hidran -->
+  <!-- 2.2 HIDRAN -->
   <section class="content-box" data-aos="fade-up">
     <h3>2.2 Sistem Hidran (Hydrant System)</h3>
-    <p><strong>📌 Definisi & Fungsi:</strong> Sistem hidran kebakaran adalah sistem proteksi aktif yang menyediakan sumber air bertekanan tinggi untuk pemadaman kebakaran secara manual oleh petugas atau penghuni terlatih. Hidran terbagi menjadi dua kategori utama: Indoor Fire Hydrant (dalam bangunan) dan Outdoor Hydrant (luar bangunan).</p>
+    <p>📌 <strong>Definisi & Fungsi:</strong> Sistem hidran kebakaran adalah sistem proteksi aktif yang menyediakan sumber air bertekanan tinggi untuk pemadaman kebakaran secara manual oleh petugas atau penghuni terlatih. Hidran terbagi menjadi dua kategori utama: Indoor Fire Hydrant (dalam bangunan) dan Outdoor Hydrant (luar bangunan).</p>
 
     <div class="text-center">
-      <img src="img/kintil.png" alt="Gambar Hidran" class="category-img" data-aos="zoom-in">
+      <img src="img/kintil.png" alt="Gambar Hidran" class="category-img">
     </div>
 
     <hr>
     <h5>🔧 Komponen Utama Sistem Hidran</h5>
-    <table class="table-neon w-100">
+    <table class="table-neon">
       <thead><tr><th>Komponen</th><th>Fungsi</th></tr></thead>
       <tbody>
-        <tr><td>Hydrant Pillar/Valve</td><td>Titik sambungan selang air (Outdoor/Indoor)</td></tr>
-        <tr><td>Box Hydrant & Hose Reel</td><td>Penyimpanan selang, nozzle, dan APAR portable</td></tr>
+        <tr><td>Hydrant Pillar / Valve</td><td>Titik sambungan selang air, terdiri dari tipe outdoor dan indoor</td></tr>
+        <tr><td>Box Hydrant & Hose Reel</td><td>Tempat penyimpanan selang, nozzle, dan alat pemadam portable</td></tr>
         <tr><td>Selang Hidran (Hose)</td><td>Menghubungkan air dari valve ke area kebakaran</td></tr>
-        <tr><td>Nozzle / Jet Spray</td><td>Mengatur arah dan bentuk semprotan air</td></tr>
-        <tr><td>Fire Pump (Main & Jockey)</td><td>Memompa air dari reservoir ke jaringan</td></tr>
+        <tr><td>Fire Pump (Main & Jockey)</td><td>Memompa air dari reservoir ke seluruh jaringan hidran</td></tr>
+        <tr><td>Reservoir Air</td><td>Tangki cadangan khusus proteksi kebakaran, biasanya ≥ 50 m³</td></tr>
       </tbody>
     </table>
-
-    <h5 class="mt-4">📐 Desain & Standar</h5>
-    <ul>
-      <li>Tekanan minimum di nozzle: ± 4–6 bar (NFPA & SNI).</li>
-      <li>Debit minimum: 500–1000 liter/menit per titik aktif.</li>
-      <li>Radius jangkauan outdoor hydrant: ± 30–45 meter.</li>
-      <li>SNI 03-1745-2000 & NFPA 14.</li>
-    </ul>
   </section>
 
   <!-- 2.3 APAR -->
   <section class="content-box" data-aos="fade-up">
     <h3>2.3 Pemadam Api Ringan (APAR)</h3>
-    <p><strong>📌 Definisi & Fungsi:</strong> Alat portabel untuk memadamkan kebakaran kecil secara cepat sebelum api membesar. APAR merupakan lini pertahanan paling awal yang mudah diakses.</p>
+    <p>📌 <strong>Definisi & Fungsi:</strong> Alat portabel yang dirancang untuk memadamkan kebakaran kecil secara cepat sebelum api membesar. APAR merupakan lini pertahanan paling awal dan mudah diakses.</p>
 
     <div class="text-center">
-      <img src="img/kintil.png" alt="Gambar APAR" class="category-img" data-aos="zoom-in">
+      <img src="img/kintil.png" alt="Gambar APAR" class="category-img">
     </div>
 
     <hr>
-    <h5>🔧 Jenis APAR Berdasarkan Media</h5>
-    <table class="table-neon w-100">
+    <h5>🔧 Jenis-Jenis APAR Berdasarkan Media</h5>
+    <table class="table-neon">
       <thead><tr><th>Media Pemadam</th><th>Digunakan Untuk</th><th>Kode Warna</th></tr></thead>
       <tbody>
-        <tr><td>DCP (Powder)</td><td>Kelas A, B, C (Padat, Cair, Gas)</td><td>Merah</td></tr>
-        <tr><td>Foam (Busa)</td><td>Kelas B (Cairan/Minyak)</td><td>Krem</td></tr>
-        <tr><td>CO2</td><td>Listrik & Elektronik (No Residu)</td><td>Hitam</td></tr>
-        <tr><td>Clean Agent</td><td>Ruang IT/Server (Ramah Lingkungan)</td><td>Hijau</td></tr>
+        <tr><td>Dry Chemical Powder (DCP)</td><td>Kebakaran kelas A, B, C (padat, cair, gas)</td><td>Merah</td></tr>
+        <tr><td>Foam (Busa)</td><td>Kebakaran cairan mudah terbakar (kelas B), minyak</td><td>Krem</td></tr>
+        <tr><td>CO2 (Carbon Dioxide)</td><td>Peralatan listrik dan elektronik (tanpa residu)</td><td>Hitam</td></tr>
+        <tr><td>Clean Agent</td><td>Ruang IT/server – tidak meninggalkan residu</td><td>Hijau</td></tr>
       </tbody>
     </table>
-
-    <h5 class="mt-4">📐 Penempatan APAR</h5>
-    <ul>
-      <li>Tinggi pemasangan: 90–120 cm dari lantai.</li>
-      <li>Jarak antar APAR: Maksimal 15 meter.</li>
-      <li>Wajib ada di dekat: Panel listrik, Dapur, Ruang Server, dan Jalur Evakuasi.</li>
-    </ul>
   </section>
 
-  <!-- 2.4 Fire Suppression -->
+  <!-- 2.4 FIRE SUPPRESSION -->
   <section class="content-box" data-aos="fade-up">
     <h3>2.4 Sistem Fire Suppression (Sistem Pemadam Api Khusus)</h3>
-    <p><strong>📌 Definisi & Fungsi:</strong> Sistem pemadam otomatis menggunakan media non-air (Gas inert, kimia cair, busa). Cocok untuk area berisiko tinggi di mana air dapat merusak aset (Server Room, Panel MCC).</p>
+    <p>📌 <strong>Definisi & Fungsi:</strong> Sistem pemadam otomatis yang menggunakan media selain air (gas inert, kimia cair, busa). Digunakan di area di mana penggunaan air dapat merusak peralatan (Server Room, Data Center).</p>
 
     <div class="text-center">
-      <img src="img/kintil.png" alt="Gambar Suppression" class="category-img" data-aos="zoom-in">
+      <img src="img/kintil.png" alt="Gambar Suppression" class="category-img">
     </div>
 
     <hr>
-    <h5>🧩 Jenis-Jenis Fire Suppression</h5>
-    <table class="table-neon w-100">
+    <h5>🧩 Jenis-Jenis Fire Suppression System</h5>
+    <table class="table-neon">
       <thead><tr><th>Jenis Sistem</th><th>Media Pemadam</th><th>Aplikasi Umum</th></tr></thead>
       <tbody>
-        <tr><td>Clean Agent (FM-200/Novec)</td><td>Gas Kimia Ramah Lingkungan</td><td>Data Center, Server Room</td></tr>
-        <tr><td>CO2 System</td><td>Karbon Dioksida Tekanan Tinggi</td><td>Ruang Genset, MCC Panel</td></tr>
-        <tr><td>Kitchen Hood System</td><td>Wet Chemical</td><td>Dapur Hotel/Restoran</td></tr>
-        <tr><td>Foam Suppression</td><td>Busa Pemadam</td><td>Gudang Bahan Bakar</td></tr>
+        <tr><td>Clean Agent (FM-200/NOVEC)</td><td>Gas kimia ramah lingkungan</td><td>Data center, ruang server, museum</td></tr>
+        <tr><td>CO2 System</td><td>Karbon dioksida bertekanan</td><td>Ruang mesin, ruang genset, ruang panel</td></tr>
+        <tr><td>Kitchen Hood System</td><td>Wet chemical</td><td>Dapur restoran, dapur hotel</td></tr>
       </tbody>
     </table>
-
-    <h5 class="mt-4">🧠 Cara Kerja Sistem</h5>
-    <ol>
-      <li>Deteksi dini melalui Smoke/Heat detector mengirim sinyal ke panel.</li>
-      <li>Alarm berbunyi dengan timer mundur (10–30 detik).</li>
-      <li>Media pemadam dilepaskan otomatis ke area terproteksi.</li>
-    </ol>
   </section>
 
 </div>
 
 <!-- FOOTER -->
-<footer class="bg-dark text-white py-4 mt-5 text-center border-top border-secondary">
+<footer class="py-4 text-center border-top border-secondary mt-5">
   <div class="container">
-    <p class="mb-0 small">&copy; 2025 MEP Center. All rights reserved.</p>
+    <p class="mb-0 small text-muted">&copy; 2025 MEP Center. All rights reserved.</p>
   </div>
 </footer>
 
@@ -266,12 +251,18 @@
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
   AOS.init({ duration: 1000, once: true });
+
   const btn = document.getElementById('theme-toggle');
+  const icon = document.getElementById('theme-icon');
+  const txt = document.getElementById('theme-text');
+
   btn.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
     const isDark = document.body.classList.contains('dark-mode');
-    document.getElementById('theme-icon').className = isDark ? 'fas fa-sun' : 'fas fa-moon';
-    document.getElementById('theme-text').innerText = isDark ? 'Mode Siang' : 'Mode Malam';
+    
+    // Ganti Icon & Text
+    icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+    txt.innerText = isDark ? 'Mode Siang' : 'Mode Malam';
   });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
