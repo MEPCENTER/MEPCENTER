@@ -1,336 +1,298 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Panduan Sistem HVAC</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- Internal CSS -->
-    <style>
-        /* Import Font (optional, for better typography) */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HVAC System - MEP Center</title>
+  <link rel="icon" type="image/jpeg" href="img/ok1.png">
+  
+  <!-- CSS Library -->
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8f9fa; /* Softer background */
-        }
+  <style>
+    /* --- SISTEM TEMA OTOMATIS (FIXED) --- */
+    :root {
+      /* MODE SIANG */
+      --bg-body: #ffffff;
+      --bg-card: #f8f9fa;
+      --text-main: #212529;
+      --text-muted: #6c757d;
+      --neon-blue: #007bff;
+      --border-color: #dee2e6;
+    }
 
-        /* Nav Bar */
-        .navbar-nav .nav-link {
-            transition: color 0.2s ease-in-out;
-        }
-        .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
-            color: #fff !important;
-        }
+    body.dark-mode {
+      /* MODE MALAM */
+      --bg-body: #0b0e14;
+      --bg-card: #161b22;
+      --text-main: #ffffff;
+      --text-muted: #adb5bd;
+      --neon-blue: #00d4ff;
+      --border-color: rgba(0, 212, 255, 0.2);
+    }
 
-        /* --- Header Gradients --- */
-        .header-gradient { /* Plumbing */
-            background: linear-gradient(135deg, #0d6efd, #17a2b8);
-        }
-        .header-gradient-fire { /* Fire Protection */
-            background: linear-gradient(135deg, #b02a37, #dc3545);
-        }
-        .header-gradient-hvac { /* HVAC */
-            background: linear-gradient(135deg, #20c997, #17a2b8);
-        }
+    body {
+      background-color: var(--bg-body) !important;
+      color: var(--text-main) !important;
+      transition: all 0.3s ease;
+    }
 
-        /* Texture overlay for all headers */
-        .header-gradient::before, .header-gradient-fire::before, .header-gradient-hvac::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
-            opacity: 0.08;
-            z-index: 0;
-        }
+    /* Navbar */
+    .navbar {
+      border-bottom: 2px solid var(--neon-blue);
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+    }
+    .nav-link {
+      color: var(--neon-blue) !important;
+    }
 
-        .tracking-widest { letter-spacing: .1em; }
+    /* Content Box */
+    .content-box {
+      background-color: var(--bg-card) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: 15px;
+      padding: 40px;
+      margin-bottom: 50px;
+      transition: all 0.3s ease;
+    }
 
-        .subsection-image-container {
-            border-radius: 0.75rem;
-            overflow: hidden;
-        }
-        .subsection-image-container img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        .subsection-image-container img:hover {
-            transform: scale(1.05);
-        }
+    .category-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 2px solid var(--neon-blue);
+      margin: 30px 0;
+    }
 
-        /* --- Section Titles --- */
-        .section-title, .section-title-fire, .section-title-hvac {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: #343a40;
-            display: flex;
-            align-items: center;
-            border-bottom: 2px solid #e9ecef;
-            padding-bottom: 0.5rem;
-        }
-        .section-title i { color: #0d6efd; }
-        .section-title-fire i { color: #dc3545; }
-        .section-title-hvac i { color: #20c997; }
+    h1, h2, h3, h4, h5 { color: var(--neon-blue) !important; font-weight: bold; }
+    .text-muted { color: var(--text-muted) !important; }
+    hr { border-color: var(--neon-blue); opacity: 0.3; }
 
-        .section-title i, .section-title-fire i, .section-title-hvac i {
-            margin-right: 0.75rem;
-            font-size: 1.5rem;
-            line-height: 1;
-        }
-        
-        /* --- Goal/Purpose cards --- */
-        .goal-card, .goal-card-fire, .goal-card-hvac {
-            background-color: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-        }
-        .goal-card { border-left: 5px solid #0d6efd; }
-        .goal-card-fire { border-left: 5px solid #dc3545; }
-        .goal-card-hvac { border-left: 5px solid #20c997; }
+    /* Tabel Otomatis */
+    .table-neon { 
+      color: var(--text-main) !important; 
+      border: 1px solid var(--border-color); 
+      width: 100%;
+      margin-top: 20px;
+    }
+    .table-neon th { 
+      background: var(--neon-blue); 
+      color: #fff !important; 
+      padding: 12px;
+    }
+    .table-neon td { 
+      border: 1px solid var(--border-color); 
+      padding: 12px;
+    }
 
-        .goal-card .section-title,
-        .goal-card-fire .section-title-fire,
-        .goal-card-hvac .section-title-hvac {
-            border-bottom: none;
-            padding-bottom: 0;
-            font-size: 1.25rem;
-        }
-        .goal-card .section-title i,
-        .goal-card-fire .section-title-fire i,
-        .goal-card-hvac .section-title-hvac i {
-            font-size: 1.25rem;
-        }
-        .goal-card ul, .goal-card-fire ul, .goal-card-hvac ul {
-            list-style-type: '✓  ';
-            padding-left: 1.25rem;
-        }
+    /* Tombol Toggle */
+    #theme-toggle {
+      cursor: pointer; padding: 6px 15px; border-radius: 20px;
+      border: 1px solid var(--neon-blue); background: transparent; color: var(--neon-blue);
+      font-size: 0.85rem; transition: 0.3s;
+    }
+    #theme-toggle:hover { background: var(--neon-blue); color: #fff; }
 
-        /* Gallery Card Styles */
-        .gallery-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: none;
-            overflow: hidden;
-        }
-        .gallery-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15) !important;
-        }
-        .gallery-card .card-img-top {
-            aspect-ratio: 4 / 3;
-            object-fit: cover;
-        }
-
-        /* Formula Box */
-        .formula-box {
-            background-color: #e9ecef;
-            padding: 0.75rem 1rem;
-            border-radius: 0.25rem;
-            font-family: 'Courier New', Courier, monospace;
-            color: #343a40;
-            border: 1px solid #dee2e6;
-        }
-
-        /* Simple scrollbar styling */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #e9ecef; }
-        ::-webkit-scrollbar-thumb {
-            background: #adb5bd;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover { background: #6c757d; }
-    </style>
+    ul, ol { margin-bottom: 25px; }
+    li { margin-bottom: 10px; }
+    .section-title { border-left: 5px solid var(--neon-blue); padding-left: 15px; margin-bottom: 30px; }
+  </style>
 </head>
-<body class="bg-light">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">Panduan MEP</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="plumbing.html">Panduan Plumbing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pemadam.html">Pemadam Kebakaran</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="hvac.html">Panduan HVAC</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="elektrikal.html">Panduan Elektrikal</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="elektronik.html">Panduan Elektronik</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<body class="dark-mode"> <!-- Default: Dark Mode -->
 
-    <main class="container my-4 my-md-5">
-        <article class="card shadow-lg border-0">
-            <!-- Header -->
-            <header class="card-header text-white p-4 p-md-5 rounded-top-2 header-gradient-hvac position-relative overflow-hidden">
-                <div class="position-relative z-1">
-                    <h1 class="h6 text-uppercase fw-bold tracking-widest opacity-75">PANDUAN HVAC</h1>
-                    <h2 class="h2 fw-bolder mt-2">Sistem Tata Udara, Ventilasi, dan Pendinginan</h2>
-                </div>
-            </header>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="img/ok2.png" alt="Logo" width="40" height="40" class="me-2">
+        MEP Center
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav align-items-center">
+        <li class="nav-item"><a class="nav-link" href="elektrikal.html">| Elektrikal</a></li>
+        <li class="nav-item"><a class="nav-link" href="elektronik.html">| Elektronik</a></li>
+        <li class="nav-item"><a class="nav-link" href="plumbing.html">| Plumbing</a></li>
+        <li class="nav-item"><a class="nav-link" href="pemadam.html">| Pemadam</a></li>
+        <li class="nav-item ms-lg-3">
+          <button id="theme-toggle">
+            <i id="theme-icon" class="fas fa-sun"></i> <span id="theme-text">Mode Siang</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-            <div class="card-body p-4 p-md-5">
+<!-- HEADER -->
+<header class="py-5 text-center">
+  <div class="container" data-aos="fade-down">
+    <h1 class="display-3">HVAC SYSTEM</h1>
+    <p class="lead text-muted">Heating, Ventilation, and Air Conditioning - MEP Center Division</p>
+    <hr style="width: 150px; margin: 20px auto; border-width: 3px;">
+  </div>
+</header>
 
-                <!-- SECTION 3.1: Tata Udara (Air Conditioning) -->
-                <header class="mb-4">
-                    <h2 class="h6 text-uppercase fw-bold tracking-widest text-muted">3.1</h2>
-                    <h3 class="h3 fw-bolder mt-1" style="color: #20c997;">Instalasi Tata Udara</h3>
-                </header>
-                
-                <div class="subsection-image-container my-4 shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1617933622489-0785c463a562?q=80&w=1740&auto=format&fit=crop" alt="Unit pendingin udara outdoor (chiller/VRF)">
-                </div>
+<!-- CONTENT -->
+<div class="container">
 
-                <p class="lead text-muted">
-                    Sistem teknis yang dirancang untuk mengatur suhu, kelembaban, sirkulasi, dan kualitas udara dalam suatu bangunan agar tercapai kenyamanan termal sesuai standar.
-                </p>
+  <h2 class="section-title" data-aos="fade-right">III. HVAC</h2>
 
-                <hr class="my-5">
-                
-                <section>
-                    <h4 class="section-title-hvac"><i class="bi bi-bricks"></i>Komponen Utama</h4>
-                    <ul class="list-group ps-md-5 mt-4">
-                        <li class="list-group-item border-0 d-flex align-items-start"><i class="bi bi-dot fs-3 lh-1"></i><div><strong>Chiller / VRF / Split System:</strong> Sebagai sumber pendingin (skala besar, menengah, atau kecil).</div></li>
-                        <li class="list-group-item border-0 d-flex align-items-start"><i class="bi bi-dot fs-3 lh-1"></i><div><strong>AHU / FCU:</strong> Unit penukar panas yang mengalirkan udara dingin ke ruang.</div></li>
-                        <li class="list-group-item border-0 d-flex align-items-start"><i class="bi bi-dot fs-3 lh-1"></i><div><strong>Ducting & Diffuser:</strong> Jaringan saluran untuk distribusi udara dingin yang efisien.</div></li>
-                        <li class="list-group-item border-0 d-flex align-items-start"><i class="bi bi-dot fs-3 lh-1"></i><div><strong>Thermostat:</strong> Mengontrol suhu secara otomatis.</div></li>
-                    </ul>
-                </section>
-                
-                <!-- SEPARATOR -->
-                <hr class="my-5 border-2 opacity-50">
+  <!-- 3.1 AC System -->
+  <section class="content-box" data-aos="fade-up">
+    <h3>3.1 Instalasi Tata Udara (Air Conditioning System)</h3>
+    <p>Instalasi tata udara merupakan sistem teknis yang dirancang untuk mengatur suhu, kelembaban, sirkulasi, dan kualitas udara dalam suatu ruang bangunan agar tercapai kenyamanan termal sesuai standar.</p>
+    
+    <div class="text-center">
+      <img src="img/kintil.png" alt="Gambar AC System" class="category-img">
+    </div>
 
-                <!-- SECTION 3.2: Ventilasi Mekanis -->
-                <header class="mb-4">
-                    <h2 class="h6 text-uppercase fw-bold tracking-widest text-muted">3.2</h2>
-                    <h3 class="h3 fw-bolder mt-1" style="color: #20c997;">Instalasi Ventilasi Mekanis</h3>
-                </header>
-                
-                <div class="subsection-image-container my-4 shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1527487212871-369a83858428?q=80&w=1740&auto=format&fit=crop" alt="Sistem ducting ventilasi di langit-langit industri">
-                </div>
+    <hr>
+    <h5>✅ Komponen Utama Sistem Tata Udara</h5>
+    <ol>
+      <li><strong>Chiller / VRF / Split System:</strong> Berfungsi sebagai sumber pendingin. Chiller untuk gedung besar, VRF untuk zonasi fleksibel, dan Split untuk area terbatas.</li>
+      <li><strong>Air Handling Unit (AHU) / Fan Coil Unit (FCU):</strong> Unit penukar panas. AHU untuk ducting besar, FCU bersifat lokal.</li>
+      <li><strong>Ducting dan Diffuser:</strong> Jaringan saluran udara dan alat sebar udara dingin.</li>
+      <li><strong>Thermostat dan Control System:</strong> Mengontrol suhu secara otomatis.</li>
+    </ol>
 
-                <p class="lead text-muted">
-                    Sistem sirkulasi udara buatan untuk mengeluarkan udara kotor dan memasukkan udara segar, terutama pada area tanpa ventilasi alami seperti basement, toilet, dan dapur komersial.
-                </p>
+    <h5>🛠️ Tahapan Instalasi</h5>
+    <ul>
+      <li><strong>Perhitungan Beban Pendingin (Cooling Load):</strong> Menentukan kapasitas AC (kW atau TR) berdasarkan orientasi bangunan, aktivitas, dan penghuni.</li>
+      <li><strong>Penempatan Unit:</strong> Penempatan strategis untuk kemudahan pemeliharaan.</li>
+      <li><strong>Instalasi Pipa Refrigerant & Kondensat:</strong> Jalur pipa diatur untuk performa maksimal & anti-kondensasi.</li>
+      <li><strong>Panel Kontrol & Power Supply:</strong> Koneksi listrik dengan proteksi (MCB, ELCB) dan integrasi BMS.</li>
+    </ul>
 
-                <hr class="my-5">
-                
-                <section>
-                    <h4 class="section-title-hvac"><i class="bi bi-box-arrow-up-right"></i>Aplikasi Umum</h4>
-                    <div class="table-responsive ps-md-5 mt-4">
-                        <table class="table table-bordered table-hover">
-                            <thead class="table-light">
-                                <tr><th>Area</th><th>Sistem Ventilasi</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>Toilet</td><td>Exhaust fan ceiling/wall dengan duct ke luar</td></tr>
-                                <tr><td>Basement</td><td>Fresh air + exhaust berbasis timer atau sensor CO</td></tr>
-                                <tr><td>Ruang Genset</td><td>Ventilasi paksa menggunakan axial fan besar</td></tr>
-                                <tr><td>Dapur Restoran</td><td>Exhaust hood, duct, dan blower ke atas gedung</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-                
-                <!-- SEPARATOR -->
-                <hr class="my-5 border-2 opacity-50">
+    <h5>📌 Tujuan Akhir Sistem</h5>
+    <ul>
+      <li>Memberikan kenyamanan termal secara merata.</li>
+      <li>Menghemat energi melalui sistem kontrol otomatis.</li>
+      <li>Menjamin kualitas udara dalam ruangan (IAQ – Indoor Air Quality).</li>
+    </ul>
+  </section>
 
-                <!-- SECTION 3.3: Pemipaan Pendingin -->
-                <header class="mb-4">
-                    <h2 class="h6 text-uppercase fw-bold tracking-widest text-muted">3.3</h2>
-                    <h3 class="h3 fw-bolder mt-1" style="color: #20c997;">Instalasi Pemipaan Pendingin</h3>
-                </header>
-                
-                <div class="subsection-image-container my-4 shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1634744955217-c45474a004f2?q=80&w=1740&auto=format&fit=crop" alt="Pipa pendingin dengan insulasi tebal">
-                </div>
+  <!-- 3.2 Ventilasi Mekanis -->
+  <section class="content-box" data-aos="fade-up">
+    <h3>3.2 Instalasi Ventilasi Mekanis (Mechanical Ventilation System)</h3>
+    <p>Sistem sirkulasi udara buatan yang dirancang untuk mengeluarkan udara kotor dan memasukkan udara segar, terutama pada area tanpa ventilasi alami memadai.</p>
 
-                <p class="lead text-muted">
-                    Sistem perpipaan yang mendistribusikan media pendingin (air dingin atau refrigerant) dari unit sumber dingin menuju unit distribusi di dalam ruangan.
-                </p>
+    <div class="text-center">
+      <img src="img/kintil.png" alt="Gambar Ventilasi" class="category-img">
+    </div>
 
-                <hr class="my-5">
+    <hr>
+    <h5>🔧 Komponen Umum</h5>
+    <ul>
+      <li><strong>Exhaust Fan / Blower:</strong> Menyedot udara kotor (Wall-mounted, Ceiling, Inline duct, Axial).</li>
+      <li><strong>Fresh Air Intake:</strong> Memasukkan udara luar melalui Louver + Filter.</li>
+      <li><strong>Ducting System:</strong> Saluran dari galvanis, PVC, atau alumunium foil.</li>
+      <li><strong>Damper:</strong> Fire Damper & Volume Control Damper (VCD) untuk keamanan dan debit udara.</li>
+    </ul>
 
-                <section>
-                    <h4 class="section-title-hvac"><i class="bi bi-layers-fill"></i>Material & Desain</h4>
-                     <ul class="list-group ps-md-5 mt-4">
-                        <li class="list-group-item border-0 d-flex align-items-start">
-                            <i class="bi bi-check-circle-fill text-success me-2 mt-1"></i>
-                            <div><strong>Material Pipa:</strong> Baja galvanis / HDPE untuk air dingin (chilled water), dan Tembaga seamless untuk refrigerant (VRF/Split).</div>
-                        </li>
-                        <li class="list-group-item border-0 d-flex align-items-start">
-                             <i class="bi bi-check-circle-fill text-success me-2 mt-1"></i>
-                            <div><strong>Diameter Pipa:</strong> Dihitung berdasarkan kapasitas pendinginan (kW/TR), panjang instalasi, dan head loss.</div>
-                        </li>
-                         <li class="list-group-item border-0 d-flex align-items-start">
-                             <i class="bi bi-check-circle-fill text-success me-2 mt-1"></i>
-                            <div><strong>Isolasi Pipa:</strong> Wajib menggunakan insulasi closed cell (misal: Armaflex) untuk mencegah kondensasi dan kehilangan suhu.</div>
-                        </li>
-                    </ul>
-                </section>
+    <h5>🧾 Aplikasi Umum</h5>
+    <table class="table-neon">
+      <thead><tr><th>Area</th><th>Sistem Ventilasi</th></tr></thead>
+      <tbody>
+        <tr><td>Toilet</td><td>Exhaust fan ceiling/wall dengan duct ke luar</td></tr>
+        <tr><td>Basement</td><td>Fresh air + exhaust berbasis timer atau sensor CO</td></tr>
+        <tr><td>Ruang genset</td><td>Ventilasi paksa menggunakan axial fan besar</td></tr>
+        <tr><td>Dapur restoran</td><td>Exhaust hood, duct, dan blower ke atas gedung</td></tr>
+        <tr><td>Laboratorium</td><td>Sistem filtrasi + exhaust + make-up air</td></tr>
+      </tbody>
+    </table>
+  </section>
 
-                <!-- SEPARATOR -->
-                <hr class="my-5 border-2 opacity-50">
+  <!-- 3.3 Pemipaan Pendingin -->
+  <section class="content-box" data-aos="fade-up">
+    <h3>3.3 Instalasi Pemipaan Pendingin (Cooling Pipe System)</h3>
+    <p>Sistem tulang punggung tata udara yang mendistribusikan media pendingin dari sumber (Chiller/VRF) menuju unit AHU/FCU dengan tekanan dan suhu yang tepat.</p>
 
-                <!-- SECTION 3.4: Drainase Kondensat -->
-                <header class="mb-4">
-                    <h2 class="h6 text-uppercase fw-bold tracking-widest text-muted">3.4</h2>
-                    <h3 class="h3 fw-bolder mt-1" style="color: #20c997;">Instalasi Drainase Kondensat</h3>
-                </header>
+    <div class="text-center">
+      <img src="img/kintil.png" alt="Gambar Cooling Pipe" class="category-img">
+    </div>
 
-                <div class="subsection-image-container my-4 shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1542634237-93240249769a?q=80&w=1740&auto=format&fit=crop" alt="Pipa PVC untuk drainase air kondensasi AC">
-                </div>
-            
-                <p class="lead text-muted">
-                    Sistem perpipaan khusus untuk membuang air hasil embun dari proses pendinginan (kondensat) agar tidak terjadi kebocoran, jamur, atau kerusakan struktur.
-                </p>
+    <hr>
+    <h5>🔧 Komponen Utama & Fungsi</h5>
+    <table class="table-neon">
+      <thead><tr><th>Komponen</th><th>Fungsi</th></tr></thead>
+      <tbody>
+        <tr><td>Pipa Supply & Return</td><td>Mengalirkan dan mengembalikan media pendingin.</td></tr>
+        <tr><td>Valve (Ball, Gate, Control)</td><td>Mengatur dan mengisolasi aliran.</td></tr>
+        <tr><td>Insulasi Pipa</td><td>Mencegah kondensasi dan kehilangan suhu.</td></tr>
+        <tr><td>Strainer & Flow Meter</td><td>Menyaring kotoran dan mengukur aliran akurat.</td></tr>
+        <tr><td>Expansion Tank & Pump</td><td>Mengatur tekanan dan distribusi aliran.</td></tr>
+      </tbody>
+    </table>
 
-                <hr class="my-5">
-            
-                <section>
-                    <h4 class="section-title-hvac"><i class="bi bi-exclamation-triangle-fill"></i>Risiko Jika Salah Instalasi</h4>
-                    <ul class="list-group ps-md-5 mt-4">
-                        <li class="list-group-item border-0 d-flex align-items-start"><i class="bi bi-dot text-danger fs-3 lh-1"></i><div>Kebocoran plafon, jamur, dan kerusakan interior.</div></li>
-                        <li class="list-group-item border-0 d-flex align-items-start"><i class="bi bi-dot text-danger fs-3 lh-1"></i><div>Bau tidak sedap dan genangan air di dalam ruang.</div></li>
-                        <li class="list-group-item border-0 d-flex align-items-start"><i class="bi bi-dot text-danger fs-3 lh-1"></i><div>Gangguan operasional unit pendingin akibat air yang tertahan.</div></li>
-                    </ul>
-                </section>
-                
-                <hr class="my-5">
+    <h5 class="mt-4">📐 Desain & Material</h5>
+    <ul>
+      <li><strong>Material Chilled Water:</strong> Baja galvanis, HDPE, PPR, atau PVC-O.</li>
+      <li><strong>Material Refrigerant:</strong> Tembaga seamless grade AC (JIS H3300 C1220T).</li>
+      <li><strong>Isolasi:</strong> Closed cell (Armaflex/Aeroflex) 10–25 mm + Alumunium Foil.</li>
+      <li><strong>Hanger & Bracket:</strong> Penopang pipa sesuai standar jarak diameter.</li>
+    </ul>
+  </section>
 
-                <div class="goal-card-hvac">
-                    <h4 class="section-title-hvac"><i class="bi bi-bullseye"></i>Tujuan Akhir Sistem HVAC</h4>
-                    <ul class="mt-3 ps-4">
-                        <li>Memberikan kenyamanan termal secara merata dan terkontrol.</li>
-                        <li>Menghemat energi melalui sistem kontrol otomatis dan desain optimal.</li>
-                        <li>Menjamin kualitas udara dalam ruangan (IAQ – Indoor Air Quality) yang sehat.</li>
-                    </ul>
-                </div>
+  <!-- 3.4 Drainase Kondensat -->
+  <section class="content-box" data-aos="fade-up">
+    <h3>3.4 Instalasi Drainase (Condensate Drain System)</h3>
+    <p>Sistem pembuangan air embun hasil proses pendinginan udara untuk menjaga higienitas dan mencegah kerusakan struktur akibat kebocoran.</p>
 
-            </div>
-        </article>
-    </main>
+    <div class="text-center">
+      <img src="img/kintil.png" alt="Gambar Drainase" class="category-img">
+    </div>
 
-    <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <hr>
+    <h5>🔧 Komponen Umum</h5>
+    <table class="table-neon">
+      <thead><tr><th>Komponen</th><th>Fungsi</th></tr></thead>
+      <tbody>
+        <tr><td>Drain Pan</td><td>Menampung tetesan air dari coil evaporator.</td></tr>
+        <tr><td>Pipa Kondensat</td><td>Pipa PVC/PEX menuju floor drain.</td></tr>
+        <tr><td>Condensate Pump</td><td>Digunakan bila posisi buangan lebih tinggi dari unit.</td></tr>
+        <tr><td>Pipa Vent / U-trap</td><td>Menjaga tekanan stabil dan mencegah backflow bau.</td></tr>
+      </tbody>
+    </table>
+
+    <h5 class="mt-4">📐 Pertimbangan Desain & Risiko</h5>
+    <ul>
+      <li><strong>Kemiringan:</strong> Minimal 1–2% untuk aliran gravitasi yang lancar.</li>
+      <li><strong>Maintenance:</strong> Sediakan access point/clean-out untuk pembersihan berkala.</li>
+      <li><strong>Risiko Salah Instalasi:</strong> Kebocoran plafon, jamur, bau tidak sedap, dan kerusakan interior.</li>
+    </ul>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="py-4 text-center border-top border-secondary mt-5">
+  <div class="container">
+    <p class="mb-0 small text-muted">&copy; 2025 MEP Center. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1000, once: true });
+  const btn = document.getElementById('theme-toggle');
+  const icon = document.getElementById('theme-icon');
+  const txt = document.getElementById('theme-text');
+
+  btn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+    txt.innerText = isDark ? 'Mode Siang' : 'Mode Malam';
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
