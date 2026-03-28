@@ -1,356 +1,301 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Panduan Elektronik & Komunikasi</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- Internal CSS -->
-    <style>
-        /* Import Font (optional, for better typography) */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Electronic & Communication System - MEP Center</title>
+  <link rel="icon" type="image/jpeg" href="img/ok1.png">
+  
+  <!-- CSS Library -->
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8f9fa; /* Softer background */
-        }
+  <style>
+    /* --- SISTEM TEMA OTOMATIS (IDENTIK) --- */
+    :root {
+      /* MODE SIANG */
+      --bg-body: #ffffff;
+      --bg-card: #f8f9fa;
+      --text-main: #212529;
+      --text-muted: #6c757d;
+      --neon-blue: #007bff;
+      --border-color: #dee2e6;
+    }
 
-        /* Nav Bar */
-        .navbar-nav .nav-link {
-            transition: color 0.2s ease-in-out;
-        }
-        .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
-            color: #fff !important;
-        }
+    body.dark-mode {
+      /* MODE MALAM */
+      --bg-body: #0b0e14;
+      --bg-card: #161b22;
+      --text-main: #ffffff;
+      --text-muted: #adb5bd;
+      --neon-blue: #00d4ff;
+      --border-color: rgba(0, 212, 255, 0.2);
+    }
 
-        /* --- Header Gradients --- */
-        .header-gradient { /* Plumbing */
-            background: linear-gradient(135deg, #0d6efd, #17a2b8);
-        }
-        .header-gradient-fire { /* Fire Protection */
-            background: linear-gradient(135deg, #b02a37, #dc3545);
-        }
-        .header-gradient-hvac { /* HVAC */
-            background: linear-gradient(135deg, #20c997, #17a2b8);
-        }
-        .header-gradient-electrical { /* Electrical */
-            background: linear-gradient(135deg, #ffc107, #fd7e14);
-        }
-        .header-gradient-electronics { /* Electronics */
-            background: linear-gradient(135deg, #4f46e5, #7c3aed);
-        }
+    body {
+      background-color: var(--bg-body) !important;
+      color: var(--text-main) !important;
+      transition: all 0.3s ease;
+      line-height: 1.8;
+    }
 
-        /* Texture overlay for all headers */
-        .header-gradient::before, .header-gradient-fire::before, .header-gradient-hvac::before, .header-gradient-electrical::before, .header-gradient-electronics::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
-            opacity: 0.08;
-            z-index: 0;
-        }
+    /* Navbar */
+    .navbar {
+      border-bottom: 2px solid var(--neon-blue);
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+    }
+    .nav-link {
+      color: var(--neon-blue) !important;
+      font-size: 0.9rem;
+    }
 
-        .tracking-widest { letter-spacing: .1em; }
+    /* Content Box */
+    .content-box {
+      background-color: var(--bg-card) !important;
+      border: 1px solid var(--border-color) !important;
+      border-radius: 15px;
+      padding: 40px;
+      margin-bottom: 50px;
+      transition: all 0.3s ease;
+    }
 
-        .subsection-image-container {
-            border-radius: 0.75rem;
-            overflow: hidden;
-        }
-        .subsection-image-container img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-        .subsection-image-container img:hover {
-            transform: scale(1.05);
-        }
+    .category-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 2px solid var(--neon-blue);
+      margin: 30px 0;
+    }
 
-        /* --- Section Titles --- */
-        .section-title, .section-title-fire, .section-title-hvac, .section-title-electrical, .section-title-electronics {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: #343a40;
-            display: flex;
-            align-items: center;
-            border-bottom: 2px solid #e9ecef;
-            padding-bottom: 0.5rem;
-        }
-        .section-title i { color: #0d6efd; }
-        .section-title-fire i { color: #dc3545; }
-        .section-title-hvac i { color: #20c997; }
-        .section-title-electrical i { color: #ffc107; }
-        .section-title-electronics i { color: #6d28d9; }
-        
-        .section-title i, .section-title-fire i, .section-title-hvac i, .section-title-electrical i, .section-title-electronics i {
-            margin-right: 0.75rem;
-            font-size: 1.5rem;
-            line-height: 1;
-        }
-        
-        /* --- Goal/Purpose cards --- */
-        .goal-card, .goal-card-fire, .goal-card-hvac, .goal-card-electrical, .goal-card-electronics {
-            background-color: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-        }
-        .goal-card { border-left: 5px solid #0d6efd; }
-        .goal-card-fire { border-left: 5px solid #dc3545; }
-        .goal-card-hvac { border-left: 5px solid #20c997; }
-        .goal-card-electrical { border-left: 5px solid #ffc107; }
-        .goal-card-electronics { border-left: 5px solid #6d28d9; }
+    h1, h2, h3, h4, h5 { color: var(--neon-blue) !important; font-weight: bold; }
+    .text-muted { color: var(--text-muted) !important; }
+    hr { border-color: var(--neon-blue); opacity: 0.3; margin: 30px 0; }
 
-        .goal-card .section-title,
-        .goal-card-fire .section-title-fire,
-        .goal-card-hvac .section-title-hvac,
-        .goal-card-electrical .section-title-electrical,
-        .goal-card-electronics .section-title-electronics {
-            border-bottom: none;
-            padding-bottom: 0;
-            font-size: 1.25rem;
-        }
-        .goal-card .section-title i,
-        .goal-card-fire .section-title-fire i,
-        .goal-card-hvac .section-title-hvac i,
-        .goal-card-electrical .section-title-electrical i,
-        .goal-card-electronics .section-title-electronics i {
-            font-size: 1.25rem;
-        }
-        .goal-card ul, .goal-card-fire ul, .goal-card-hvac ul, .goal-card-electrical ul, .goal-card-electronics ul {
-            list-style-type: '✓  ';
-            padding-left: 1.25rem;
-        }
+    /* Tabel Otomatis */
+    .table-neon { 
+      color: var(--text-main) !important; 
+      border: 1px solid var(--border-color); 
+      width: 100%;
+      margin-top: 20px;
+    }
+    .table-neon th { 
+      background: var(--neon-blue); 
+      color: #fff !important; 
+      padding: 12px;
+    }
+    .table-neon td { 
+      border: 1px solid var(--border-color); 
+      padding: 12px;
+    }
 
-        /* Gallery Card Styles */
-        .gallery-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: none;
-            overflow: hidden;
-        }
-        .gallery-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15) !important;
-        }
-        .gallery-card .card-img-top {
-            aspect-ratio: 4 / 3;
-            object-fit: cover;
-        }
+    /* Tombol Toggle */
+    #theme-toggle {
+      cursor: pointer; padding: 6px 15px; border-radius: 20px;
+      border: 1px solid var(--neon-blue); background: transparent; color: var(--neon-blue);
+      font-size: 0.85rem; transition: 0.3s;
+    }
+    #theme-toggle:hover { background: var(--neon-blue); color: #fff; }
 
-        /* Formula Box */
-        .formula-box {
-            background-color: #e9ecef;
-            padding: 0.75rem 1rem;
-            border-radius: 0.25rem;
-            font-family: 'Courier New', Courier, monospace;
-            color: #343a40;
-            border: 1px solid #dee2e6;
-        }
-
-        /* Simple scrollbar styling */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #e9ecef; }
-        ::-webkit-scrollbar-thumb {
-            background: #adb5bd;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover { background: #6c757d; }
-    </style>
+    ul, ol { margin-bottom: 25px; }
+    li { margin-bottom: 12px; }
+    .section-title { border-left: 5px solid var(--neon-blue); padding-left: 15px; margin-bottom: 30px; }
+  </style>
 </head>
-<body class="bg-light">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="index.html">Panduan MEP</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="plumbing.html">Panduan Plumbing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pemadam.html">Pemadam Kebakaran</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="hvac.html">Panduan HVAC</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="elektrikal.html">Panduan Elektrikal</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="elektronik.html">Panduan Elektronik</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<body class="dark-mode"> <!-- Default: Dark Mode -->
 
-    <main class="container my-4 my-md-5">
-        <article class="card shadow-lg border-0">
-            <!-- Header -->
-            <header class="card-header text-white p-4 p-md-5 rounded-top-2 header-gradient-electronics position-relative overflow-hidden">
-                <div class="position-relative z-1">
-                    <h1 class="h6 text-uppercase fw-bold tracking-widest opacity-75">PANDUAN ELEKTRONIK & KOMUNIKASI</h1>
-                    <h2 class="h2 fw-bolder mt-2">Sistem Keamanan, Data, dan Otomasi Gedung</h2>
-                </div>
-            </header>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="img/ok2.png" alt="Logo" width="40" height="40" class="me-2">
+        MEP Center
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav align-items-center">
+        <li class="nav-item"><a class="nav-link" href="elektrikal.html">| Elektrikal</a></li>
+        <li class="nav-item"><a class="nav-link" href="hvac.html">| HVAC</a></li>
+        <li class="nav-item"><a class="nav-link" href="plumbing.html">| Plumbing</a></li>
+        <li class="nav-item"><a class="nav-link" href="pemadam.html">| Pemadam</a></li>
+        <li class="nav-item ms-lg-3">
+          <button id="theme-toggle">
+            <i id="theme-icon" class="fas fa-sun"></i> <span id="theme-text">Mode Siang</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-            <div class="card-body p-4 p-md-5">
+<!-- HEADER MINIMALIS -->
+<div class="container py-5">
+  <h1 class="text-center mb-5" data-aos="fade-down">V. ELEKTRONIK & KOMUNIKASI</h1>
 
-                <!-- SECTION 5.1: Fire Alarm System -->
-                <header class="mb-4">
-                    <h2 class="h6 text-uppercase fw-bold tracking-widest text-muted">5.1</h2>
-                    <h3 class="h3 fw-bolder mt-1" style="color: #6d28d9;">Sistem Deteksi dan Alarm Kebakaran</h3>
-                </header>
-                
-                <div class="subsection-image-container my-4 shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1579584393963-c28489a24467?q=80&w=1740&auto=format&fit=crop" alt="Detektor asap dan panas di langit-langit">
-                </div>
+  <!-- 5.1 Fire Alarm -->
+  <section class="content-box" data-aos="fade-up">
+    <h3>5.1 Instalasi Sistem Deteksi dan Alarm Kebakaran (Fire Alarm System)</h3>
+    <p>📌 <strong>Definisi & Fungsi:</strong> Sistem elektronik yang berfungsi untuk mendeteksi tanda-tanda awal kebakaran (asap, panas, atau nyala api) dan memberikan peringatan dini secara visual dan audio. Sistem ini wajib dalam standar keselamatan bangunan publik, hotel, dan industri.</p>
+    
+    <div class="text-center">
+      <img src="img/kintil.png" alt="Fire Alarm" class="category-img">
+    </div>
 
-                <p class="lead text-muted">
-                    Sistem elektronik yang mendeteksi tanda-tanda awal kebakaran (asap, panas) dan memberikan peringatan dini secara visual dan audio untuk evakuasi cepat dan aktivasi sistem pemadam otomatis.
-                </p>
+    <hr>
+    <h5>🧰 Komponen Utama Sistem Fire Alarm</h5>
+    <table class="table-neon">
+      <thead><tr><th>Komponen</th><th>Fungsi</th></tr></thead>
+      <tbody>
+        <tr><td>Fire Alarm Control Panel (FACP)</td><td>Otak sistem pengontrol semua perangkat deteksi</td></tr>
+        <tr><td>Smoke & Heat Detector</td><td>Mendeteksi asap atau kenaikan suhu abnormal</td></tr>
+        <tr><td>Manual Pull Station (MCP)</td><td>Tombol aktivasi manual alarm kebakaran</td></tr>
+        <tr><td>Alarm Bell & Strobe Light</td><td>Sinyal peringatan suara dan visual (flash)</td></tr>
+        <tr><td>Relay Output / Interface</td><td>Interkoneksi ke sistem lain (Lift, HVAC, Fire Pump)</td></tr>
+      </tbody>
+    </table>
 
-                <hr class="my-5">
-                
-                <section>
-                    <h4 class="section-title-electronics"><i class="bi bi-cpu"></i>Jenis Sistem Fire Alarm</h4>
-                    <ul class="list-group ps-md-5 mt-4">
-                        <li class="list-group-item border-0"><strong>Konvensional:</strong> Detektor dibagi berdasarkan zona, lebih sederhana dan cocok untuk bangunan kecil.</li>
-                        <li class="list-group-item border-0"><strong>Addressable:</strong> Setiap detektor memiliki alamat unik, memudahkan identifikasi titik aktif secara presisi.</li>
-                        <li class="list-group-item border-0"><strong>Wireless:</strong> Komunikasi antar perangkat tanpa kabel, ideal untuk retrofit atau area sulit dijangkau kabel.</li>
-                    </ul>
-                </section>
-                
-                <!-- SEPARATOR -->
-                <hr class="my-5 border-2 opacity-50">
+    <h5 class="mt-4">⚙️ Jenis Sistem Fire Alarm</h5>
+    <ul>
+      <li><strong>Konvensional:</strong> Detektor dibagi berdasarkan zona; sederhana dan ekonomis.</li>
+      <li><strong>Addressable:</strong> Setiap detektor memiliki alamat unik untuk identifikasi titik presisi.</li>
+      <li><strong>Intelligent / Hybrid:</strong> Menggunakan mikroprosesor untuk analisa lokal.</li>
+      <li><strong>Wireless:</strong> Komunikasi antar perangkat tanpa kabel (retrofit).</li>
+    </ul>
+  </section>
 
-                <!-- SECTION 5.2: Security and CCTV System -->
-                <header class="mb-4">
-                    <h2 class="h6 text-uppercase fw-bold tracking-widest text-muted">5.2</h2>
-                    <h3 class="h3 fw-bolder mt-1" style="color: #6d28d9;">Instalasi Sistem Security dan CCTV</h3>
-                </header>
-                
-                <div class="subsection-image-container my-4 shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1617221746243-85b639972558?q=80&w=1740&auto=format&fit=crop" alt="Kamera CCTV dome modern di dalam ruangan">
-                </div>
+  <!-- 5.2 Security & CCTV -->
+  <section class="content-box" data-aos="fade-up">
+    <h3>5.2 Instalasi Sistem Security dan CCTV</h3>
+    <p>📌 <strong>Definisi & Fungsi:</strong> Sistem pengawasan visual real-time dan perekaman insiden sebagai bagian dari keamanan fisik gedung. Mendukung bukti hukum dan integrasi kontrol akses.</p>
 
-                <p class="lead text-muted">
-                    Sistem elektronik untuk memantau, merekam, dan mengawasi area tertentu sebagai bagian dari keamanan fisik, mendukung monitoring real-time dan sebagai bukti jika terjadi insiden.
-                </p>
+    <div class="text-center">
+      <img src="img/kintil.png" alt="Security CCTV" class="category-img">
+    </div>
 
-                <hr class="my-5">
-                
-                <section>
-                    <h4 class="section-title-electronics"><i class="bi bi-camera-video-fill"></i>Jenis Kamera CCTV</h4>
-                     <div class="table-responsive ps-md-5 mt-4">
-                        <table class="table table-bordered table-hover">
-                            <thead class="table-light">
-                                <tr><th>Jenis Kamera</th><th>Deskripsi & Penggunaan</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr><td>Dome Camera</td><td>Indoor, estetis, dipasang di plafon.</td></tr>
-                                <tr><td>Bullet Camera</td><td>Outdoor, tahan cuaca, cocok untuk perimeter.</td></tr>
-                                <tr><td>PTZ Camera</td><td>Bisa Pan-Tilt-Zoom, ideal untuk pengawasan area luas.</td></tr>
-                                <tr><td>360° Fisheye</td><td>Mencakup area luas dengan satu titik, cocok untuk lobby.</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-                
-                <!-- SEPARATOR -->
-                <hr class="my-5 border-2 opacity-50">
+    <hr>
+    <h5>🔍 Jenis Kamera CCTV</h5>
+    <ul>
+      <li><strong>Dome Camera:</strong> Estetis untuk area indoor/langit-langit.</li>
+      <li><strong>Bullet Camera:</strong> Tahan cuaca untuk perimeter outdoor.</li>
+      <li><strong>PTZ Camera:</strong> Fitur Pan-Tilt-Zoom untuk area luas & dinamis.</li>
+      <li><strong>Thermal Camera:</strong> Deteksi suhu tubuh atau deteksi dini api.</li>
+    </ul>
 
-                <!-- SECTION 5.3: MATV / SMATV System -->
-                <header class="mb-4">
-                    <h2 class="h6 text-uppercase fw-bold tracking-widest text-muted">5.3</h2>
-                    <h3 class="h3 fw-bolder mt-1" style="color: #6d28d9;">Instalasi Sistem Master Antenna (MATV)</h3>
-                </header>
-                
-                <div class="subsection-image-container my-4 shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1543349927-235f2762288d?q=80&w=1854&auto=format&fit=crop" alt="Antena parabola satelit di atap gedung">
-                </div>
+    <h5>🔧 Komponen & Integrasi</h5>
+    <p>Terdiri dari NVR/DVR, Storage HDD, PoE Switch, dan Monitor. Dapat diintegrasikan dengan <strong>Access Control</strong> (RFID/Biometrik) dan <strong>Intrusion Alarm</strong>.</p>
+  </section>
 
-                <p class="lead text-muted">
-                    Sistem distribusi sinyal televisi dari antena utama (dan/atau parabola) ke banyak titik dalam gedung tanpa perlu antena individual di setiap unit, umum di apartemen, hotel, dan rumah sakit.
-                </p>
+  <!-- 5.3 MATV / SMATV -->
+  <section class="content-box" data-aos="fade-up">
+    <h3>5.3 Instalasi Sistem Master Antenna untuk TV dan Video (MATV / SMATV)</h3>
+    <p>📌 <strong>Definisi & Fungsi:</strong> Distribusi sinyal TV terpusat ke banyak titik (unit hotel/apartemen) tanpa perlu antena individu di setiap ruangan.</p>
 
-                <hr class="my-5">
-                
-                 <!-- SEPARATOR -->
-                <hr class="my-5 border-2 opacity-50">
+    <div class="text-center">
+      <img src="img/kintil.png" alt="MATV System" class="category-img">
+    </div>
 
-                <!-- SECTION 5.4: PA System -->
-                <header class="mb-4">
-                    <h2 class="h6 text-uppercase fw-bold tracking-widest text-muted">5.4</h2>
-                    <h3 class="h3 fw-bolder mt-1" style="color: #6d28d9;">Instalasi Sistem Tata Suara (PA System)</h3>
-                </header>
-                
-                <div class="subsection-image-container my-4 shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1590650529123-86c2d434b6f1?q=80&w=1740&auto=format&fit=crop" alt="Ceiling speaker untuk public address system">
-                </div>
+    <hr>
+    <h5>🧰 Komponen Utama</h5>
+    <p>Antenna UHF/VHF, Parabola, Multiswitch, Amplifier (Booster), dan Combiner/Splitter menggunakan kabel Coaxial RG6.</p>
+    <h5>🏗️ Skema Distribusi</h5>
+    <ul>
+      <li><strong>MATV:</strong> Khusus siaran lokal free-to-air.</li>
+      <li><strong>SMATV:</strong> Kombinasi siaran satelit dan lokal.</li>
+      <li><strong>IPTV:</strong> Distribusi TV modern berbasis jaringan data (LAN).</li>
+    </ul>
+  </section>
 
-                <p class="lead text-muted">
-                    Sistem audio terpusat untuk menyampaikan pengumuman, mendukung komunikasi darurat, dan menyediakan musik latar di area publik seperti lobi, koridor, dan pusat perbelanjaan.
-                </p>
-                
-                <!-- SEPARATOR -->
-                <hr class="my-5 border-2 opacity-50">
+  <!-- 5.4 PA System -->
+  <section class="content-box" data-aos="fade-up">
+    <h3>5.4 Instalasi Sistem Tata Suara dan Public Address (PA System)</h3>
+    <p>📌 <strong>Definisi & Fungsi:</strong> Sistem audio terpusat untuk pengumuman, komunikasi darurat (evakuasi), dan musik latar (BGM) di area publik.</p>
 
-                <!-- SECTION 5.5: Building Automation System (BAS) -->
-                <header class="mb-4">
-                    <h2 class="h6 text-uppercase fw-bold tracking-widest text-muted">5.5</h2>
-                    <h3 class="h3 fw-bolder mt-1" style="color: #6d28d9;">Sistem Otomasi Bangunan (BAS)</h3>
-                </header>
+    <div class="text-center">
+      <img src="img/kintil.png" alt="PA System" class="category-img">
+    </div>
 
-                <div class="subsection-image-container my-4 shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1664393639454-3e913a5b394f?q=80&w=1740&auto=format&fit=crop" alt="Tampilan antarmuka sistem otomasi gedung di tablet">
-                </div>
-            
-                <p class="lead text-muted">
-                    Sistem terintegrasi untuk mengelola dan mengontrol berbagai sistem MEP (HVAC, pencahayaan, listrik, keamanan) secara otomatis untuk mencapai efisiensi energi dan kenyamanan.
-                </p>
+    <hr>
+    <h5>🎤 Komponen Utama PA System</h5>
+    <table class="table-neon">
+      <thead><tr><th>Perangkat</th><th>Fungsi</th></tr></thead>
+      <tbody>
+        <tr><td>Paging Microphone</td><td>Input suara pengumuman langsung</td></tr>
+        <tr><td>Mixer Amplifier</td><td>Penguat sinyal dan pengatur distribusi audio</td></tr>
+        <tr><td>Speaker (Ceiling/Horn)</td><td>Output suara sesuai area (Indoor/Outdoor)</td></tr>
+        <tr><td>Zoning Controller</td><td>Pemilihan zona pengumuman tertentu</td></tr>
+        <tr><td>Evacuation Override</td><td>Prioritas suara darurat di atas musik latar</td></tr>
+      </tbody>
+    </table>
+  </section>
 
-                <hr class="my-5">
-                
-                <!-- SEPARATOR -->
-                <hr class="my-5 border-2 opacity-50">
+  <!-- 5.5 BAS (Automation) -->
+  <section class="content-box" data-aos="fade-up">
+    <h3>5.5 Instalasi Sistem Otomasi Bangunan (BAS)</h3>
+    <p>📌 <strong>Definisi & Fungsi:</strong> Building Automation System (BAS) mengintegrasikan kontrol HVAC, Lighting, Listrik, dan Keamanan dalam satu sistem cerdas terpusat untuk efisiensi energi.</p>
 
-                <!-- SECTION 5.6: Data/Wifi & Telephone System -->
-                <header class="mb-4">
-                    <h2 class="h6 text-uppercase fw-bold tracking-widest text-muted">5.6</h2>
-                    <h3 class="h3 fw-bolder mt-1" style="color: #6d28d9;">Sistem Data, Wifi, dan Telepon</h3>
-                </header>
+    <div class="text-center">
+      <img src="img/kintil.png" alt="BAS System" class="category-img">
+    </div>
 
-                <div class="subsection-image-container my-4 shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?q=80&w=1664&auto=format&fit=crop" alt="Rak server dengan kabel jaringan yang terorganisir">
-                </div>
-            
-                <p class="lead text-muted">
-                    Infrastruktur jaringan yang menjadi tulang punggung konektivitas digital modern untuk internet (LAN/Wifi) dan sistem telepon (PABX/VoIP) di seluruh bangunan.
-                </p>
+    <hr>
+    <h5>🧰 Sistem Terintegrasi</h5>
+    <ul>
+      <li><strong>HVAC:</strong> Pengaturan jadwal operasi dan suhu otomatis.</li>
+      <li><strong>Lighting:</strong> Sensor gerak dan daylight harvesting.</li>
+      <li><strong>Energy Monitoring:</strong> Pantauan beban listrik real-time.</li>
+      <li><strong>Smart Interconnection:</strong> Mematikan AC otomatis saat Fire Alarm aktif.</li>
+    </ul>
+  </section>
 
-                 <hr class="my-5">
-            
-                <div class="goal-card-electronics">
-                    <h4 class="section-title-electronics"><i class="bi bi-bullseye"></i>Tujuan Sistem Elektronik & Komunikasi</h4>
-                    <ul class="mt-3 ps-4">
-                        <li>Menyediakan peringatan dini, keamanan, dan pengawasan terpadu.</li>
-                        <li>Memastikan konektivitas data dan komunikasi yang stabil di seluruh gedung.</li>
-                        <li>Menciptakan efisiensi operasional melalui kontrol otomatis dan terpusat.</li>
-                    </ul>
-                </div>
+  <!-- 5.6 Data & Telepon -->
+  <section class="content-box" data-aos="fade-up">
+    <h3>5.6 Instalasi Sistem Data / Wifi dan Sistem Telepon</h3>
+    <p>📌 <strong>Definisi & Fungsi:</strong> Infrastruktur jaringan internet (LAN/Wifi) dan sistem telepon (PABX/VoIP) sebagai tulang punggung komunikasi modern gedung.</p>
 
-            </div>
-        </article>
-    </main>
+    <div class="text-center">
+      <img src="img/kintil.png" alt="Data System" class="category-img">
+    </div>
 
-    <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <hr>
+    <h5>📡 Wifi & Jaringan Data</h5>
+    <ul>
+      <li>Penggunaan kabel UTP Cat6/Cat6A untuk kecepatan Gigabit.</li>
+      <li>Access Point dengan standar Wifi 6 (802.11ax) untuk kapasitas padat.</li>
+      <li>Pembagian rack server dalam MDF (Main) dan IDF (Intermediate) frame.</li>
+    </ul>
+
+    <h5>☎️ Sistem Telepon</h5>
+    <ul>
+      <li><strong>PABX Analog:</strong> Sistem konvensional yang hemat.</li>
+      <li><strong>IP-PBX / VoIP:</strong> Sistem modern berbasis internet/IP.</li>
+    </ul>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="py-4 text-center border-top border-secondary mt-5">
+  <div class="container">
+    <p class="mb-0 small text-muted">&copy; 2025 MEP Center. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1000, once: true });
+  const btn = document.getElementById('theme-toggle');
+  btn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    document.getElementById('theme-icon').className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+    document.getElementById('theme-text').innerText = isDark ? 'Mode Siang' : 'Mode Malam';
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
