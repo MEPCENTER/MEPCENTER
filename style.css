@@ -1,63 +1,51 @@
-/* --- VARIABLE WARNA --- */
-:root {
-  --bg-color: #ffffff;
-  --text-color: #212529;
-  --card-bg: #ffffff;
-  --border-color: #e0e0e0;
-  --neon-blue: #0d6efd;
-}
-
-/* --- TEMA DARK MODE (Arang Neon) --- */
-body.dark-mode {
-  --bg-color: #0b0e14; /* Arang Gelap */
-  --text-color: #ffffff;
-  --card-bg: #161b22;
-  --border-color: rgba(0, 212, 255, 0.2);
-  --neon-blue: #00d4ff; /* Neon Biru */
-  background-color: var(--bg-color);
-  color: var(--text-color);
-}
-
-/* --- DASAR --- */
 body {
   font-family: "Segoe UI", sans-serif;
   line-height: 1.7;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background 0.4s ease, color 0.4s ease;
 }
 
-.navbar-brand { font-weight: bold; }
-h2, h4, h5 { font-weight: 600; color: var(--neon-blue); }
-
-/* --- SEKSI ABOUT & BG-LIGHT --- */
-body.dark-mode #about, 
-body.dark-mode .bg-light {
-  background-color: #0d1117 !important;
-  color: #ffffff !important;
+.navbar-brand {
+  font-weight: bold;
 }
 
-/* --- CARD SERVICES --- */
+h2 {
+  font-weight: 600;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+.service-card h5 {
+  font-weight: 600;
+  margin-bottom: 10px;
+}
 .card-custom {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
   transition: all 0.4s ease;
   border-radius: 1rem;
-  color: var(--text-color) !important;
 }
 
 .card-custom:hover {
   transform: translateY(-6px);
-  box-shadow: 0 10px 20px rgba(0, 212, 255, 0.2);
-  border-color: var(--neon-blue);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9;
 }
 
-body.dark-mode .text-muted { color: #b1b8c0 !important; }
+.card-custom i {
+  transition: color 0.3s ease;
+}
 
-/* --- HOME SECTION --- */
-.home-section {
+.card-custom:hover i {
+  color: #0d6efd;
+}
+
+.social-icons a:hover {
+  color: #007bff;
+}
+  .home-section {
   position: relative;
-  text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.8);
+  text-shadow: 1px 1px 4px rgb(255, 255, 255);
   background-image: url('img/3.png');
   background-size: cover;
   background-position: center center;
@@ -68,40 +56,56 @@ body.dark-mode .text-muted { color: #b1b8c0 !important; }
   color: white;
 }
 
-/* --- GALLERY --- */
-.thumb-box { cursor: pointer; position: relative; overflow: hidden; border-radius: 8px; }
+.img-wrapper {
+  overflow: hidden;
+}
+
+.thumb-box {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
 .thumb-img {
   transition: transform 0.3s ease;
   display: block;
   width: 100%;
   height: 200px;
   object-fit: cover;
+  border: 5px;
+  pointer-events: none;
 }
-.thumb-box:hover .thumb-img { transform: scale(1.05); }
+
+.thumb-box:hover .thumb-img {
+  transform: scale(1.05);
+}
 
 .plus-icon {
-  position: absolute; top: 50%; left: 50%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 2rem; color: white;
-  background: rgba(0, 212, 255, 0.6);
-  padding: 10px 14px; border-radius: 50%;
-  opacity: 0; transition: 0.3s;
-}
-.thumb-box:hover .plus-icon { opacity: 1; }
-
-/* --- TOGGLE BUTTON STYLE --- */
-#theme-toggle {
-  cursor: pointer;
-  padding: 5px 15px;
-  border-radius: 20px;
-  border: 1px solid var(--neon-blue);
-  background: transparent;
-  color: var(--neon-blue);
-  transition: 0.3s;
-  font-weight: 500;
-}
-#theme-toggle:hover {
-  background: var(--neon-blue);
+  font-size: 2rem;
   color: white;
-  box-shadow: 0 0 10px var(--neon-blue);
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px 14px;
+  border-radius: 50%;
+  opacity: 0;
+  transition: 0.3s;
+  pointer-events: none;
+}
+
+.thumb-box:hover .plus-icon {
+  opacity: 1;
+}
+
+#previewArea img {
+  max-height: 300px;
+  object-fit: contain;
+}
+
+.project-caption {
+  font-weight: 500;
+  font-size: 0.9rem;
+  border-radius: 0 0 5px 5px;
 }
