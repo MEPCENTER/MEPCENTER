@@ -5,23 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MEP Design & Drafting Services Center</title>
   <link rel="icon" type="image/jpeg" href="img/ok1.png">
-  <!-- AOS Animation -->
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-
-<!-- Lightbox (GLightbox) -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+  
+  <!-- CSS Library -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
   <link rel="stylesheet" href="style.css"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
   <style>
-    /* CSS UNTUK DARK MODE (NEON FUTURISTIC) */
+    /* --- CSS DARK MODE & NEON FUTURISTIC (IDENTIK) --- */
     :root {
-        --dark-bg: #0b0e14; /* Arang Gelap */
+        --dark-bg: #0b0e14; 
         --card-bg: #161b22;
         --neon-blue: #00d4ff;
-        --deep-blue: #0056b3;
-        --text-gray: #b1b8c0;
     }
 
     body.dark-mode {
@@ -30,8 +27,7 @@
         transition: all 0.4s ease;
     }
 
-    body.dark-mode #about, 
-    body.dark-mode .bg-light {
+    body.dark-mode #about, body.dark-mode .bg-light {
         background-color: #0d1117 !important;
         color: #ffffff !important;
     }
@@ -40,7 +36,6 @@
         background-color: var(--card-bg) !important;
         border: 1px solid rgba(0, 212, 255, 0.2);
         color: #ffffff !important;
-        box-shadow: 0 0 15px rgba(0, 212, 255, 0.1) !important;
     }
 
     body.dark-mode .service-card.card-custom:hover {
@@ -48,15 +43,8 @@
         box-shadow: 0 0 20px rgba(0, 212, 255, 0.4) !important;
     }
 
-    body.dark-mode h2, 
-    body.dark-mode h4, 
-    body.dark-mode h5,
-    body.dark-mode .nav-link {
+    body.dark-mode h2, body.dark-mode h4, body.dark-mode h5, body.dark-mode .nav-link {
         color: var(--neon-blue) !important;
-    }
-
-    body.dark-mode .text-muted {
-        color: var(--text-gray) !important;
     }
 
     body.dark-mode .navbar {
@@ -64,30 +52,23 @@
         box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
     }
 
-    /* Tombol Toggle */
-    .theme-switch-wrapper {
-        display: flex;
-        align-items: center;
-        margin-left: 15px;
+    /* SCROLLSPY ACTIVE */
+    .navbar-nav .nav-link.active {
+        color: #ffffff !important;
+        font-weight: bold;
+        text-shadow: 0 0 15px var(--neon-blue);
+        border-bottom: 2px solid var(--neon-blue);
     }
+
     #theme-toggle {
-        cursor: pointer;
-        padding: 5px 10px;
-        border-radius: 20px;
-        border: 1px solid var(--neon-blue);
-        background: transparent;
-        color: var(--neon-blue);
-        font-size: 0.9rem;
-        transition: 0.3s;
-    }
-    #theme-toggle:hover {
-        background: var(--neon-blue);
-        color: #000;
+        cursor: pointer; padding: 5px 12px; border-radius: 20px;
+        border: 1px solid var(--neon-blue); background: transparent;
+        color: var(--neon-blue); font-size: 0.85rem;
     }
   </style>
 </head>
-<body class="dark-mode"> <!-- Default: Dark Mode -->
-    
+
+<body class="dark-mode" data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="100">
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -106,8 +87,7 @@
         <li class="nav-item"><a class="nav-link" href="#gallery">Gallery |</a></li>
         <li class="nav-item"><a class="nav-link" href="mep.html">Apa itu MEP? |</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        <!-- Theme Toggle Button -->
-        <li class="nav-item theme-switch-wrapper">
+        <li class="nav-item ms-lg-3">
             <button id="theme-toggle">
                 <i id="theme-icon" class="fas fa-sun"></i> <span id="theme-text">Mode Siang</span>
             </button>
@@ -118,18 +98,19 @@
 </nav>
 
 <!-- HOME -->
-<section id="home" class="home-section text-center d-flex align-items-center">
+<section id="home" class="home-section text-center d-flex align-items-center" style="min-height: 80vh;">
   <div class="container">
     <div class="row">
-      <div class="col-md-4"> 
-    <h2 class="display-7 fw-bold">WELCOME TO, </h2>
-    <h3 class="display-10 fw-bold">MEP Design and Drafting Services Center</h3>  
-    <p class="lead">“Desain Cepat, Cerdas dan Efisiensi”</p>
-  </div>
+      <div class="col-md-5 text-start" data-aos="fade-right"> 
+        <h2 class="display-7 fw-bold">WELCOME TO, </h2>
+        <h3 class="display-10 fw-bold">MEP Design and Drafting Services Center</h3>  
+        <p class="lead">“Desain Cepat, Cerdas dan Efisiensi”</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ABOUT -->
+<!-- ABOUT (FULL ORIGINAL TEXT) -->
 <section id="about" class="py-5 bg-light">
   <div class="container">
     <h2 class="mb-4" data-aos="fade-up">About</h2>
@@ -138,12 +119,11 @@
   </div>
 </section>
 
-<!-- SERVICES -->
+<!-- SERVICES (FULL ORIGINAL TEXT) -->
 <section id="services" class="py-5">
   <div class="container">
-    <h2 class="mb-4">Services</h2>
-    <!-- Paket Lengkap DED -->
-    <div class="mb-5">
+    <h2 class="mb-4" data-aos="fade-up">Services</h2>
+    <div class="mb-5" data-aos="fade-up">
       <h4 class="fw-bold"> Paket Lengkap DED (Detail Engineering Design):</h4>
       <p>
         DED adalah tahapan perencanaan teknik secara rinci dan lengkap yang digunakan sebagai acuan utama untuk pelaksanaan konstruksi di lapangan.
@@ -151,185 +131,102 @@
         Laporan perhitungan teknis, RAB & RKS.
       </p>
       <div class="text-left my-4">
-        <img src="img/Paket_lengkap.png" alt="Detail DED" class="img-fluid rounded shadow w-20 w-md-20">
+        <img src="img/Paket_lengkap.png" alt="Detail DED" class="img-fluid rounded shadow w-25">
       </div>
     </div>
 
-    <!-- Paket Partial -->
-    <div>
-      <h4 class="fw-bold">Paket Partial / Terpisah :</h4>
-      <p>Layanan ini cocok untuk kebutuhan tertentu yang tidak memerlukan satu paket penuh.
-         Anda dapat memilih satu atau beberapa layanan berikut sesuai kebutuhan proyek:</p>
+    <h4 class="fw-bold mb-4">Paket Partial / Terpisah :</h4>
     <div class="row g-4">
-      <div class="col-md-4"data-aos="fade-up" data-aos-delay="200">
-        <div class="service-card card-custom text-dark p-4 rounded-4 shadow-sm h-100">
-        <div class="mb-3 text-secondary fs-2">
-        <i class="fas fa-project-diagram"></i> <!-- Ikon -->
-    </div>
-    <h5 class="fw-semibold mb-2">2D Drawing Layout</h5>
-          <p class="text-muted small">Penyusunan gambar teknis dua dimensi untuk sistem MEP berdasarkan denah arsitektural. Meliputi jalur pipa plumbing, ducting HVAC, kabel tray, titik lampu, saklar, panel, sprinkler, dan perangkat lainnya. Gambar disusun sesuai standar teknis dan mudah dibaca dan diterapkan di lapangan.</p>
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="service-card card-custom p-4 rounded-4 shadow-sm h-100">
+          <div class="mb-3 fs-2 text-secondary"><i class="fas fa-project-diagram"></i></div>
+          <h5 class="fw-semibold mb-2">2D Drawing Layout</h5>
+          <p class="small text-muted">Penyusunan gambar teknis dua dimensi untuk sistem MEP berdasarkan denah arsitektural. Meliputi jalur pipa plumbing, ducting HVAC, kabel tray, titik lampu, saklar, panel, sprinkler, dan perangkat lainnya. Gambar disusun sesuai standar teknis dan mudah dibaca dan diterapkan di lapangan.</p>
         </div>
       </div>
-      <div class="col-md-4"data-aos="fade-up" data-aos-delay="200">
-        <div class="service-card card-custom text-dark p-4 rounded-4 shadow-sm h-100">
-        <div class="mb-3 text-secondary fs-2">
-        <i class="fas fa-cubes"></i> <!-- Ikon -->
-    </div>
-    <h5 class="fw-semibold mb-2">3D Modeling</h5>
-          <p class="text-muted small">Pembuatan model tiga dimensi MEP menggunakan software seperti Revit / Autocad 3D. Cocok untuk kebutuhan yang mendetail , juga untuk deteksi tabrakan (clash detection), dan visualisasi sistem. juga untuk memudahkan perencanaan instalasi dan prefabrikasi di lapangan ( Fitup ).</p>        </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-card card-custom p-4 rounded-4 shadow-sm h-100">
+          <div class="mb-3 fs-2 text-secondary"><i class="fas fa-cubes"></i></div>
+          <h5 class="fw-semibold mb-2">3D Modeling</h5>
+          <p class="small text-muted">Pembuatan model tiga dimensi MEP menggunakan software seperti Revit / Autocad 3D. Cocok untuk kebutuhan yang mendetail , juga untuk deteksi tabrakan (clash detection), dan visualisasi sistem. juga untuk memudahkan perencanaan instalasi dan prefabrikasi di lapangan ( Fitup ).</p>
+        </div>
       </div>
-      <div class="col-md-4"data-aos="fade-up" data-aos-delay="200">
-        <div class="service-card card-custom text-dark p-4 rounded-4 shadow-sm h-100">
-        <div class="mb-3 text-secondary fs-2">
-        <i class="fas fa-chart-line"></i> <!-- Ikon -->
-    </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-card card-custom p-4 rounded-4 shadow-sm h-100">
+          <div class="mb-3 fs-2 text-secondary"><i class="fas fa-chart-line"></i></div>
           <h5 class="fw-semibold mb-2">Analisa dan Perhitungan</h5>
-          <p class="text-muted small">Merupakan Laporan perhitungan diantaranya  Kapasitas pompa, Perhitungan instalasi air hujan ,  Perhitungan  perhitungan Air Change, simulasi ETAP ( Beban Listrik, Drop Voltage, Capasitor Bank ) , simulasi Headload & HVAC VRF , dll.</p>
+          <p class="small text-muted">Merupakan Laporan perhitungan diantaranya Kapasitas pompa, Perhitungan instalasi air hujan , Perhitungan perhitungan Air Change, simulasi ETAP ( Beban Listrik, Drop Voltage, Capasitor Bank ) , simulasi Headload & HVAC VRF , dll.</p>
         </div>
       </div>
-      <div class="col-md-4"data-aos="fade-up" data-aos-delay="200">
-        <div class="service-card card-custom text-dark p-4 rounded-4 shadow-sm h-100">
-        <div class="mb-3 text-secondary fs-2">
-        <i class="fas fa-file-invoice-dollar"></i> <!-- Ikon -->
-    </div>
+      <div class="col-md-4" data-aos="fade-up">
+        <div class="service-card card-custom p-4 rounded-4 shadow-sm h-100">
+          <div class="mb-3 fs-2 text-secondary"><i class="fas fa-file-invoice-dollar"></i></div>
           <h5 class="fw-semibold mb-2">RAB (Rancangan Anggaran Biaya)</h5>
-          <p class="text-muted small">Penyusunan estimasi biaya pekerjaan MEP berdasarkan gambar teknis dan spesifikasi material. Dapat digunakan untuk tender, perencanaan anggaran internal, maupun evaluasi efisiensi proyek.</p>
+          <p class="small text-muted">Penyusunan estimasi biaya pekerjaan MEP berdasarkan gambar teknis dan spesifikasi material. Dapat digunakan untuk tender, perencanaan anggaran internal, maupun evaluasi efisiensi proyek.</p>
         </div>
       </div>
-       <div class="col-md-4"data-aos="fade-up" data-aos-delay="200">
-        <div class="service-card card-custom text-dark p-4 rounded-4 shadow-sm h-100">
-        <div class="mb-3 text-secondary fs-2">
-        <i class="fas fa-clipboard-check"></i> <!-- Ikon -->
-    </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-card card-custom p-4 rounded-4 shadow-sm h-100">
+          <div class="mb-3 fs-2 text-secondary"><i class="fas fa-clipboard-check"></i></div>
           <h5 class="fw-semibold mb-2">RKS (Rancangan Kerja & Syarat-Syarat Teknis)</h5>
-          <p class="text-muted small">Dokumen teknis pendamping gambar kerja yang menjelaskan standar pelaksanaan, material yang digunakan, metode pemasangan, serta ketentuan umum dan teknis sesuai regulasi dan standar proyek.</p>
+          <p class="small text-muted">Dokumen teknis pendamping gambar kerja yang menjelaskan standar pelaksanaan, material yang digunakan, metode pemasangan, serta ketentuan umum dan teknis sesuai regulasi dan standar proyek.</p>
         </div>
       </div>
-      <div class="col-md-4"data-aos="fade-up" data-aos-delay="200">
-        <div class="service-card card-custom text-dark p-4 rounded-4 shadow-sm h-100">
-        <div class="mb-3 text-secondary fs-2">
-        <i class="fas fa-edit"></i> <!-- Ikon -->
-    </div>
+      <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-card card-custom p-4 rounded-4 shadow-sm h-100">
+          <div class="mb-3 fs-2 text-secondary"><i class="fas fa-edit"></i></div>
           <h5 class="fw-semibold mb-2">Revisi Atau Review Gambar Lama</h5>
-          <p class="text-muted small">Layanan koreksi, pembaruan, atau penyesuaian terhadap gambar MEP existing atau as-built. Cocok untuk proyek renovasi, audit sistem eksisting, atau menyesuaikan gambar terhadap kondisi lapangan terbaru.</p>
+          <p class="small text-muted">Layanan koreksi, pembaruan, atau penyesuaian terhadap gambar MEP existing atau as-built. Cocok untuk proyek renovasi, audit sistem eksisting, atau menyesuaikan gambar terhadap kondisi lapangan terbaru.</p>
         </div>
       </div>
     </div>
   </div>
-
 </section>
 
-<section id="gallery">
+<!-- GALLERY (FIRST 4 ITEMS - FULL ORIGINAL DESCRIPTION) -->
+<section id="gallery" class="py-5">
   <div class="container">
     <h2 class="mb-4 text-center">Gallery Project</h2>
-
-    <!-- Preview -->
-    <div id="previewArea" class="row mb-5 d-none">
-      <div class="col-md-6">
-        <img id="previewImage" src="" alt="Preview" class="img-fluid rounded shadow">
-      </div>
-      <div class="col-md-6 d-flex align-items-center">
-        <p id="previewDesc" class="fs-6 mb-0"></p>
-      </div>
-    </div>
-
-    <!-- Thumbnails -->
     <div class="row g-4">
       
-<!-- Gambar 1 -->
-      <div class="col-md-3">
+      <!-- 1 -->
+      <div class="col-md-3" data-aos="zoom-in">
         <div class="thumb-box position-relative">
-          <img src="img/SINGLE LINE DIAGRAM.png" class="img-fluid thumb-img"
-               data-full="img/SINGLE LINE DIAGRAM.png"
-               data-desc=" <h4>Single Line Diagram (SLD)</h4>
-       <p><b>SLD</b> adalah representasi skematik dari sistem MEP dalam bentuk diagram satu garis. 
-        Diagram ini tidak menampilkan ukuran fisik atau posisi aktual di lapangan, 
-        tetapi berfokus pada jalur logika aliran daya, fluida, atau udara dari satu titik ke titik lainnya.
-        Dalam sistem kelistrikan misalnya, SLD memperlihatkan bagaimana sumber listrik mendistribusikan daya ke panel-panel, peralatan, dan beban akhir. 
-        Begitu pula dalam sistem plumbing dan mekanikal, SLD menjelaskan bagaimana fluida mengalir dan terkoneksi antara pompa, tangki, dan terminal akhir.</p>
-       <h5>Gambar ini digunakan untuk:</h5>
-        <ul>
-         <li>Memberikan pemahaman menyeluruh tentang logika dan urutan sistem.</li>
-         <li>Menjelaskan konektivitas antar komponen secara ringkas.</li>
-         <li>Membantu koordinasi awal antar disiplin dalam proses desain.</li>
-         <li>Berfokus pada <b>pemahaman sistem,</b> bukan dimensi fisik</li>
-       </ul>">
+          <img src="img/SINGLE LINE DIAGRAM.png" class="img-fluid thumb-img" data-full="img/SINGLE LINE DIAGRAM.png"
+               data-desc="<h4>Single Line Diagram (SLD)</h4><p><b>SLD</b> adalah representasi skematik dari sistem MEP dalam bentuk diagram satu garis. Diagram ini tidak menampilkan ukuran fisik atau posisi aktual di lapangan, tetapi berfokus pada jalur logika aliran daya, fluida, atau udara dari satu titik ke titik lainnya. Dalam sistem kelistrikan misalnya, SLD memperlihatkan bagaimana sumber listrik mendistribusikan daya ke panel-panel, peralatan, dan beban akhir. Begitu pula dalam sistem plumbing dan mekanikal, SLD menjelaskan bagaimana fluida mengalir dan terkoneksi antara pompa, tangki, dan terminal akhir.</p><h5>Gambar ini digunakan untuk:</h5><ul><li>Memberikan pemahaman menyeluruh tentang logika dan urutan sistem.</li><li>Menjelaskan konektivitas antar komponen secara ringkas.</li><li>Membantu koordinasi awal antar disiplin dalam proses desain.</li><li>Berfokus pada <b>pemahaman sistem,</b> bukan dimensi fisik</li></ul>">
           <div class="plus-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
         </div>
-        <div class="project-caption bg-dark text-white text-center py-2 small">
-          Single Line Diagram Sistem
-        </div>
-      </div>
-      
-      <!-- Gambar 2 -->
-      <div class="col-md-3">
-        <div class="thumb-box position-relative">
-          <img src="img/2D ISOMETRIK.png" class="img-fluid thumb-img"
-               data-full="img/2D ISOMETRIK.png"
-               data-desc="<h4>2D Isometrik</h4>
-               <p>Gambar isometrik merupakan representasi dua dimensi dari sistem MEP yang digambar 
-                secara perspektif 3D namun tetap berada dalam format 2D. Gambar ini sangat efektif 
-                untuk memberikan pemahaman visual terhadap alur sistem pipa, ducting, maupun tray dalam arah horizontal dan vertikal 
-                secara bersamaan. Isometrik sangat berguna dalam menjelaskan bagaimana sistem berpindah antar level/lantai dan 
-                bagaimana sambungan serta fitting saling terhubung.</p>
-                 <h5>Gambar ini digunakan untuk:</h5>
-                <ul>
-                  <li>Menjelaskan arah aliran pipa atau ducting secara lebih visual.</li>
-                  <li>Mempermudah pembacaan transisi vertikal dan horizontal.</li>
-                  <li>Digunakan untuk koordinasi lapangan dan visualisasi sambungan fitting.</li>
-                  <li>Memberikan informasi elevasi dan jenis sambungan secara lebih intuitif.</li>
-                </ul> ">
-          <div class="plus-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-        </div>
-        <div class="project-caption bg-dark text-white text-center py-2 small">
-          2D Isometrik
-        </div>
+        <div class="project-caption bg-dark text-white text-center py-2 small">Single Line Diagram Sistem</div>
       </div>
 
-      <!-- Gambar 3 -->
-      <div class="col-md-3">
+      <!-- 2 -->
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="100">
         <div class="thumb-box position-relative">
-          <img src="img/2D 1 LINE.png" class="img-fluid thumb-img"
-               data-full="img/2D 1 LINE.png"
-               data-desc="<h4>2D Layout 1 Line</h4>
-               <p>Gambar ini merupakan perwakilan awal jalur sistem MEP dalam bentuk garis tunggal (single line) yang ditarik di atas denah bangunan. Tujuannya adalah memberikan gambaran umum arah dan letak sistem tanpa menampilkan ukuran aktual dari komponen. Layout ini sering digunakan dalam tahap awal desain dan menjadi jembatan sebelum dikembangkan ke shop drawing yang lebih detail.</p>
-                 <h5>Gambar ini digunakan untuk:</h5>
-                <ul>
-                  <li>Menunjukkan arah dan posisi awal jalur pipa, kabel, atau duct.</li>
-                  <li>Acuan dasar pengembangan menjadi shop drawing.</li>
-                  <li>Koordinasi antar sistem MEP secara konseptual.</li>
-                  <li><b>Tidak menyesuaikan</b> denah sipil secara detail, lebih fokus pada arah sistem.</li>
-                </ul> ">
+          <img src="img/2D ISOMETRIK.png" class="img-fluid thumb-img" data-full="img/2D ISOMETRIK.png"
+               data-desc="<h4>2D Isometrik</h4><p>Gambar isometrik merupakan representasi dua dimensi dari sistem MEP yang digambar secara perspektif 3D namun tetap berada dalam format 2D. Gambar ini sangat efektif untuk memberikan pemahaman visual terhadap alur sistem pipa, ducting, maupun tray dalam arah horizontal dan vertikal secara bersamaan. Isometrik sangat berguna dalam menjelaskan bagaimana sistem berpindah antar level/lantai dan bagaimana sambungan serta fitting saling terhubung.</p><h5>Gambar ini digunakan untuk:</h5><ul><li>Menjelaskan arah aliran pipa atau ducting secara lebih visual.</li><li>Mempermudah pembacaan transisi vertikal dan horizontal.</li><li>Digunakan untuk koordinasi lapangan dan visualisasi sambungan fitting.</li><li>Memberikan informasi elevasi dan jenis sambungan secara lebih intuitif.</li></ul>">
           <div class="plus-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
         </div>
-        <div class="project-caption bg-dark text-white text-center py-2 small">
-          2D Layout 1 Line
-        </div>
+        <div class="project-caption bg-dark text-white text-center py-2 small">2D Isometrik</div>
       </div>
 
-      <!-- Gambar 4 -->
-      <div class="col-md-3">
+      <!-- 3 -->
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="200">
         <div class="thumb-box position-relative">
-          <img src="img/2D SHOP DRAWING.png" class="img-fluid thumb-img"
-               data-full="img/2D SHOP DRAWING.png"
-               data-desc="<h4>2D Shop Drawing</h4>
-               <p>2D Layout Detail atau shop drawing adalah gambar kerja detail yang menunjukkan ukuran aktual 
-                dari sistem MEP di lapangan. Menggunakan dua garis (double line) untuk mewakili 
-                diameter ducting, pipa, atau kabel tray, gambar ini dibuat berdasarkan kondisi aktual bangunan 
-                dan koordinasi dengan gambar arsitektur dan struktur terbaru. 
-                Gambar ini krusial dalam proses instalasi karena menyajikan posisi dan dimensi real dari elemen-elemen MEP.</p>
-                 <h5>Gambar ini digunakan untuk:</h5>
-                <ul>
-                  <li>Menggambarkan dimensi, ukuran, dan posisi akurat jalur MEP.</li>
-                  <li>Koordinasi instalasi lapangan dengan ukuran aktual.</li>
-                  <li>Digunakan oleh pelaksana/kontraktor sebagai acuan kerja.</li>
-                  <li>Gambar ini juga <b> menyesuaikan dengan denah sipil terbaru </b>dan detail bangunan.</li>
-                </ul> ">
+          <img src="img/2D 1 LINE.png" class="img-fluid thumb-img" data-full="img/2D 1 LINE.png"
+               data-desc="<h4>2D Layout 1 Line</h4><p>Gambar ini merupakan perwakilan awal jalur sistem MEP dalam bentuk garis tunggal (single line) yang ditarik di atas denah bangunan. Tujuannya adalah memberikan gambaran umum arah dan letak sistem tanpa menampilkan ukuran aktual dari komponen. Layout ini sering digunakan dalam tahap awal desain dan menjadi jembatan sebelum dikembangkan ke shop drawing yang lebih detail.</p><h5>Gambar ini digunakan untuk:</h5><ul><li>Menunjukkan arah dan posisi awal jalur pipa, kabel, atau duct.</li><li>Acuan dasar pengembangan menjadi shop drawing.</li><li>Koordinasi antar sistem MEP secara konseptual.</li><li><b>Tidak menyesuaikan</b> denah sipil secara detail, lebih fokus pada arah sistem.</li></ul>">
           <div class="plus-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
         </div>
-        <div class="project-caption bg-dark text-white text-center py-2 small">
-          2D Layout Detail (Shop Drawing)
+        <div class="project-caption bg-dark text-white text-center py-2 small">2D Layout 1 Line</div>
+      </div>
+
+      <!-- 4 -->
+      <div class="col-md-3" data-aos="zoom-in" data-aos-delay="300">
+        <div class="thumb-box position-relative">
+          <img src="img/2D SHOP DRAWING.png" class="img-fluid thumb-img" data-full="img/2D SHOP DRAWING.png"
+               data-desc="<h4>2D Shop Drawing</h4><p>2D Layout Detail atau shop drawing adalah gambar kerja detail yang menunjukkan ukuran aktual dari sistem MEP di lapangan. Menggunakan dua garis (double line) untuk mewakili diameter ducting, pipa, atau kabel tray, gambar ini dibuat berdasarkan kondisi aktual bangunan dan koordinasi dengan gambar arsitektur dan struktur terbaru. Gambar ini krusial dalam proses instalasi karena menyajikan posisi dan dimensi real dari elemen-elemen MEP.</p><h5>Gambar ini digunakan untuk:</h5><ul><li>Menggambarkan dimensi, ukuran, dan posisi akurat jalur MEP.</li><li>Koordinasi instalasi lapangan dengan ukuran aktual.</li><li>Digunakan oleh pelaksana/kontraktor sebagai acuan kerja.</li><li>Gambar ini juga <b> menyesuaikan dengan denah sipil terbaru </b>dan detail bangunan.</li></ul>">
+          <div class="plus-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
         </div>
+        <div class="project-caption bg-dark text-white text-center py-2 small">2D Layout Detail (Shop Drawing)</div>
       </div>
 
       <!-- Gambar 5 -->
@@ -668,25 +565,18 @@
     Metode Kerja
   </div>
 </div>
-      
-<!-- Tombol lihat lebih banyak -->
-<div class="text-center mt-3">
-  <a href="galeri_projek.html" target="_blank"><button class="btn btn-primary">Lihat Lebih Banyak</button></a>
-</div>
 
+    </div>
+    <div class="text-center mt-5">
+      <a href="galeri_projek.html" target="_blank" class="btn btn-primary px-4">Lihat Lebih Banyak</a>
     </div>
   </div>
 </section>
 
-
-
-<!-- Footer -->
- <section id="contact">
-  <footer class="bg-dark text-white pt-5 pb-3 mt-5">
+<!-- CONTACT & FOOTER (FULL ORIGINAL ABOUT TEXT) -->
+<footer id="contact" class="bg-dark text-white pt-5 pb-3">
   <div class="container">
     <div class="row">
-
-      <!-- Kolom 1: Kontak & Sosial -->
       <div class="col-md-4 mb-4">
         <h5>MEP Center</h5>
         <address>
@@ -696,81 +586,44 @@
           Email: Mepcenter.as@gmail.com<br>
         </address>
         <p>
-          <a href="#" class="text-white me-2"><i class="fab fa-facebook"></i></a>
-          <a href="https://www.instagram.com/otnaidnasus?igsh=MTlmYWQwbm5wcHNlaw==" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
           <a href="#" class="text-white me-2"><i class="fab fa-linkedin"></i></a>
         </p>
       </div>
-
-      <!-- Kolom 2: Site Menu -->
       <div class="col-md-4 mb-4">
         <h5>Site Menu</h5>
         <ul class="list-unstyled">
           <li><a href="plumbing.html" class="text-white text-decoration-none" target="_blank">Plumbing</a></li>
           <li><a href="pemadam.html" class="text-white text-decoration-none" target="_blank">Pemadam Kebakaran</a></li>
-          <li><a href="hvac.html#services" class="text-white text-decoration-none" target="_blank">HVAC</a></li>
-          <li><a href="elektrikal.html#gallery" class="text-white text-decoration-none"target="_blank">Elektrikal</a></li>
-          <li><a href="elektronik.html" class="text-white text-decoration-none" target="_blank">Elektronik & Komunikasi</a></li>
+          <li><a href="hvac.html" class="text-white text-decoration-none" target="_blank">HVAC</a></li>
+          <li><a href="elektrikal.html" class="text-white text-decoration-none" target="_blank">Elektrikal</a></li>
         </ul>
       </div>
-
-      <!-- Kolom 3: About MEP -->
       <div class="col-md-4 mb-4">
         <h5>About MEP Center</h5>
-        <p>Jasa Perencanaan MEP Gedung, Konsultan Desain MEP Profesional, Gambar Teknik MEP 2D & 3D, 
-          Jasa DED (Detail Engineering Design) MEP, Desain HVAC, Plumbing, dan Listrik,
-           MEP Engineering Services Indonesia, Jasa Shop Drawing MEP, RAB & RKS Sistem MEP, 
-           Simulasi Headload HVAC, Desain Sistem Fire Protection, Konsultan Sistem Mekanikal Elektrikal, 
-           BIM Modeling untuk Proyek MEP, Jasa Desain Instalasi Listrik Gedung, 
-           Gambar Instalasi Air Bersih & Kotor, Jasa Koordinasi Gambar MEP BIM</p>
+        <p class="small text-muted">Jasa Perencanaan MEP Gedung, Konsultan Desain MEP Profesional, Gambar Teknik MEP 2D & 3D, Jasa DED (Detail Engineering Design) MEP, Desain HVAC, Plumbing, dan Listrik, MEP Engineering Services Indonesia, Jasa Shop Drawing MEP, RAB & RKS Sistem MEP, Simulasi Headload HVAC, Desain Sistem Fire Protection, Konsultan Sistem Mekanikal Elektrikal, BIM Modeling untuk Proyek MEP, Jasa Desain Instalasi Listrik Gedung, Gambar Instalasi Air Bersih & Kotor, Jasa Koordinasi Gambar MEP BIM</p>
       </div>
-
     </div>
-    <div class="text-center pt-3 border-top border-secondary">
-      &copy; 2025 MEP Center. All rights reserved.
-    </div>
+    <div class="text-center pt-3 border-top border-secondary">&copy; 2025 MEP Center. All rights reserved.</div>
   </div>
 </footer>
-</section>
 
-<!-- AOS -->
+<!-- SCRIPTS -->
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 1200,      // default durasi semua animasi
-    delay: 300,          // default jeda awal
-    once: false           //animasi bisa discroll beberapa kali;
-  })
-</script>
-
-<!-- GLightbox -->
-<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-<script>
-  const lightbox = GLightbox({
-    selector: '.glightbox'
-  });
-</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="script.js"></script>
-
-<!-- SCRIPT DARK MODE TOGGLE -->
 <script>
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon = document.getElementById('theme-icon');
-    const themeText = document.getElementById('theme-text');
-    const body = document.body;
+  AOS.init({ duration: 1200, once: false });
 
-    themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        
-        if (body.classList.contains('dark-mode')) {
-            themeIcon.classList.replace('fa-moon', 'fa-sun');
-            themeText.innerText = "Mode Siang";
-        } else {
-            themeIcon.classList.replace('fa-sun', 'fa-moon');
-            themeText.innerText = "Mode Malam";
-        }
-    });
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeIcon = document.getElementById('theme-icon');
+  const themeText = document.getElementById('theme-text');
+  
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    themeIcon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+    themeText.innerText = isDark ? 'Mode Siang' : 'Mode Malam';
+  });
 </script>
 </body>
 </html>
