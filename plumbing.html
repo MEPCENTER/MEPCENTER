@@ -13,68 +13,107 @@
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
   <style>
-    /* --- TEMA NEON FUTURISTIC --- */
+    /* --- SISTEM TEMA OTOMATIS (FIXED) --- */
     :root {
-      --neon-blue: #00d4ff;
-      --dark-bg: #0b0e14;
-      --card-bg: #161b22;
+      /* MODE SIANG */
+      --bg-body: #ffffff;
+      --bg-card: #f8f9fa;
+      --text-main: #212529;
+      --text-muted: #6c757d;
+      --neon-blue: #007bff;
+      --border-color: #dee2e6;
+      --bg-formula: #f1f3f5;
     }
 
     body.dark-mode {
-      background-color: var(--dark-bg) !important;
-      color: #ffffff !important;
-      transition: 0.3s;
+      /* MODE MALAM */
+      --bg-body: #0b0e14;
+      --bg-card: #161b22;
+      --text-main: #ffffff;
+      --text-muted: #adb5bd;
+      --neon-blue: #00d4ff;
+      --border-color: rgba(0, 212, 255, 0.2);
+      --bg-formula: #000000;
     }
 
-    /* Navbar Khusus */
+    body {
+      background-color: var(--bg-body) !important;
+      color: var(--text-main) !important;
+      transition: all 0.3s ease;
+    }
+
+    /* Navbar */
     .navbar {
       border-bottom: 2px solid var(--neon-blue);
-      box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
     }
-    body.dark-mode .nav-link {
+    .nav-link {
       color: var(--neon-blue) !important;
-      font-size: 0.9rem;
     }
 
-    /* Styling Konten & Gambar */
+    /* Content Box */
     .content-box {
-      background: var(--card-bg);
-      border: 1px solid rgba(0, 212, 255, 0.2);
+      background-color: var(--bg-card) !important;
+      border: 1px solid var(--border-color) !important;
       border-radius: 15px;
       padding: 40px;
       margin-bottom: 50px;
+      transition: all 0.3s ease;
     }
 
     .category-img {
       max-width: 100%;
       height: auto;
       border-radius: 10px;
-      border: 1px solid var(--neon-blue);
-      box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+      border: 2px solid var(--neon-blue);
       margin: 30px 0;
     }
 
     h1, h2, h3, h4, h5 { color: var(--neon-blue) !important; font-weight: bold; }
-    hr { border-color: var(--neon-blue); opacity: 0.3; margin: 30px 0; }
+    .text-muted { color: var(--text-muted) !important; }
+    hr { border-color: var(--neon-blue); opacity: 0.3; }
 
-    /* Tabel Neon */
-    .table-neon { color: #fff; border: 1px solid rgba(0, 212, 255, 0.2); margin-top: 20px; }
-    .table-neon th { background: rgba(0, 212, 255, 0.1); color: var(--neon-blue); }
-    .table-neon td, .table-neon th { border: 1px solid rgba(0, 212, 255, 0.1); padding: 15px; }
+    /* Tabel Otomatis */
+    .table-neon { 
+      color: var(--text-main) !important; 
+      border: 1px solid var(--border-color); 
+      width: 100%;
+      margin-top: 20px;
+    }
+    .table-neon th { 
+      background: var(--neon-blue); 
+      color: #fff !important; 
+      padding: 12px;
+    }
+    .table-neon td { 
+      border: 1px solid var(--border-color); 
+      padding: 12px;
+    }
+
+    /* Blok Formula/Rumus */
+    .formula-block {
+      background-color: var(--bg-formula) !important;
+      border: 1px solid var(--neon-blue);
+      border-radius: 10px;
+      padding: 25px;
+      text-align: center;
+      margin: 25px 0;
+    }
 
     /* Tombol Toggle */
     #theme-toggle {
-      cursor: pointer; padding: 4px 12px; border-radius: 20px;
+      cursor: pointer; padding: 6px 15px; border-radius: 20px;
       border: 1px solid var(--neon-blue); background: transparent; color: var(--neon-blue);
-      font-size: 0.8rem; margin-left: 10px;
+      font-size: 0.85rem; transition: 0.3s;
     }
+    #theme-toggle:hover { background: var(--neon-blue); color: #fff; }
 
-    ul, ol { margin-bottom: 25px; }
+    ul, ol { margin-bottom: 20px; }
     li { margin-bottom: 10px; }
   </style>
 </head>
 
-<body class="dark-mode">
+<body class="dark-mode"> <!-- Default: Dark Mode -->
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -83,16 +122,13 @@
         <img src="img/ok2.png" alt="Logo" width="40" height="40" class="me-2">
         MEP Center
     </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <span class="navbar-toggler-icon"></span>
-    </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav align-items-center">
         <li class="nav-item"><a class="nav-link" href="elektrikal.html">| Elektrikal</a></li>
         <li class="nav-item"><a class="nav-link" href="elektronik.html">| Elektronik</a></li>
         <li class="nav-item"><a class="nav-link" href="hvac.html">| HVAC</a></li>
         <li class="nav-item"><a class="nav-link" href="pemadam.html">| Pemadam</a></li>
-        <li class="nav-item">
+        <li class="nav-item ms-lg-3">
           <button id="theme-toggle">
             <i id="theme-icon" class="fas fa-sun"></i> <span id="theme-text">Mode Siang</span>
           </button>
@@ -102,60 +138,39 @@
   </div>
 </nav>
 
-<!-- HEADER -->
-<header class="py-5 text-center">
-  <div class="container" data-aos="fade-down">
-    <h1 class="display-3">PLUMBING SYSTEM</h1>
-    <p class="lead text-muted">Mechanical, Electrical, & Plumbing Engineering Service Center</p>
-    <hr style="width: 150px; margin: 20px auto; border-width: 3px;">
-  </div>
-</header>
+<!-- CONTENT -->
+<div class="container py-5">
 
-<!-- MATERI -->
-<div class="container">
-  
+  <h1 class="text-center mb-5" data-aos="fade-down">I. PLUMBING SYSTEM</h1>
+
   <!-- 1.1 Air Bersih & Panas -->
   <section class="content-box" data-aos="fade-up">
-    <h2>1.1 Sistem Air Bersih dan Air Panas (Cold & Hot Water System)</h2>
+    <h3>1.1 Sistem Air Bersih dan Air Panas (Cold & Hot Water System)</h3>
     <p>Sistem air bersih dan air panas merupakan bagian utama dari instalasi plumbing yang bertugas untuk mendistribusikan air dengan tekanan dan suhu yang sesuai ke seluruh titik penggunaan dalam bangunan. Sistem ini dirancang untuk menjamin ketersediaan air bersih serta kenyamanan pengguna, baik dalam skala hunian, komersial, maupun industri.</p>
     
     <div class="text-center">
-      <img src="img/kintil.png" alt="Contoh Gambar 1.1" class="category-img" data-aos="zoom-in">
+      <img src="img/kintil.png" alt="Gambar Air Bersih" class="category-img">
     </div>
 
     <hr>
     <h5>✅ Fungsi Sistem</h5>
     <ul>
       <li>Menyediakan air bersih yang aman dan cukup tekanannya ke seluruh sanitary fitting (kran, shower, wastafel, pantry, dll).</li>
-      <li>Menyediakan air panas dengan suhu stabil ke titik-titik tertentu yang memerlukan kenyamanan lebih, seperti kamar mandi, dapur hotel, rumah sakit, atau laboratorium.</li>
+      <li>Menyediakan air panas dengan suhu stabil ke titik-titik tertentu yang memerlukan kenyamanan lebih.</li>
       <li>Menjamin sistem distribusi efisien, hemat energi, dan mudah dalam pemeliharaan.</li>
     </ul>
 
     <h5>🧩 Komponen Sistem Air Bersih & Panas</h5>
     <ol>
-      <li><strong>Sumber Air dan Penampungan:</strong> Ground Tank (reservoir bawah) dan Roof Tank (tangki atas). Sumber air bisa berasal dari PDAM, sumur bor, atau WTP (Water Treatment Plant).</li>
-      <li><strong>Pompa Distribusi:</strong> Transfer Pump (memindahkan air dari ground tank ke roof tank), Booster Pump (menjaga tekanan distribusi tetap konstan). Dilengkapi dengan pressure switch, check valve, dan pressure tank.</li>
-      <li><strong>Jaringan Pipa:</strong> Pipa Air Bersih (PPR, uPVC, HDPE atau galvanis), Pipa Air Panas (PPR-R high temp, PEX, atau tembaga/copper). Dirancang berdasarkan head loss dan pressure drop.</li>
-      <li><strong>Water Heater System:</strong> Sentral (boiler, solar water heater) atau individual (electric heater). Sistem looping dan recirculating pump digunakan untuk menjaga distribusi suhu.</li>
-      <li><strong>Valve dan Aksesori:</strong> Stop valve, check valve, PRV (Pressure Reducing Valve), balancing valve, drain valve, dan air vent.</li>
+      <li><strong>Sumber Air dan Penampungan:</strong> Ground Tank (reservoir bawah) dan Roof Tank (tangki atas). Sumber: PDAM, sumur bor, atau WTP (Water Treatment Plant).</li>
+      <li><strong>Pompa Distribusi:</strong> Transfer Pump (ground to roof) dan Booster Pump (menjaga tekanan konstan).</li>
+      <li><strong>Jaringan Pipa:</strong> Air Bersih (PPR, uPVC, HDPE, Galvanis), Air Panas (PPR-R high temp, PEX, Tembaga).</li>
+      <li><strong>Water Heater:</strong> Sentral (Boiler, Solar) atau Individual (Electric).</li>
+      <li><strong>Valve:</strong> Stop valve, check valve, PRV, balancing valve, drain valve, air vent.</li>
     </ol>
 
-    <h5>📐 Desain Sistem</h5>
-    <ul>
-      <li>Berdasarkan jumlah dan jenis peralatan sanitasi (fixture units) dari standar SNI atau ASHRAE.</li>
-      <li>Menggunakan metode simulasi tekanan untuk memastikan distribusi merata ke semua titik.</li>
-      <li>Air panas biasanya dirancang dalam looping system agar suhu stabil tanpa delay.</li>
-    </ul>
-
-    <h5>🛠️ Metode Instalasi</h5>
-    <ul>
-      <li>Pipa air panas dan dingin dipasang terpisah dan berjarak aman untuk menghindari pertukaran panas.</li>
-      <li>Isolasi pipa air panas sangat disarankan untuk mengurangi kehilangan panas dan kondensasi.</li>
-      <li>Distribusi biasanya mengikuti sistem: Down-fed (dari roof tank), Up-fed (dari pompa langsung di bawah), atau Pressurized loop.</li>
-    </ul>
-
     <h5>🧾 Contoh Aplikasi</h5>
-    <table class="table-neon w-100">
+    <table class="table-neon">
       <thead><tr><th>Jenis Bangunan</th><th>Penggunaan Air Panas</th></tr></thead>
       <tbody>
         <tr><td>Hotel</td><td>Shower, bathtub, pantry</td></tr>
@@ -164,110 +179,74 @@
         <tr><td>Rumah Tangga</td><td>Kamar mandi, wastafel, dapur kecil</td></tr>
       </tbody>
     </table>
-
-    <h5 class="mt-4">⚙️ Standar dan Referensi</h5>
-    <ul>
-      <li>SNI 8153:2015 – Sistem Plumbing</li>
-      <li>ASHRAE 90.1 – Efisiensi sistem air panas</li>
-      <li>WQA / WHO – Standar air bersih untuk konsumsi manusia</li>
-    </ul>
   </section>
 
   <!-- 1.2 Air Kotor & Bekas -->
   <section class="content-box" data-aos="fade-up">
-    <h2>1.2 Air Kotor dan Air Bekas (Waste & Soil Water System)</h2>
-    <p>Sistem air kotor dan air bekas merupakan jaringan perpipaan yang bertugas untuk membuang limbah cair dari aktivitas sanitasi di dalam bangunan ke saluran pembuangan akhir seperti STP (Sewage Treatment Plant), septic tank, atau saluran kota.</p>
-    <p>Dalam standar perencanaan, sistem ini dibagi menjadi dua:</p>
-    <ul>
-      <li><strong>Air Bekas (Waste Water):</strong> dari wastafel, floor drain, shower, dapur, pantry, laundry.</li>
-      <li><strong>Air Kotor (Soil Water):</strong> dari toilet, urinoir, dan peralatan yang mengandung limbah fekal.</li>
-    </ul>
-
+    <h3>1.2 Air Kotor dan Air Bekas (Waste & Soil Water System)</h3>
+    <p>Sistem air kotor dan air bekas merupakan jaringan perpipaan yang bertugas untuk membuang limbah cair dari aktivitas sanitasi di dalam bangunan ke saluran pembuangan akhir seperti STP, septic tank, atau saluran kota.</p>
+    
     <div class="text-center">
-      <img src="img/kintil.png" alt="Contoh Gambar 1.2" class="category-img" data-aos="zoom-in">
+      <img src="img/kintil.png" alt="Gambar Air Kotor" class="category-img">
     </div>
 
     <hr>
     <h5>🔧 Komponen Utama Sistem</h5>
-    <table class="table-neon w-100">
+    <table class="table-neon">
       <thead><tr><th>Komponen</th><th>Fungsi</th></tr></thead>
       <tbody>
-        <tr><td>Pipa PVC/uPVC/HDPE</td><td>Saluran utama limbah horizontal dan vertikal.</td></tr>
-        <tr><td>Soil Stack / Waste Stack</td><td>Pipa tegak pembuangan dari lantai atas ke bawah.</td></tr>
-        <tr><td>Vent Pipe</td><td>Menyeimbangkan tekanan udara, mencegah hisapan pada perangkap air.</td></tr>
-        <tr><td>Floor Trap / Floor Drain</td><td>Menyaring kotoran kasar dan mengalirkan limbah ke sistem utama.</td></tr>
-        <tr><td>Clean Out (CO)</td><td>Titik pembersih untuk akses perawatan pipa.</td></tr>
-        <tr><td>Grease Trap</td><td>Menyaring lemak dan limbah dapur sebelum masuk saluran utama.</td></tr>
-        <tr><td>Inspection Chamber</td><td>Titik kontrol di luar bangunan sebelum ke saluran kota/STP.</td></tr>
-        <tr><td>Sump Pit + Transfer Pump</td><td>Menaikkan air limbah ke elevasi saluran utama jika elevasi rendah.</td></tr>
+        <tr><td>Pipa PVC/uPVC/HDPE</td><td>Saluran utama limbah horizontal dan vertikal</td></tr>
+        <tr><td>Soil/Waste Stack</td><td>Pipa tegak pembuangan dari lantai atas ke bawah</td></tr>
+        <tr><td>Vent Pipe</td><td>Menyeimbangkan tekanan udara, mencegah bau</td></tr>
+        <tr><td>Grease Trap</td><td>Menyaring lemak limbah dapur sebelum masuk saluran utama</td></tr>
+        <tr><td>Sump Pit + Pump</td><td>Menaikkan limbah jika elevasi saluran lebih tinggi</td></tr>
       </tbody>
     </table>
 
-    <h5 class="mt-4">📐 Desain Sistem</h5>
+    <h5 class="mt-4">📐 Desain & Perhatian Khusus</h5>
     <ul>
-      <li>Menggunakan metode gravitasi dengan kemiringan minimum 2% agar air mengalir lancar.</li>
-      <li>Saluran soil & waste tidak boleh disatukan langsung; dipisah hingga ke chamber/STP.</li>
-      <li>Penempatan vent stack wajib untuk menjaga tekanan udara agar tidak menarik air di floor trap (menghindari bau).</li>
-      <li>Diameter pipa disesuaikan dengan jumlah fixture unit (FU) menurut SNI 8153:2015 atau ASHRAE.</li>
-    </ul>
-
-    <h5>⚙️ Perhatian Khusus</h5>
-    <ul>
-      <li>Saluran air bekas dari dapur harus dilengkapi grease trap untuk menyaring minyak/lemak.</li>
-      <li>Area bawah tanah (basement) perlu sumur kontrol (sump pit) dan pompa transfer otomatis.</li>
-      <li>Hindari penggunaan banyak belokan tajam yang bisa menyebabkan sumbatan.</li>
-      <li>Sistem ventilasi harus menyatu ke atas atap (terbuka), bukan diakhiri dalam ruangan.</li>
+      <li>Metode gravitasi dengan kemiringan minimum 2%.</li>
+      <li>Saluran soil & waste tidak boleh disatukan langsung (dipisah hingga chamber).</li>
+      <li>Penempatan vent stack wajib untuk menjaga tekanan udara (anti bau).</li>
+      <li>Gunakan grease trap khusus untuk limbah dapur/restoran.</li>
     </ul>
   </section>
 
   <!-- 1.3 Air Hujan -->
   <section class="content-box" data-aos="fade-up">
-    <h2>1.3 Sistem Air Hujan (Rainwater Drainage System)</h2>
-    <p>Sistem air hujan adalah jaringan instalasi yang dirancang untuk mengalirkan air hujan dari atap bangunan dan area terbuka menuju saluran pembuangan umum, sumur resapan, atau tangki penampungan. Perencanaan sistem ini sangat penting untuk menghindari genangan, banjir lokal, dan kerusakan struktur bangunan akibat kelebihan air limpasan.</p>
+    <h3>1.3 Sistem Air Hujan (Rainwater Drainage System)</h3>
+    <p>Jaringan instalasi yang dirancang untuk mengalirkan air hujan dari atap bangunan menuju saluran umum, sumur resapan, atau tangki penampungan.</p>
 
     <div class="text-center">
-      <img src="img/kintil.png" alt="Contoh Gambar 1.3" class="category-img" data-aos="zoom-in">
+      <img src="img/kintil.png" alt="Gambar Air Hujan" class="category-img">
     </div>
 
     <hr>
-    <h5>🔧 Komponen Utama Sistem Air Hujan</h5>
-    <table class="table-neon w-100">
-      <thead><tr><th>Komponen</th><th>Fungsi</th></tr></thead>
-      <tbody>
-        <tr><td>Roof Drain / Talang Atap</td><td>Menangkap air dari permukaan atap datar atau miring.</td></tr>
-        <tr><td>Gutter (Talang Horizontal)</td><td>Mengalirkan air dari sisi atap ke pipa vertikal.</td></tr>
-        <tr><td>Downspout / Vertical Pipe</td><td>Mengalirkan air dari gutter ke bawah, ke area resapan atau saluran.</td></tr>
-        <tr><td>Area Drain / Floor Drain Outdoor</td><td>Menyerap air hujan dari balkon, halaman, dan selasar.</td></tr>
-        <tr><td>Manhole & Catch Basin</td><td>Menampung sementara dan menyaring kotoran (daun, pasir).</td></tr>
-        <tr><td>Grating & Saringan Daun</td><td>Penutup lubang saluran, mencegah masuknya sampah besar.</td></tr>
-        <tr><td>Sumur Resapan / Drainage Pit</td><td>Menyerap air ke tanah dan mencegah limpasan langsung ke jalan.</td></tr>
-        <tr><td>Rainwater Harvesting Tank</td><td>Penampung air hujan untuk penggunaan non-potable (irigasi, cuci).</td></tr>
-      </tbody>
-    </table>
-
-    <div class="p-4 bg-dark border rounded text-center my-4" style="border-color: var(--neon-blue) !important;">
-      <h4 class="mb-2">Rumus Debit Air Hujan: Q = I × A × C</h4>
-      <p class="mb-0 small text-muted">(Q = debit, I = intensitas hujan, A = luas area atap, C = koefisien limpasan)</p>
+    <h5>📐 Rumus Desain Debit Air Hujan</h5>
+    <div class="formula-block">
+      <h4 class="mb-2">Q = I × A × C</h4>
+      <p class="mb-0 small text-muted">(Q = Debit, I = Intensitas Hujan, A = Luas Area Atap, C = Koefisien Limpasan)</p>
     </div>
 
-    <h5>⚙️ Tata Cara Instalasi</h5>
-    <ul>
-      <li>Setiap roof drain dan area drain harus dilengkapi saringan dan akses bersih (clean out).</li>
-      <li>Downspout ditempatkan pada sisi bangunan, hindari area jalur lalu lintas.</li>
-      <li>Manhole dan catch basin dipasang pada titik temu saluran atau perubahan arah.</li>
-      <li>Air hujan tidak boleh dicampur dengan air kotor atau air bekas dalam satu pipa (sesuai SNI).</li>
-    </ul>
-
-    <h5>♻️ Opsional: Rainwater Harvesting</h5>
-    <p>Gunakan rainwater harvesting tank untuk menyimpan air hujan. Air disaring dan digunakan kembali untuk: Penyiraman taman, Flushing toilet, Cuci kendaraan, dan Cadangan darurat.</p>
+    <h5>🔧 Komponen Utama Air Hujan</h5>
+    <table class="table-neon">
+      <thead><tr><th>Komponen</th><th>Fungsi</th></tr></thead>
+      <tbody>
+        <tr><td>Roof Drain</td><td>Menangkap air dari permukaan atap datar/miring</td></tr>
+        <tr><td>Gutter & Downspout</td><td>Talang horizontal dan pipa penyalur vertikal</td></tr>
+        <tr><td>Catch Basin</td><td>Menampung sementara dan menyaring kotoran daun/pasir</td></tr>
+        <tr><td>Sumur Resapan</td><td>Menyerap air ke tanah guna mencegah limpasan ke jalan</td></tr>
+        <tr><td>Rainwater Tank</td><td>Opsional: Penampung air untuk irigasi/cuci (Harvesting)</td></tr>
+      </tbody>
+    </table>
   </section>
 
 </div>
 
 <!-- FOOTER -->
-<footer class="bg-dark text-white py-4 mt-5 text-center border-top border-secondary">
+<footer class="py-4 text-center border-top border-secondary mt-5">
   <div class="container">
-    <p class="mb-0 small">&copy; 2025 MEP Center. All rights reserved.</p>
+    <p class="mb-0 small text-muted">&copy; 2025 MEP Center. All rights reserved.</p>
   </div>
 </footer>
 
@@ -275,12 +254,17 @@
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
   AOS.init({ duration: 1000, once: true });
+
   const btn = document.getElementById('theme-toggle');
+  const icon = document.getElementById('theme-icon');
+  const txt = document.getElementById('theme-text');
+
   btn.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
     const isDark = document.body.classList.contains('dark-mode');
-    document.getElementById('theme-icon').className = isDark ? 'fas fa-sun' : 'fas fa-moon';
-    document.getElementById('theme-text').innerText = isDark ? 'Mode Siang' : 'Mode Malam';
+    
+    icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+    txt.innerText = isDark ? 'Mode Siang' : 'Mode Malam';
   });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
