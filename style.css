@@ -1,111 +1,78 @@
+/* --- PENGATURAN WARNA DASAR (VARIABEL) --- */
+:root {
+  /* Mode Malam (Default) */
+  --bg-color: #0b0e14;      /* Arang Gelap */
+  --card-bg: #11141b;       /* Box Gelap */
+  --text-main: #ffffff;     /* Putih */
+  --text-muted: #adb5bd;    /* Abu-abu Terang */
+  --neon: #00d4ff;          /* Biru Neon */
+  --neon-border: rgba(0, 212, 255, 0.3);
+}
+
+/* Override untuk Mode Siang */
+body.light-mode {
+  --bg-color: #ffffff;
+  --card-bg: #f8f9fa;
+  --text-main: #212529;
+  --text-muted: #6c757d;
+  --neon: #007bff;          /* Biru Standar */
+  --neon-border: rgba(0, 123, 255, 0.2);
+}
+
+/* --- APLIKASI WARNA KE ELEMEN --- */
 body {
-  font-family: "Segoe UI", sans-serif;
-  line-height: 1.7;
+  background-color: var(--bg-color) !important;
+  color: var(--text-main) !important;
+  transition: background 0.3s ease;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.navbar-brand {
-  font-weight: bold;
+/* Navbar */
+.navbar {
+  border-bottom: 2px solid var(--neon);
+  box-shadow: 0 0 15px var(--neon-border);
 }
 
-h2 {
-  font-weight: 600;
+/* About Section & BG Light */
+#about, .bg-light {
+  background-color: var(--bg-color) !important;
+  color: var(--text-main) !important;
 }
 
-ul {
-  padding-left: 20px;
+/* Kartu Service & Box MEP */
+.service-card, .mep-card, .mep-box {
+  background-color: var(--card-bg) !important;
+  border: 1px solid var(--neon-border) !important;
+  color: var(--text-main) !important;
 }
 
-.service-card h5 {
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-.card-custom {
-  background: #ffffff;
-  border: 1px solid #e0e0e0;
-  transition: all 0.4s ease;
-  border-radius: 1rem;
+.service-card:hover, .mep-card:hover {
+  border-color: var(--neon) !important;
+  box-shadow: 0 0 20px var(--neon-border);
 }
 
-.card-custom:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-  background-color: #f9f9f9;
+/* Teks & Link */
+h2, h4, h5, .nav-link, .mep-title {
+  color: var(--neon) !important;
 }
 
-.card-custom i {
-  transition: color 0.3s ease;
+.text-muted {
+  color: var(--text-muted) !important;
 }
 
-.card-custom:hover i {
-  color: #0d6efd;
-}
-
-.social-icons a:hover {
-  color: #007bff;
-}
-  .home-section {
-  position: relative;
-  text-shadow: 1px 1px 4px rgb(255, 255, 255);
-  background-image: url('img/3.png');
-  background-size: cover;
-  background-position: center center;
-  min-height: 60vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
-
-.img-wrapper {
-  overflow: hidden;
-}
-
-.thumb-box {
+/* Tombol Toggle */
+#theme-toggle {
   cursor: pointer;
-  position: relative;
-  overflow: hidden;
-}
-
-.thumb-img {
-  transition: transform 0.3s ease;
-  display: block;
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border: 5px;
-  pointer-events: none;
-}
-
-.thumb-box:hover .thumb-img {
-  transform: scale(1.05);
-}
-
-.plus-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 2rem;
-  color: white;
-  background: rgba(0, 0, 0, 0.6);
-  padding: 10px 14px;
-  border-radius: 50%;
-  opacity: 0;
+  padding: 5px 15px;
+  border-radius: 20px;
+  border: 1px solid var(--neon);
+  background: transparent;
+  color: var(--neon);
+  font-size: 0.85rem;
   transition: 0.3s;
-  pointer-events: none;
 }
 
-.thumb-box:hover .plus-icon {
-  opacity: 1;
-}
-
-#previewArea img {
-  max-height: 300px;
-  object-fit: contain;
-}
-
-.project-caption {
-  font-weight: 500;
-  font-size: 0.9rem;
-  border-radius: 0 0 5px 5px;
+#theme-toggle:hover {
+  background: var(--neon);
+  color: #000;
 }
