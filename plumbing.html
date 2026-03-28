@@ -1,525 +1,288 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Panduan Sistem Plumbing Modern</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <!-- Internal CSS -->
-    <style>
-        /* Import Font (optional, for better typography) */
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Plumbing System - MEP Center</title>
+  <link rel="icon" type="image/jpeg" href="img/ok1.png">
+  
+  <!-- CSS Library -->
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8f9fa; /* Softer background */
-        }
+  <style>
+    /* --- TEMA NEON FUTURISTIC --- */
+    :root {
+      --neon-blue: #00d4ff;
+      --dark-bg: #0b0e14;
+      --card-bg: #161b22;
+    }
 
-        /* Custom header gradient for Plumbing */
-        .header-gradient {
-            background: #0d6efd; /* Fallback */
-            background: linear-gradient(135deg, #0d6efd, #17a2b8);
-        }
+    body.dark-mode {
+      background-color: var(--dark-bg) !important;
+      color: #ffffff !important;
+      transition: 0.3s;
+    }
 
-        /* Custom header gradient for Fire Protection */
-        .header-gradient-fire {
-            background: #dc3545; /* Fallback */
-            background: linear-gradient(135deg, #b02a37, #dc3545);
-        }
+    /* Navbar Khusus */
+    .navbar {
+      border-bottom: 2px solid var(--neon-blue);
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+    }
+    body.dark-mode .nav-link {
+      color: var(--neon-blue) !important;
+      font-size: 0.9rem;
+    }
 
-        /* Texture overlay for the header */
-        .header-gradient::before, .header-gradient-fire::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
-            opacity: 0.08;
-            z-index: 0;
-        }
+    /* Styling Konten & Gambar */
+    .content-box {
+      background: var(--card-bg);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 15px;
+      padding: 40px;
+      margin-bottom: 50px;
+    }
 
-        .tracking-widest {
-            letter-spacing: .1em;
-        }
+    .category-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid var(--neon-blue);
+      box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+      margin: 30px 0;
+    }
 
-        /* New: Styling for subsection header images */
-        .subsection-image-container {
-            border-radius: 0.75rem; /* Softer corners */
-            overflow: hidden;
-        }
+    h1, h2, h3, h4, h5 { color: var(--neon-blue) !important; font-weight: bold; }
+    hr { border-color: var(--neon-blue); opacity: 0.3; margin: 30px 0; }
 
-        .subsection-image-container img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
+    /* Tabel Neon */
+    .table-neon { color: #fff; border: 1px solid rgba(0, 212, 255, 0.2); margin-top: 20px; }
+    .table-neon th { background: rgba(0, 212, 255, 0.1); color: var(--neon-blue); }
+    .table-neon td, .table-neon th { border: 1px solid rgba(0, 212, 255, 0.1); padding: 15px; }
 
-        .subsection-image-container img:hover {
-            transform: scale(1.05);
-        }
+    /* Tombol Toggle */
+    #theme-toggle {
+      cursor: pointer; padding: 4px 12px; border-radius: 20px;
+      border: 1px solid var(--neon-blue); background: transparent; color: var(--neon-blue);
+      font-size: 0.8rem; margin-left: 10px;
+    }
 
-        /* Section Title for Plumbing */
-        .section-title {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: #343a40;
-            display: flex;
-            align-items: center;
-            border-bottom: 2px solid #e9ecef;
-            padding-bottom: 0.5rem;
-        }
-
-        .section-title i {
-            color: #0d6efd;
-            margin-right: 0.75rem;
-            font-size: 1.5rem; /* Match font size */
-            line-height: 1;
-        }
-
-        /* Section Title for Fire Protection */
-        .section-title-fire {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: #343a40;
-            display: flex;
-            align-items: center;
-            border-bottom: 2px solid #e9ecef;
-            padding-bottom: 0.5rem;
-        }
-
-        .section-title-fire i {
-            color: #dc3545;
-            margin-right: 0.75rem;
-            font-size: 1.5rem; /* Match font size */
-            line-height: 1;
-        }
-
-
-        /* Goal/Purpose cards for Plumbing */
-        .goal-card {
-            background-color: #f8f9fa;
-            border-left: 5px solid #0d6efd;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-        }
-
-        .goal-card .section-title {
-            border-bottom: none;
-            padding-bottom: 0;
-            font-size: 1.25rem; /* Slightly smaller in card */
-        }
-
-        .goal-card .section-title i {
-            font-size: 1.25rem;
-        }
-
-        .goal-card ul {
-            list-style-type: '✓  ';
-            padding-left: 1.25rem;
-        }
-
-        /* Goal/Purpose cards for Fire Protection */
-        .goal-card-fire {
-            background-color: #f8f9fa;
-            border-left: 5px solid #dc3545;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-        }
-
-        .goal-card-fire .section-title-fire {
-            border-bottom: none;
-            padding-bottom: 0;
-            font-size: 1.25rem; /* Slightly smaller in card */
-        }
-
-        .goal-card-fire .section-title-fire i {
-            font-size: 1.25rem;
-        }
-
-        .goal-card-fire ul {
-            list-style-type: '✓  ';
-            padding-left: 1.25rem;
-        }
-
-
-        /* Gallery Card Styles */
-        .gallery-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: none;
-            overflow: hidden;
-        }
-
-        .gallery-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15) !important;
-        }
-
-        .gallery-card .card-img-top {
-            aspect-ratio: 4 / 3;
-            object-fit: cover;
-        }
-
-        /* Styling for formula box */
-        .formula-box {
-            background-color: #e9ecef;
-            padding: 0.75rem 1rem;
-            border-radius: 0.25rem;
-            font-family: 'Courier New', Courier, monospace;
-            color: #343a40;
-            border: 1px solid #dee2e6;
-        }
-
-        /* Simple scrollbar styling */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #e9ecef;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #adb5bd;
-            border-radius: 10px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #6c757d;
-        }
-    </style>
+    ul, ol { margin-bottom: 25px; }
+    li { margin-bottom: 10px; }
+  </style>
 </head>
-<body class="bg-light">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
-        <div class="container">
-            <a class="navbar-brand fw-bold" href="#">Panduan MEP</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="plumbing.html">Panduan Plumbing</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="pemadam.html">Pemadam Kebakaran</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="hvac.html">Panduan HVAC</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="elektrikal.html">Panduan Elektrikal</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="elektronik.html">Panduan Elektronik</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+<body class="dark-mode">
 
-    <main class="container my-4 my-md-5">
-        <article class="card shadow-lg border-0">
-            <!-- Header -->
-            <header class="card-header text-white p-4 p-md-5 rounded-top-2 header-gradient position-relative overflow-hidden">
-                <div class="position-relative z-1">
-                    <h1 class="h6 text-uppercase fw-bold tracking-widest opacity-75">PANDUAN PLUMBING</h1>
-                    <h2 class="h2 fw-bolder mt-2">Sistem Air Bersih, Air Panas, dan Air Limbah</h2>
-                </div>
-            </header>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="img/ok2.png" alt="Logo" width="40" height="40" class="me-2">
+        MEP Center
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav align-items-center">
+        <li class="nav-item"><a class="nav-link" href="elektrikal.html">| Elektrikal</a></li>
+        <li class="nav-item"><a class="nav-link" href="elektronik.html">| Elektronik</a></li>
+        <li class="nav-item"><a class="nav-link" href="hvac.html">| HVAC</a></li>
+        <li class="nav-item"><a class="nav-link" href="pemadam.html">| Pemadam</a></li>
+        <li class="nav-item">
+          <button id="theme-toggle">
+            <i id="theme-icon" class="fas fa-sun"></i> <span id="theme-text">Mode Siang</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-            <div class="card-body p-4 p-md-5">
+<!-- HEADER -->
+<header class="py-5 text-center">
+  <div class="container" data-aos="fade-down">
+    <h1 class="display-3">PLUMBING SYSTEM</h1>
+    <p class="lead text-muted">Mechanical, Electrical, & Plumbing Engineering Service Center</p>
+    <hr style="width: 150px; margin: 20px auto; border-width: 3px;">
+  </div>
+</header>
 
-                <!-- SECTION 1.1: Air Bersih & Panas -->
-                <header class="mb-4">
-                    <h2 class="h6 text-uppercase fw-bold tracking-widest text-muted">1.1</h2>
-                    <h3 class="h3 fw-bolder mt-1 text-primary">Sistem Air Bersih dan Air Panas</h3>
-                </header>
-                
-                <div class="subsection-image-container my-4 shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1632345031435-86d4f7a98344?q=80&w=1932&auto=format&fit=crop" alt="Instalasi Pipa Air Bersih dan Panas">
-                </div>
+<!-- MATERI -->
+<div class="container">
+  
+  <!-- 1.1 Air Bersih & Panas -->
+  <section class="content-box" data-aos="fade-up">
+    <h2>1.1 Sistem Air Bersih dan Air Panas (Cold & Hot Water System)</h2>
+    <p>Sistem air bersih dan air panas merupakan bagian utama dari instalasi plumbing yang bertugas untuk mendistribusikan air dengan tekanan dan suhu yang sesuai ke seluruh titik penggunaan dalam bangunan. Sistem ini dirancang untuk menjamin ketersediaan air bersih serta kenyamanan pengguna, baik dalam skala hunian, komersial, maupun industri.</p>
+    
+    <div class="text-center">
+      <img src="img/kintil.png" alt="Contoh Gambar 1.1" class="category-img" data-aos="zoom-in">
+    </div>
 
-                <p class="lead text-muted">
-                    Sistem air bersih dan air panas merupakan bagian utama dari instalasi plumbing yang bertugas untuk mendistribusikan air dengan tekanan dan suhu yang sesuai ke seluruh titik penggunaan dalam bangunan. Sistem ini dirancang untuk menjamin ketersediaan air bersih serta kenyamanan pengguna.
-                </p>
+    <hr>
+    <h5>✅ Fungsi Sistem</h5>
+    <ul>
+      <li>Menyediakan air bersih yang aman dan cukup tekanannya ke seluruh sanitary fitting (kran, shower, wastafel, pantry, dll).</li>
+      <li>Menyediakan air panas dengan suhu stabil ke titik-titik tertentu yang memerlukan kenyamanan lebih, seperti kamar mandi, dapur hotel, rumah sakit, atau laboratorium.</li>
+      <li>Menjamin sistem distribusi efisien, hemat energi, dan mudah dalam pemeliharaan.</li>
+    </ul>
 
-                <hr class="my-5">
+    <h5>🧩 Komponen Sistem Air Bersih & Panas</h5>
+    <ol>
+      <li><strong>Sumber Air dan Penampungan:</strong> Ground Tank (reservoir bawah) dan Roof Tank (tangki atas). Sumber air bisa berasal dari PDAM, sumur bor, atau WTP (Water Treatment Plant).</li>
+      <li><strong>Pompa Distribusi:</strong> Transfer Pump (memindahkan air dari ground tank ke roof tank), Booster Pump (menjaga tekanan distribusi tetap konstan). Dilengkapi dengan pressure switch, check valve, dan pressure tank.</li>
+      <li><strong>Jaringan Pipa:</strong> Pipa Air Bersih (PPR, uPVC, HDPE atau galvanis), Pipa Air Panas (PPR-R high temp, PEX, atau tembaga/copper). Dirancang berdasarkan head loss dan pressure drop.</li>
+      <li><strong>Water Heater System:</strong> Sentral (boiler, solar water heater) atau individual (electric heater). Sistem looping dan recirculating pump digunakan untuk menjaga distribusi suhu.</li>
+      <li><strong>Valve dan Aksesori:</strong> Stop valve, check valve, PRV (Pressure Reducing Valve), balancing valve, drain valve, dan air vent.</li>
+    </ol>
 
-                <section>
-                    <h4 class="section-title"><i class="bi bi-check2-circle"></i>Fungsi Sistem</h4>
-                    <div class="ps-md-5 mt-4">
-                        <div class="d-flex align-items-start p-3 bg-white-subtle border-start border-4 border-success rounded-3 mb-3">
-                            <i class="bi bi-droplet-fill text-success fs-5 mt-1"></i>
-                            <p class="ms-3 mb-0">Menyediakan air bersih yang aman dan cukup tekanannya ke seluruh sanitary fitting (kran, shower, wastafel, dll).</p>
-                        </div>
-                        <div class="d-flex align-items-start p-3 bg-white-subtle border-start border-4 border-success rounded-3 mb-3">
-                            <i class="bi bi-thermometer-half text-success fs-5 mt-1"></i>
-                            <p class="ms-3 mb-0">Menyediakan air panas dengan suhu stabil ke titik-titik yang memerlukan kenyamanan lebih.</p>
-                        </div>
-                        <div class="d-flex align-items-start p-3 bg-white-subtle border-start border-4 border-success rounded-3">
-                            <i class="bi bi-shield-check text-success fs-5 mt-1"></i>
-                            <p class="ms-3 mb-0">Menjamin sistem distribusi efisien, hemat energi, dan mudah dalam pemeliharaan.</p>
-                        </div>
-                    </div>
-                </section>
+    <h5>📐 Desain Sistem</h5>
+    <ul>
+      <li>Berdasarkan jumlah dan jenis peralatan sanitasi (fixture units) dari standar SNI atau ASHRAE.</li>
+      <li>Menggunakan metode simulasi tekanan untuk memastikan distribusi merata ke semua titik.</li>
+      <li>Air panas biasanya dirancang dalam looping system agar suhu stabil tanpa delay.</li>
+    </ul>
 
-                <hr class="my-5">
+    <h5>🛠️ Metode Instalasi</h5>
+    <ul>
+      <li>Pipa air panas dan dingin dipasang terpisah dan berjarak aman untuk menghindari pertukaran panas.</li>
+      <li>Isolasi pipa air panas sangat disarankan untuk mengurangi kehilangan panas dan kondensasi.</li>
+      <li>Distribusi biasanya mengikuti sistem: Down-fed (dari roof tank), Up-fed (dari pompa langsung di bawah), atau Pressurized loop.</li>
+    </ul>
 
-                <section>
-                    <h4 class="section-title"><i class="bi bi-bricks"></i>Komponen Sistem Air Bersih & Panas</h4>
-                    <div class="ps-md-5 mt-4">
-                        <ol class="list-unstyled">
-                            <li class="mb-4">
-                                <h5 class="fs-5 fw-semibold">1. Sumber Air dan Penampungan</h5>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Ground Tank (reservoir bawah) dan Roof Tank (tangki atas)</li>
-                                    <li class="list-group-item">Sumber air: PDAM, sumur bor, atau WTP (Water Treatment Plant)</li>
-                                </ul>
-                            </li>
-                            <li class="mb-4">
-                                <h5 class="fs-5 fw-semibold">2. Pompa Distribusi</h5>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Transfer Pump & Booster Pump</li>
-                                    <li class="list-group-item">Dilengkapi pressure switch, check valve, dan pressure tank</li>
-                                </ul>
-                            </li>
-                             <li class="mb-4">
-                                <h5 class="fs-5 fw-semibold">3. Jaringan Pipa</h5>
-                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">Pipa Air Bersih: PPR, uPVC, HDPE atau galvanis</li>
-                                    <li class="list-group-item">Pipa Air Panas: PPR-R (high temp), PEX, atau tembaga</li>
-                                </ul>
-                            </li>
-                        </ol>
-                    </div>
-                </section>
-                
-                <hr class="my-5">
+    <h5>🧾 Contoh Aplikasi</h5>
+    <table class="table-neon w-100">
+      <thead><tr><th>Jenis Bangunan</th><th>Penggunaan Air Panas</th></tr></thead>
+      <tbody>
+        <tr><td>Hotel</td><td>Shower, bathtub, pantry</td></tr>
+        <tr><td>Rumah Sakit</td><td>Laundry, sterilisasi, ruang pasien</td></tr>
+        <tr><td>Dapur Komersial</td><td>Cuci peralatan, pemanasan</td></tr>
+        <tr><td>Rumah Tangga</td><td>Kamar mandi, wastafel, dapur kecil</td></tr>
+      </tbody>
+    </table>
 
-                <section>
-                    <h4 class="section-title"><i class="bi bi-rulers"></i>Desain Sistem</h4>
-                    <ul class="list-group list-group-numbered ps-md-5 mt-4">
-                        <li class="list-group-item border-0">Berdasarkan jumlah fixture units (standar SNI atau ASHRAE)</li>
-                        <li class="list-group-item border-0">Menggunakan simulasi tekanan untuk distribusi merata</li>
-                        <li class="list-group-item border-0">Sistem looping untuk air panas agar suhu stabil</li>
-                    </ul>
-                </section>
+    <h5 class="mt-4">⚙️ Standar dan Referensi</h5>
+    <ul>
+      <li>SNI 8153:2015 – Sistem Plumbing</li>
+      <li>ASHRAE 90.1 – Efisiensi sistem air panas</li>
+      <li>WQA / WHO – Standar air bersih untuk konsumsi manusia</li>
+    </ul>
+  </section>
 
-                <hr class="my-5">
+  <!-- 1.2 Air Kotor & Bekas -->
+  <section class="content-box" data-aos="fade-up">
+    <h2>1.2 Air Kotor dan Air Bekas (Waste & Soil Water System)</h2>
+    <p>Sistem air kotor dan air bekas merupakan jaringan perpipaan yang bertugas untuk membuang limbah cair dari aktivitas sanitasi di dalam bangunan ke saluran pembuangan akhir seperti STP (Sewage Treatment Plant), septic tank, atau saluran kota.</p>
+    <p>Dalam standar perencanaan, sistem ini dibagi menjadi dua:</p>
+    <ul>
+      <li><strong>Air Bekas (Waste Water):</strong> dari wastafel, floor drain, shower, dapur, pantry, laundry.</li>
+      <li><strong>Air Kotor (Soil Water):</strong> dari toilet, urinoir, dan peralatan yang mengandung limbah fekal.</li>
+    </ul>
 
-                <section>
-                    <h4 class="section-title"><i class="bi bi-tools"></i>Metode Instalasi</h4>
-                    <ul class="list-group list-group-numbered ps-md-5 mt-4">
-                        <li class="list-group-item border-0">Pipa panas dan dingin dipasang terpisah untuk menghindari pertukaran panas</li>
-                        <li class="list-group-item border-0">Isolasi pipa air panas untuk efisiensi energi</li>
-                        <li class="list-group-item border-0">Sistem distribusi: Down-fed, Up-fed, atau Pressurized loop</li>
-                    </ul>
-                </section>
+    <div class="text-center">
+      <img src="img/kintil.png" alt="Contoh Gambar 1.2" class="category-img" data-aos="zoom-in">
+    </div>
 
-                <hr class="my-5">
+    <hr>
+    <h5>🔧 Komponen Utama Sistem</h5>
+    <table class="table-neon w-100">
+      <thead><tr><th>Komponen</th><th>Fungsi</th></tr></thead>
+      <tbody>
+        <tr><td>Pipa PVC/uPVC/HDPE</td><td>Saluran utama limbah horizontal dan vertikal.</td></tr>
+        <tr><td>Soil Stack / Waste Stack</td><td>Pipa tegak pembuangan dari lantai atas ke bawah.</td></tr>
+        <tr><td>Vent Pipe</td><td>Menyeimbangkan tekanan udara, mencegah hisapan pada perangkap air.</td></tr>
+        <tr><td>Floor Trap / Floor Drain</td><td>Menyaring kotoran kasar dan mengalirkan limbah ke sistem utama.</td></tr>
+        <tr><td>Clean Out (CO)</td><td>Titik pembersih untuk akses perawatan pipa.</td></tr>
+        <tr><td>Grease Trap</td><td>Menyaring lemak dan limbah dapur sebelum masuk saluran utama.</td></tr>
+        <tr><td>Inspection Chamber</td><td>Titik kontrol di luar bangunan sebelum ke saluran kota/STP.</td></tr>
+        <tr><td>Sump Pit + Transfer Pump</td><td>Menaikkan air limbah ke elevasi saluran utama jika elevasi rendah.</td></tr>
+      </tbody>
+    </table>
 
-                <section>
-                    <h4 class="section-title"><i class="bi bi-images"></i>Galeri Proyek</h4>
-                    <div class="row g-4 ps-md-5 mt-3">
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="card gallery-card shadow-sm">
-                                <img src="https://images.unsplash.com/photo-1582542579596-f641203a3d9d?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600" class="card-img-top" alt="Instalasi Pipa Tembaga">
-                                <div class="card-body"><p class="card-text text-center text-muted small">Instalasi Pipa Tembaga Modern</p></div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="card gallery-card shadow-sm">
-                                <img src="https://images.unsplash.com/photo-1616047006789-b7af5afb8c20?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600" class="card-img-top" alt="Sistem Pemanas Air">
-                                <div class="card-body"><p class="card-text text-center text-muted small">Sistem Pemanas Air (Boiler)</p></div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="card gallery-card shadow-sm">
-                                <img src="https://images.unsplash.com/photo-1600585152225-3575fe3a806a?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600" class="card-img-top" alt="Instalasi Plumbing di Dinding">
-                                <div class="card-body"><p class="card-text text-center text-muted small">Plumbing Terpasang di Dinding</p></div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="card gallery-card shadow-sm">
-                                <img src="https://images.unsplash.com/photo-1540831924589-b575a7436c61?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600" class="card-img-top" alt="Berbagai Macam Pipa PVC">
-                                <div class="card-body"><p class="card-text text-center text-muted small">Jaringan Pipa uPVC</p></div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="card gallery-card shadow-sm">
-                                <img src="https://images.unsplash.com/photo-1567103453813-4c69d8a72b04?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600" class="card-img-top" alt="Katup dan Pengukur Tekanan">
-                                <div class="card-body"><p class="card-text text-center text-muted small">Valve dan Pengukur Tekanan</p></div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-4">
-                             <div class="card gallery-card shadow-sm">
-                                <img src="https://images.unsplash.com/photo-1599495818988-15c449580a5f?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600" class="card-img-top" alt="Pekerja memasang pipa">
-                                <div class="card-body"><p class="card-text text-center text-muted small">Proses Instalasi Profesional</p></div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+    <h5 class="mt-4">📐 Desain Sistem</h5>
+    <ul>
+      <li>Menggunakan metode gravitasi dengan kemiringan minimum 2% agar air mengalir lancar.</li>
+      <li>Saluran soil & waste tidak boleh disatukan langsung; dipisah hingga ke chamber/STP.</li>
+      <li>Penempatan vent stack wajib untuk menjaga tekanan udara agar tidak menarik air di floor trap (menghindari bau).</li>
+      <li>Diameter pipa disesuaikan dengan jumlah fixture unit (FU) menurut SNI 8153:2015 atau ASHRAE.</li>
+    </ul>
 
-                <hr class="my-5">
+    <h5>⚙️ Perhatian Khusus</h5>
+    <ul>
+      <li>Saluran air bekas dari dapur harus dilengkapi grease trap untuk menyaring minyak/lemak.</li>
+      <li>Area bawah tanah (basement) perlu sumur kontrol (sump pit) dan pompa transfer otomatis.</li>
+      <li>Hindari penggunaan banyak belokan tajam yang bisa menyebabkan sumbatan.</li>
+      <li>Sistem ventilasi harus menyatu ke atas atap (terbuka), bukan diakhiri dalam ruangan.</li>
+    </ul>
+  </section>
 
-                <div class="goal-card">
-                    <h4 class="section-title"><i class="bi bi-bullseye"></i>Tujuan Desain Sistem</h4>
-                    <ul class="mt-3 ps-4">
-                       <li>Mendistribusikan air secara aman, efisien, dan berkelanjutan.</li>
-                       <li>Menjamin kenyamanan termal pengguna pada area tertentu.</li>
-                       <li>Mendukung konservasi energi melalui pemilihan sistem pemanas yang tepat.</li>
-                    </ul>
-                </div>
+  <!-- 1.3 Air Hujan -->
+  <section class="content-box" data-aos="fade-up">
+    <h2>1.3 Sistem Air Hujan (Rainwater Drainage System)</h2>
+    <p>Sistem air hujan adalah jaringan instalasi yang dirancang untuk mengalirkan air hujan dari atap bangunan dan area terbuka menuju saluran pembuangan umum, sumur resapan, atau tangki penampungan. Perencanaan sistem ini sangat penting untuk menghindari genangan, banjir lokal, dan kerusakan struktur bangunan akibat kelebihan air limpasan.</p>
 
+    <div class="text-center">
+      <img src="img/kintil.png" alt="Contoh Gambar 1.3" class="category-img" data-aos="zoom-in">
+    </div>
 
-                <!-- SEPARATOR -->
-                <hr class="my-5 border-2 opacity-50">
+    <hr>
+    <h5>🔧 Komponen Utama Sistem Air Hujan</h5>
+    <table class="table-neon w-100">
+      <thead><tr><th>Komponen</th><th>Fungsi</th></tr></thead>
+      <tbody>
+        <tr><td>Roof Drain / Talang Atap</td><td>Menangkap air dari permukaan atap datar atau miring.</td></tr>
+        <tr><td>Gutter (Talang Horizontal)</td><td>Mengalirkan air dari sisi atap ke pipa vertikal.</td></tr>
+        <tr><td>Downspout / Vertical Pipe</td><td>Mengalirkan air dari gutter ke bawah, ke area resapan atau saluran.</td></tr>
+        <tr><td>Area Drain / Floor Drain Outdoor</td><td>Menyerap air hujan dari balkon, halaman, dan selasar.</td></tr>
+        <tr><td>Manhole & Catch Basin</td><td>Menampung sementara dan menyaring kotoran (daun, pasir).</td></tr>
+        <tr><td>Grating & Saringan Daun</td><td>Penutup lubang saluran, mencegah masuknya sampah besar.</td></tr>
+        <tr><td>Sumur Resapan / Drainage Pit</td><td>Menyerap air ke tanah dan mencegah limpasan langsung ke jalan.</td></tr>
+        <tr><td>Rainwater Harvesting Tank</td><td>Penampung air hujan untuk penggunaan non-potable (irigasi, cuci).</td></tr>
+      </tbody>
+    </table>
 
-                <!-- SECTION 1.2: Air Kotor dan Air Bekas -->
-                <header class="mb-4">
-                    <h2 class="h6 text-uppercase fw-bold tracking-widest text-muted">1.2</h2>
-                    <h3 class="h3 fw-bolder mt-1 text-primary">Air Kotor dan Air Bekas</h3>
-                </header>
+    <div class="p-4 bg-dark border rounded text-center my-4" style="border-color: var(--neon-blue) !important;">
+      <h4 class="mb-2">Rumus Debit Air Hujan: Q = I × A × C</h4>
+      <p class="mb-0 small text-muted">(Q = debit, I = intensitas hujan, A = luas area atap, C = koefisien limpasan)</p>
+    </div>
 
-                <div class="subsection-image-container my-4 shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?q=80&w=1740&auto=format&fit=crop" alt="Instalasi Pipa Air Limbah PVC">
-                </div>
-            
-                <p class="lead text-muted">
-                    Sistem air kotor dan air bekas bertugas membuang limbah cair dari aktivitas sanitasi ke saluran pembuangan akhir seperti STP, septic tank, atau saluran kota.
-                </p>
-                <ul class="list-group list-group-flush mb-5">
-                    <li class="list-group-item ps-0"><strong>Air Bekas (Waste Water):</strong> dari wastafel, floor drain, shower, dapur.</li>
-                    <li class="list-group-item ps-0"><strong>Air Kotor (Soil Water):</strong> dari toilet, urinoir (mengandung limbah fekal).</li>
-                </ul>
-            
-                <section>
-                    <h4 class="section-title"><i class="bi bi-bricks"></i>Komponen Utama Sistem</h4>
-                    <div class="table-responsive ps-md-5 mt-4">
-                        <table class="table table-bordered table-hover">
-                            <thead class="table-light">
-                                <tr>
-                                    <th scope="col" class="p-3">Komponen</th>
-                                    <th scope="col" class="p-3">Fungsi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td class="p-3">Pipa PVC/uPVC/HDPE</td><td class="p-3">Saluran utama limbah</td></tr>
-                                <tr><td class="p-3">Soil/Waste Stack</td><td class="p-3">Pipa tegak pembuangan</td></tr>
-                                <tr><td class="p-3">Vent Pipe</td><td class="p-3">Menyeimbangkan tekanan udara</td></tr>
-                                <tr><td class="p-3">Floor/Clean Out</td><td class="p-3">Titik saring dan pembersih</td></tr>
-                                <tr><td class="p-3">Grease Trap</td><td class="p-3">Menyaring lemak dapur</td></tr>
-                                <tr><td class="p-3">Sump Pit & Pump</td><td class="p-3">Untuk area elevasi rendah (basement)</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-                
-                <hr class="my-5">
-            
-                <section>
-                    <h4 class="section-title"><i class="bi bi-exclamation-triangle"></i>Perhatian Khusus</h4>
-                    <ul class="list-group ps-md-5 mt-4">
-                        <li class="list-group-item border-0 d-flex align-items-start"><i class="bi bi-dot text-warning fs-3 lh-1"></i><div>Saluran dari dapur wajib dilengkapi <strong>grease trap</strong>.</div></li>
-                        <li class="list-group-item border-0 d-flex align-items-start"><i class="bi bi-dot text-warning fs-3 lh-1"></i><div>Area basement memerlukan <strong>sump pit</strong> dan pompa transfer otomatis.</div></li>
-                        <li class="list-group-item border-0 d-flex align-items-start"><i class="bi bi-dot text-warning fs-3 lh-1"></i><div>Hindari belokan tajam untuk mencegah sumbatan.</div></li>
-                        <li class="list-group-item border-0 d-flex align-items-start"><i class="bi bi-dot text-warning fs-3 lh-1"></i><div>Pipa ventilasi harus terbuka ke atap, bukan di dalam ruangan.</div></li>
-                    </ul>
-                </section>
-            
-                <hr class="my-5">
-            
-                <div class="goal-card">
-                    <h4 class="section-title"><i class="bi bi-bullseye"></i>Tujuan Perencanaan</h4>
-                    <ul class="mt-3 ps-4">
-                        <li>Sistem limbah yang efisien, aman, dan ramah lingkungan.</li>
-                        <li>Menghindari sumbatan, bau, dan kontaminasi silang.</li>
-                        <li>Mempermudah perawatan dengan akses clean out & chamber.</li>
-                    </ul>
-                </div>
-                
-                <!-- SEPARATOR -->
-                <hr class="my-5 border-2 opacity-50">
+    <h5>⚙️ Tata Cara Instalasi</h5>
+    <ul>
+      <li>Setiap roof drain dan area drain harus dilengkapi saringan dan akses bersih (clean out).</li>
+      <li>Downspout ditempatkan pada sisi bangunan, hindari area jalur lalu lintas.</li>
+      <li>Manhole dan catch basin dipasang pada titik temu saluran atau perubahan arah.</li>
+      <li>Air hujan tidak boleh dicampur dengan air kotor atau air bekas dalam satu pipa (sesuai SNI).</li>
+    </ul>
 
-                <!-- SECTION 1.3: Sistem Air Hujan -->
-                <header class="mb-4">
-                    <h2 class="h6 text-uppercase fw-bold tracking-widest text-muted">1.3</h2>
-                    <h3 class="h3 fw-bolder mt-1 text-primary">Sistem Air Hujan (Rainwater Drainage)</h3>
-                </header>
+    <h5>♻️ Opsional: Rainwater Harvesting</h5>
+    <p>Gunakan rainwater harvesting tank untuk menyimpan air hujan. Air disaring dan digunakan kembali untuk: Penyiraman taman, Flushing toilet, Cuci kendaraan, dan Cadangan darurat.</p>
+  </section>
 
-                <div class="subsection-image-container my-4 shadow-sm">
-                    <img src="https://images.unsplash.com/photo-1616013533256-3de73543f338?q=80&w=1740&auto=format&fit=crop" alt="Sistem talang air hujan di atap">
-                </div>
-            
-                <p class="lead text-muted">
-                    Sistem air hujan dirancang untuk mengalirkan air dari atap dan area terbuka menuju saluran pembuangan, sumur resapan, atau tangki penampungan untuk mencegah genangan dan mendukung konservasi air.
-                </p>
+</div>
 
-                <hr class="my-5">
+<!-- FOOTER -->
+<footer class="bg-dark text-white py-4 mt-5 text-center border-top border-secondary">
+  <div class="container">
+    <p class="mb-0 small">&copy; 2025 MEP Center. All rights reserved.</p>
+  </div>
+</footer>
 
-                <section>
-                    <h4 class="section-title"><i class="bi bi-bricks"></i>Komponen Utama Sistem</h4>
-                    <div class="table-responsive ps-md-5 mt-4">
-                        <table class="table table-bordered table-hover">
-                            <thead class="table-light">
-                                <tr>
-                                    <th scope="col" class="p-3">Komponen</th>
-                                    <th scope="col" class="p-3">Fungsi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr><td class="p-3">Roof Drain / Gutter</td><td class="p-3">Menangkap & mengalirkan air dari atap</td></tr>
-                                <tr><td class="p-3">Downspout / Pipa Vertikal</td><td class="p-3">Mengalirkan air ke bawah</td></tr>
-                                <tr><td class="p-3">Clean Out & Saringan</td><td class="p-3">Mencegah masuknya sampah dan akses perawatan</td></tr>
-                                <tr><td class="p-3">Sumur Resapan</td><td class="p-3">Menyerapkan air ke tanah secara alami</td></tr>
-                                <tr><td class="p-3">Rainwater Harvesting Tank</td><td class="p-3">Menampung air hujan untuk digunakan kembali</td></tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-                
-                <hr class="my-5">
-
-                <section>
-                    <h4 class="section-title"><i class="bi bi-rulers"></i>Prinsip Desain</h4>
-                    <ul class="list-group list-group-numbered ps-md-5 mt-4">
-                        <li class="list-group-item border-0">Disesuaikan dengan curah hujan maksimum lokal (data BMKG).</li>
-                        <li class="list-group-item border-0">
-                            Debit air dihitung berdasarkan luas atap & koefisien limpasan.
-                            <div class="formula-box mt-2"><code>Q = I × A × C</code></div>
-                        </li>
-                        <li class="list-group-item border-0">Kemiringan pipa horizontal minimum 1–2%.</li>
-                    </ul>
-                </section>
-                
-                <hr class="my-5">
-
-                <section>
-                    <h4 class="section-title"><i class="bi bi-recycle"></i>Opsional: Rainwater Harvesting</h4>
-                    <p class="ps-md-5 mt-3 text-muted">Gunakan tangki penampungan untuk menyimpan air hujan yang telah disaring. Air ini dapat digunakan kembali untuk penyiraman taman, flushing toilet, atau mencuci kendaraan, mendukung konsep green building.</p>
-                </section>
-
-                <hr class="my-5">
-            
-                <div class="goal-card">
-                    <h4 class="section-title"><i class="bi bi-bullseye"></i>Manfaat Desain yang Baik</h4>
-                     <ul class="mt-3 ps-4">
-                        <li>Mencegah kerusakan struktur bangunan (atap, fasad, pondasi).</li>
-                        <li>Menghindari genangan air di area publik dan basement.</li>
-                        <li>Mendukung konservasi air dan pembangunan berkelanjutan.</li>
-                    </ul>
-                </div>
-
-            </div>
-        </article>
-    </main>
-
-    <!-- Bootstrap JS Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<!-- SCRIPTS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({ duration: 1000, once: true });
+  const btn = document.getElementById('theme-toggle');
+  btn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const isDark = document.body.classList.contains('dark-mode');
+    document.getElementById('theme-icon').className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+    document.getElementById('theme-text').innerText = isDark ? 'Mode Siang' : 'Mode Malam';
+  });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
