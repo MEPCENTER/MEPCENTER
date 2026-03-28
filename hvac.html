@@ -13,7 +13,7 @@
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
   <style>
-    /* --- SISTEM TEMA OTOMATIS (FIXED) --- */
+    /* --- SISTEM TEMA OTOMATIS (IDENTIK DENGAN PLUMBING/PEMADAM) --- */
     :root {
       /* MODE SIANG */
       --bg-body: #ffffff;
@@ -38,6 +38,7 @@
       background-color: var(--bg-body) !important;
       color: var(--text-main) !important;
       transition: all 0.3s ease;
+      line-height: 1.8;
     }
 
     /* Navbar */
@@ -47,6 +48,11 @@
     }
     .nav-link {
       color: var(--neon-blue) !important;
+      font-size: 0.9rem;
+    }
+    .nav-link:hover {
+      text-shadow: 0 0 10px var(--neon-blue);
+      color: var(--text-main) !important;
     }
 
     /* Content Box */
@@ -69,7 +75,7 @@
 
     h1, h2, h3, h4, h5 { color: var(--neon-blue) !important; font-weight: bold; }
     .text-muted { color: var(--text-muted) !important; }
-    hr { border-color: var(--neon-blue); opacity: 0.3; }
+    hr { border-color: var(--neon-blue); opacity: 0.3; margin: 30px 0; }
 
     /* Tabel Otomatis */
     .table-neon { 
@@ -97,12 +103,12 @@
     #theme-toggle:hover { background: var(--neon-blue); color: #fff; }
 
     ul, ol { margin-bottom: 25px; }
-    li { margin-bottom: 10px; }
+    li { margin-bottom: 12px; }
     .section-title { border-left: 5px solid var(--neon-blue); padding-left: 15px; margin-bottom: 30px; }
   </style>
 </head>
 
-<body class="dark-mode"> <!-- Default: Dark Mode -->
+<body class="dark-mode"> <!-- Start as Dark Mode -->
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -134,7 +140,7 @@
 <header class="py-5 text-center">
   <div class="container" data-aos="fade-down">
     <h1 class="display-3">HVAC SYSTEM</h1>
-    <p class="lead text-muted">Heating, Ventilation, and Air Conditioning - MEP Center Division</p>
+    <p class="lead text-muted">Heating, Ventilation, and Air Conditioning - Perencanaan Tata Udara Terintegrasi</p>
     <hr style="width: 150px; margin: 20px auto; border-width: 3px;">
   </div>
 </header>
@@ -142,7 +148,7 @@
 <!-- CONTENT -->
 <div class="container">
 
-  <h2 class="section-title" data-aos="fade-right">III. HVAC</h2>
+  <h2 class="section-title" data-aos="fade-right">III. HVAC (Heating, Ventilation, and Air Conditioning)</h2>
 
   <!-- 3.1 AC System -->
   <section class="content-box" data-aos="fade-up">
@@ -156,24 +162,37 @@
     <hr>
     <h5>✅ Komponen Utama Sistem Tata Udara</h5>
     <ol>
-      <li><strong>Chiller / VRF / Split System:</strong> Berfungsi sebagai sumber pendingin. Chiller untuk gedung besar, VRF untuk zonasi fleksibel, dan Split untuk area terbatas.</li>
-      <li><strong>Air Handling Unit (AHU) / Fan Coil Unit (FCU):</strong> Unit penukar panas. AHU untuk ducting besar, FCU bersifat lokal.</li>
-      <li><strong>Ducting dan Diffuser:</strong> Jaringan saluran udara dan alat sebar udara dingin.</li>
-      <li><strong>Thermostat dan Control System:</strong> Mengontrol suhu secara otomatis.</li>
+      <li><strong>Chiller / VRF / Split System</strong><br>Berfungsi sebagai sumber pendingin, tergantung pada skala bangunan.
+        <ul>
+          <li>Chiller: digunakan untuk gedung besar (perkantoran, rumah sakit).</li>
+          <li>VRF (Variable Refrigerant Flow): untuk fleksibilitas zonasi.</li>
+          <li>Split system: untuk ruangan kecil atau area terbatas.</li>
+        </ul>
+      </li>
+      <li><strong>Air Handling Unit (AHU) / Fan Coil Unit (FCU)</strong><br>Unit penukar panas yang mengalirkan udara dingin ke ruang. AHU umumnya digunakan dalam sistem ducting besar, sementara FCU bersifat lebih lokal.</li>
+      <li><strong>Ducting dan Diffuser</strong><br>Jaringan saluran udara dan alat sebar yang mengalirkan dan mendistribusikan udara dingin ke seluruh ruang. Didesain untuk efisiensi tekanan dan keheningan suara.</li>
+      <li><strong>Thermostat dan Control System</strong><br>Untuk mengontrol suhu secara otomatis berdasarkan pengaturan pengguna dan kebutuhan ruang.</li>
     </ol>
 
+    <hr>
     <h5>🛠️ Tahapan Instalasi</h5>
+    <ol>
+      <li><strong>Perhitungan Beban Pendingin (Cooling Load Calculation)</strong><br>Dilakukan berdasarkan orientasi bangunan, luas ruang, jenis aktivitas, jumlah penghuni, pencahayaan, dan peralatan elektronik. → Hasil perhitungan menentukan kapasitas AC (dalam kW atau TR).</li>
+      <li><strong>Penempatan Unit Indoor dan Outdoor</strong><br>Penempatan strategis berdasarkan pertimbangan teknis dan kemudahan pemeliharaan.</li>
+      <li><strong>Instalasi Pipa Refrigerant dan Kondensat</strong><br>Jalur pipa disesuaikan agar tidak terjadi penurunan performa serta mencegah kondensasi pada permukaan luar.</li>
+      <li><strong>Instalasi Panel Kontrol dan Power Supply</strong><br>Sistem dikoneksikan ke sumber listrik dengan proteksi arus yang sesuai (MCB, MCCB, ELCB), serta sistem kontrol (manual, digital, atau terhubung BMS).</li>
+    </ol>
+
+    <h5>📐 Standar & Kriteria Desain</h5>
     <ul>
-      <li><strong>Perhitungan Beban Pendingin (Cooling Load):</strong> Menentukan kapasitas AC (kW atau TR) berdasarkan orientasi bangunan, aktivitas, dan penghuni.</li>
-      <li><strong>Penempatan Unit:</strong> Penempatan strategis untuk kemudahan pemeliharaan.</li>
-      <li><strong>Instalasi Pipa Refrigerant & Kondensat:</strong> Jalur pipa diatur untuk performa maksimal & anti-kondensasi.</li>
-      <li><strong>Panel Kontrol & Power Supply:</strong> Koneksi listrik dengan proteksi (MCB, ELCB) dan integrasi BMS.</li>
+      <li>Mengacu pada standar seperti ASHRAE, SNI 6390, serta pedoman teknis proyek.</li>
+      <li>Pertimbangan efisiensi energi, sirkulasi udara, dan kenyamanan pengguna.</li>
     </ul>
 
     <h5>📌 Tujuan Akhir Sistem</h5>
     <ul>
       <li>Memberikan kenyamanan termal secara merata.</li>
-      <li>Menghemat energi melalui sistem kontrol otomatis.</li>
+      <li>Menghemat energi melalui sistem kontrol otomatis dan desain optimal.</li>
       <li>Menjamin kualitas udara dalam ruangan (IAQ – Indoor Air Quality).</li>
     </ul>
   </section>
@@ -181,22 +200,37 @@
   <!-- 3.2 Ventilasi Mekanis -->
   <section class="content-box" data-aos="fade-up">
     <h3>3.2 Instalasi Ventilasi Mekanis (Mechanical Ventilation System)</h3>
-    <p>Sistem sirkulasi udara buatan yang dirancang untuk mengeluarkan udara kotor dan memasukkan udara segar, terutama pada area tanpa ventilasi alami memadai.</p>
+    <p>Instalasi ventilasi mekanis adalah sistem sirkulasi udara buatan yang dirancang untuk mengeluarkan udara kotor dan memasukkan udara segar ke dalam bangunan, terutama pada area yang tidak memiliki ventilasi alami memadai.</p>
 
     <div class="text-center">
       <img src="img/kintil.png" alt="Gambar Ventilasi" class="category-img">
     </div>
 
     <hr>
-    <h5>🔧 Komponen Umum</h5>
+    <h5>✅ Fungsi Utama Sistem Ventilasi Mekanis</h5>
     <ul>
-      <li><strong>Exhaust Fan / Blower:</strong> Menyedot udara kotor (Wall-mounted, Ceiling, Inline duct, Axial).</li>
-      <li><strong>Fresh Air Intake:</strong> Memasukkan udara luar melalui Louver + Filter.</li>
-      <li><strong>Ducting System:</strong> Saluran dari galvanis, PVC, atau alumunium foil.</li>
-      <li><strong>Damper:</strong> Fire Damper & Volume Control Damper (VCD) untuk keamanan dan debit udara.</li>
+      <li>Menjaga kualitas udara dalam ruangan (Indoor Air Quality – IAQ)</li>
+      <li>Menghindari akumulasi gas berbahaya, kelembaban berlebih, dan bau tidak sedap</li>
+      <li>Memenuhi persyaratan sanitasi dan keselamatan (terutama untuk ruang tertutup seperti toilet, basement, ruang genset, dan dapur komersial)</li>
     </ul>
 
-    <h5>🧾 Aplikasi Umum</h5>
+    <h5>🔧 Komponen Umum</h5>
+    <ul>
+      <li><strong>Exhaust Fan / Blower:</strong> Menyedot udara kotor (Wall-mounted, Ceiling, Inline duct, Axial/Centrifugal).</li>
+      <li><strong>Fresh Air Intake System:</strong> Memasukkan udara luar melalui Louver + Filter + Damper.</li>
+      <li><strong>Ducting System:</strong> Saluran udara dari galvanis, PVC, atau alumunium foil.</li>
+      <li><strong>Louver & Grille:</strong> Jalur masuk/keluar udara tahan cuaca.</li>
+      <li><strong>Fire Damper & Volume Control Damper (VCD):</strong> Pengaturan debit udara dan keamanan kebakaran.</li>
+    </ul>
+
+    <h5>📐 Pertimbangan Desain</h5>
+    <ul>
+      <li>Air Change per Hour (ACH): ditentukan berdasarkan jenis ruangan.</li>
+      <li>Tekanan statis & kapasitas fan (CFM / CMH): dihitung berdasarkan panjang ducting.</li>
+      <li>Kebisingan (Noise Level): diredam dengan duct insulasi atau silencer box.</li>
+    </ul>
+
+    <h5>🛠️ Aplikasi Umum</h5>
     <table class="table-neon">
       <thead><tr><th>Area</th><th>Sistem Ventilasi</th></tr></thead>
       <tbody>
@@ -207,65 +241,100 @@
         <tr><td>Laboratorium</td><td>Sistem filtrasi + exhaust + make-up air</td></tr>
       </tbody>
     </table>
+
+    <h5 class="mt-4">⚙️ Keunggulan Ventilasi Mekanis</h5>
+    <ul>
+      <li>Dapat dikontrol secara otomatis (timer, sensor CO, BMS)</li>
+      <li>Tidak bergantung pada kondisi lingkungan luar</li>
+      <li>Lebih stabil, higienis, dan dapat diatur volumenya secara presisi</li>
+    </ul>
   </section>
 
   <!-- 3.3 Pemipaan Pendingin -->
   <section class="content-box" data-aos="fade-up">
     <h3>3.3 Instalasi Pemipaan Pendingin (Cooling Pipe System)</h3>
-    <p>Sistem tulang punggung tata udara yang mendistribusikan media pendingin dari sumber (Chiller/VRF) menuju unit AHU/FCU dengan tekanan dan suhu yang tepat.</p>
+    <p>Instalasi pemipaan pendingin adalah sistem perpipaan yang digunakan untuk mendistribusikan media pendingin dari unit sumber dingin menuju unit distribusi (AHU/FCU). Sistem ini memastikan media pendingin mengalir dengan tekanan, suhu, dan volume yang tepat.</p>
 
     <div class="text-center">
       <img src="img/kintil.png" alt="Gambar Cooling Pipe" class="category-img">
     </div>
 
     <hr>
-    <h5>🔧 Komponen Utama & Fungsi</h5>
+    <h5>✅ Jenis Sistem Pemipaan Pendingin</h5>
+    <ul>
+      <li><strong>Sistem Air Dingin (Chilled Water System):</strong> Menggunakan air sebagai media pendingin (Hotel, RS, Mall).</li>
+      <li><strong>Sistem Refrigerant (Direct Expansion / VRF):</strong> Menggunakan refrigerant langsung dari compressor outdoor ke indoor.</li>
+    </ul>
+
+    <h5>🔧 Komponen Utama</h5>
     <table class="table-neon">
       <thead><tr><th>Komponen</th><th>Fungsi</th></tr></thead>
       <tbody>
-        <tr><td>Pipa Supply & Return</td><td>Mengalirkan dan mengembalikan media pendingin.</td></tr>
-        <tr><td>Valve (Ball, Gate, Control)</td><td>Mengatur dan mengisolasi aliran.</td></tr>
-        <tr><td>Insulasi Pipa</td><td>Mencegah kondensasi dan kehilangan suhu.</td></tr>
-        <tr><td>Strainer & Flow Meter</td><td>Menyaring kotoran dan mengukur aliran akurat.</td></tr>
-        <tr><td>Expansion Tank & Pump</td><td>Mengatur tekanan dan distribusi aliran.</td></tr>
+        <tr><td>Pipa Supply & Return</td><td>Mengalirkan dan mengembalikan media pendingin</td></tr>
+        <tr><td>Valve (Ball, Gate, Control)</td><td>Mengatur, mengisolasi, dan mengontrol aliran</td></tr>
+        <tr><td>Insulasi Pipa</td><td>Mengurangi kehilangan suhu & mencegah kondensasi</td></tr>
+        <tr><td>Strainer & Flow Meter</td><td>Menyaring kotoran & mengukur aliran akurat</td></tr>
+        <tr><td>Expansion Tank & Pump</td><td>Mengatur tekanan & mendistribusikan aliran</td></tr>
       </tbody>
     </table>
 
-    <h5 class="mt-4">📐 Desain & Material</h5>
+    <h5 class="mt-4">📐 Desain & Material Pipa</h5>
     <ul>
-      <li><strong>Material Chilled Water:</strong> Baja galvanis, HDPE, PPR, atau PVC-O.</li>
-      <li><strong>Material Refrigerant:</strong> Tembaga seamless grade AC (JIS H3300 C1220T).</li>
-      <li><strong>Isolasi:</strong> Closed cell (Armaflex/Aeroflex) 10–25 mm + Alumunium Foil.</li>
-      <li><strong>Hanger & Bracket:</strong> Penopang pipa sesuai standar jarak diameter.</li>
+      <li><strong>Chilled water:</strong> Pipa baja galvanis / HDPE / PPR / PVC-O.</li>
+      <li><strong>Refrigerant:</strong> Tembaga seamless grade AC (JIS H3300 C1220T).</li>
+      <li><strong>Isolasi:</strong> Closed cell (Armaflex, Aeroflex) 10–25 mm, lapis aluminium foil.</li>
+      <li><strong>Kecepatan aliran:</strong> Velocity < 3 m/s.</li>
+    </ul>
+
+    <h5>🛠️ Metode Instalasi</h5>
+    <ul>
+      <li>Pipa ditopang oleh hanger dan bracket sesuai jarak diameter pipa.</li>
+      <li>Perlu uji tekanan (pressure test) dan flushing system sebelum commissioning.</li>
+      <li>Sistem ditutup rapat dan diuji kebocoran sesuai prosedur.</li>
     </ul>
   </section>
 
   <!-- 3.4 Drainase Kondensat -->
   <section class="content-box" data-aos="fade-up">
     <h3>3.4 Instalasi Drainase (Condensate Drain System)</h3>
-    <p>Sistem pembuangan air embun hasil proses pendinginan udara untuk menjaga higienitas dan mencegah kerusakan struktur akibat kebocoran.</p>
+    <p>Sistem perpipaan khusus yang digunakan untuk membuang air kondensat (hasil embun pendinginan) dari unit AC. Penting untuk mencegah kelembaban, jamur, serta kerusakan struktur akibat kebocoran.</p>
 
     <div class="text-center">
       <img src="img/kintil.png" alt="Gambar Drainase" class="category-img">
     </div>
 
     <hr>
+    <h5>✅ Fungsi Utama Sistem Drainase Kondensat</h5>
+    <ul>
+      <li>Mengalirkan air kondensat dari unit AC ke saluran pembuangan dengan lancar.</li>
+      <li>Mencegah terjadinya air tergenang, jamur, atau kebocoran langit-langit.</li>
+      <li>Menjaga area instalasi tetap kering dan higienis.</li>
+    </ul>
+
     <h5>🔧 Komponen Umum</h5>
     <table class="table-neon">
       <thead><tr><th>Komponen</th><th>Fungsi</th></tr></thead>
       <tbody>
-        <tr><td>Drain Pan</td><td>Menampung tetesan air dari coil evaporator.</td></tr>
-        <tr><td>Pipa Kondensat</td><td>Pipa PVC/PEX menuju floor drain.</td></tr>
-        <tr><td>Condensate Pump</td><td>Digunakan bila posisi buangan lebih tinggi dari unit.</td></tr>
-        <tr><td>Pipa Vent / U-trap</td><td>Menjaga tekanan stabil dan mencegah backflow bau.</td></tr>
+        <tr><td>Drain Pan (Baki)</td><td>Menampung tetesan air dari coil evaporator</td></tr>
+        <tr><td>Pipa Kondensat</td><td>Pipa PVC / PEX menuju jalur buangan</td></tr>
+        <tr><td>Pompa Kondensat</td><td>Digunakan bila posisi buangan lebih tinggi dari unit</td></tr>
+        <tr><td>Pipa Vent / U-trap</td><td>Mencegah backflow & menjaga tekanan stabil</td></tr>
       </tbody>
     </table>
 
-    <h5 class="mt-4">📐 Pertimbangan Desain & Risiko</h5>
+    <h5 class="mt-4">📐 Pertimbangan Desain & Pemasangan</h5>
     <ul>
-      <li><strong>Kemiringan:</strong> Minimal 1–2% untuk aliran gravitasi yang lancar.</li>
-      <li><strong>Maintenance:</strong> Sediakan access point/clean-out untuk pembersihan berkala.</li>
-      <li><strong>Risiko Salah Instalasi:</strong> Kebocoran plafon, jamur, bau tidak sedap, dan kerusakan interior.</li>
+      <li>Kemiringan pipa minimal 1–2% untuk aliran gravitasi.</li>
+      <li>Diameter pipa umumnya ¾” – 1” untuk FCU/AHU.</li>
+      <li>Pipa dipasang tersembunyi di atas plafon, diberi isolasi jika perlu.</li>
+      <li>Uji aliran dilakukan dengan simulasi debit air sebelum finishing.</li>
+    </ul>
+
+    <h5>⚠️ Risiko jika Salah Instalasi</h5>
+    <ul>
+      <li>Kebocoran plafon, jamur, dan kerusakan interior.</li>
+      <li>Bau tidak sedap dan genangan air di dalam ruang.</li>
+      <li>Gangguan operasional unit pendingin akibat air tertahan.</li>
     </ul>
   </section>
 
@@ -282,6 +351,7 @@
 <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
   AOS.init({ duration: 1000, once: true });
+
   const btn = document.getElementById('theme-toggle');
   const icon = document.getElementById('theme-icon');
   const txt = document.getElementById('theme-text');
@@ -289,6 +359,7 @@
   btn.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
     const isDark = document.body.classList.contains('dark-mode');
+    
     icon.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
     txt.innerText = isDark ? 'Mode Siang' : 'Mode Malam';
   });
