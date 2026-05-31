@@ -1,6 +1,12 @@
-<h1 align="center">
-  Hi, I'm Andri Susandianto 👷
-</h1>
+<!-- ===================== HEADER ANIMASI ===================== -->
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:065f46,100:00e676&height=210&section=header&text=Andri%20Susandianto&fontSize=46&fontColor=ffffff&animation=fadeIn&fontAlignY=36&desc=MEP%20Engineer%20%C2%B7%20Web%20Developer%20%C2%B7%20AI%20Enthusiast&descAlignY=58&descSize=18" alt="header" />
+</p>
+
+<!-- ===================== TYPING ANIMASI ===================== -->
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=800&color=00E676&center=true&vCenter=true&width=650&lines=Mechanical+%C2%B7+Electrical+%C2%B7+Plumbing+Engineer;Detail+Engineering+Design+(DED)+%26+BIM;Dari+lapangan+konstruksi+ke+baris+kode;Engineering+mindset%2C+developer+spirit." alt="typing" />
+</p>
 
 <p align="center">
   <b>MEP Engineer · Freelance · Nganjuk, Jawa Timur 🇮🇩</b><br/>
@@ -8,15 +14,15 @@
 </p>
 
 <p align="center">
-  <a href="https://www.instagram.com/otnaidnasus">
-    <img src="https://img.shields.io/badge/Instagram-%23E4405F.svg?style=flat&logo=instagram&logoColor=white"/>
-  </a>
+  <img src="https://komarev.com/ghpvc/?username=MEPCENTER&label=Profile%20Views&color=00e676&style=flat-square" alt="views"/>
   &nbsp;
-  <img src="https://img.shields.io/badge/MEP%20Engineer-10%2B%20Tahun-00e676?style=flat"/>
+  <img src="https://img.shields.io/badge/MEP%20Engineer-10%2B%20Tahun-00e676?style=flat-square"/>
   &nbsp;
-  <img src="https://img.shields.io/badge/Proyek%20Selesai-250%2B-06b6d4?style=flat"/>
+  <img src="https://img.shields.io/badge/Proyek%20Selesai-250%2B-06b6d4?style=flat-square"/>
   &nbsp;
-  <img src="https://img.shields.io/badge/SKK%20PUPR-Level%207-a855f7?style=flat"/>
+  <img src="https://img.shields.io/badge/SKK%20PUPR-Level%207-a855f7?style=flat-square"/>
+  &nbsp;
+  <a href="https://www.instagram.com/otnaidnasus"><img src="https://img.shields.io/badge/Instagram-otnaidnasus-E4405F?style=flat-square&logo=instagram&logoColor=white"/></a>
 </p>
 
 ---
@@ -54,6 +60,21 @@ Di luar dunia engineering, saya mulai belajar **coding dan web development dari 
 
 ---
 
+<!-- ===================== SNAKE KONTRIBUSI (ANIMASI) ===================== -->
+## 🐍 Kontribusi (Animasi)
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/MEPCENTER/MEPCENTER/output/github-snake-neon.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/MEPCENTER/MEPCENTER/output/github-contribution-grid-snake.svg" />
+    <img alt="snake animation" src="https://raw.githubusercontent.com/MEPCENTER/MEPCENTER/output/github-snake-neon.svg" />
+  </picture>
+</p>
+
+<sub align="center">⚙️ Snake bertema neon — "memakan" grid kontribusi, di-generate otomatis oleh GitHub Actions tiap 12 jam.</sub>
+
+---
+
 ## 🚀 Featured Project
 
 ### ⚙️ MEP Center — Platform Teknik & Kalkulator Engineering
@@ -77,6 +98,8 @@ Di luar dunia engineering, saya mulai belajar **coding dan web development dari 
 ```
 HTML5 · CSS3 · Vanilla JavaScript · Bootstrap 5 · AOS.js · Font Awesome · Canvas API
 ```
+
+🔗 **Live:** [MEPCENTER/MEP](https://github.com/MEPCENTER/MEP)
 
 ---
 
@@ -131,9 +154,17 @@ HTML5 · CSS3 · Vanilla JavaScript · Bootstrap 5 · AOS.js · Font Awesome · 
 ## 📈 GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=andrisusandianto&show_icons=true&theme=dark&bg_color=0d1117&border_color=00e676&icon_color=00e676&title_color=00e676" alt="GitHub Stats" />
+  <img height="165em" src="https://github-readme-stats.vercel.app/api?username=MEPCENTER&show_icons=true&include_all_commits=true&count_private=true&theme=dark&hide_border=true&bg_color=0d1117&icon_color=00e676&title_color=00e676" alt="GitHub Stats" />
   &nbsp;
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=andrisusandianto&layout=compact&theme=dark&bg_color=0d1117&border_color=00e676&title_color=00e676" alt="Top Languages" />
+  <img height="165em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=MEPCENTER&layout=compact&theme=dark&hide_border=true&bg_color=0d1117&title_color=00e676" alt="Top Languages" />
+</p>
+
+<p align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=MEPCENTER&theme=dark&hide_border=true&background=0d1117&ring=00e676&fire=06b6d4&currStreakLabel=00e676" alt="streak" />
+</p>
+
+<p align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=MEPCENTER&theme=matrix&no-frame=true&column=7&margin-w=8&title_color=00e676" alt="trophy" />
 </p>
 
 ---
@@ -149,9 +180,15 @@ HTML5 · CSS3 · Vanilla JavaScript · Bootstrap 5 · AOS.js · Font Awesome · 
     <img src="https://img.shields.io/badge/Instagram-otnaidnasus-E4405F?style=for-the-badge&logo=instagram&logoColor=white"/>
   </a>
   &nbsp;
-  <img src="https://img.shields.io/badge/WhatsApp-0895370734896-25D366?style=for-the-badge&logo=whatsapp&logoColor=white"/>
+  <a href="https://wa.me/62895370734896">
+    <img src="https://img.shields.io/badge/WhatsApp-0895370734896-25D366?style=for-the-badge&logo=whatsapp&logoColor=white"/>
+  </a>
 </p>
 
 <p align="center">
   <sub>⚙️ MEP Engineer by profession · 💻 Web Developer by curiosity · 🤖 AI enthusiast by passion</sub>
+</p>
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:00e676,50:065f46,100:0d1117&height=120&section=footer" alt="footer" />
 </p>
