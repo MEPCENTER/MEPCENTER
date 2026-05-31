@@ -82,82 +82,66 @@ Di luar dunia engineering, saya membangun **aplikasi web full-stack** — didoro
 
 ---
 
-<!-- ===================== CONTRIBUTION ACTIVITY — MARKET CHART ===================== -->
-## 📈 Contribution Activity — *Live Chart*
-
-<p align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=MEPCENTER&custom_title=Kontribusi%20Harian%20%E2%80%94%20Order%20Flow&bg_color=0d1117&color=00e676&line=00e676&point=ffffff&area=true&area_color=065f46&title_color=00e676&hide_border=true&radius=10" alt="contribution activity graph" />
-</p>
-
-<sub align="center">📊 Aktivitas kontribusi harian — divisualisasikan ala <i>chart pergerakan harga</i>. Update otomatis mengikuti data real.</sub>
-
----
-
 ## 🚀 Featured Projects
 
-### ⚙️ MEP Center — Platform Teknik & Kalkulator Engineering
+<table>
+  <tr>
+    <td width="50%" valign="top">
 
-> Platform freelance MEP engineering + 21 kalkulator teknis berbasis rumus SNI/NFPA/ASHRAE/PUIL
+#### ⚙️ MEP Center
+Platform teknik MEP + **21 kalkulator engineering** (SNI/NFPA/ASHRAE/PUIL): HVAC, fire-fighting, plumbing, electrical, sound. 5 halaman edukasi + estimasi.
 
-**Yang dibangun:**
-- 🌐 **Landing Page** — dark theme futuristik (neon green), BIM circuit canvas animasi
-- 📚 **5 Halaman Edukasi** — Plumbing, Pemadam, HVAC, Elektrikal, Elektronik (materi teknis lengkap)
-- 🧮 **Calculation Engineer** — 21 kalkulator teknis interaktif:
-  - ❄️ VAC/AC: Kapasitas AC, Daya AHU/FCU, Diameter Pipa CHWS/R, Pompa Chiller, Diffuser
-  - 🌀 Fan & Ventilasi: Kapasitas fan, Pressurized fan, Daya listrik fan
-  - ⚡ Electrical: Resistansi kabel, Voltage drop, Penampang kabel, Capacitor bank, Short circuit
-  - 🔥 Fire Fighting: Pompa FF, Tangki, Pressure tank, Pipa, Sprinkler
-  - 💧 Plumbing: Kebutuhan air, Ground tank, Roof tank
-  - 🔊 Sound System: Sound Pressure Level (SPL)
-- 👤 **Halaman Profil** — Riwayat karir, sertifikat, kompetensi teknis
-- 📄 **Estimasi Engineering** — Kalkulator dengan scroll-spy, multicolor per disiplin
+`HTML` `CSS` `Vanilla JS` `Bootstrap 5` `Canvas API`
 
-**Tech Stack:**
-```
-HTML5 · CSS3 · Vanilla JavaScript · Bootstrap 5 · AOS.js · Font Awesome · Canvas API
-```
+🔗 [Live site](https://github.com/MEPCENTER/MEP)
 
-🔗 **Live:** [MEPCENTER/MEP](https://github.com/MEPCENTER/MEP)
+</td>
+<td width="50%" valign="top">
 
-### 🏗️ MEP Project Monitoring Dashboard
+#### 🏗️ MEP Project Monitoring
+Dashboard pemantauan **progres & status pekerjaan proyek MEP** — visualisasi real-time untuk kontrol lapangan & reporting.
 
-> Dashboard pemantauan **progres & status pekerjaan proyek MEP** — visualisasi real-time untuk kontrol lapangan dan reporting.
+`Next.js` `React` `Tailwind` `PostgreSQL`
 
-**Tech Stack:** `Next.js · React · Tailwind · PostgreSQL`
+</td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
 
-### 📡 Real-Time Market Anomaly Screener
+#### 📡 Real-Time Market Screener
+Engine screening **data pasar live** — deteksi anomali positioning via **z-score statistik 30 hari** + score-velocity, disajikan di **dashboard 7 halaman** + alert otomatis. *(Riset / paper-test.)*
 
-> Engine screening **data pasar secara live** — mendeteksi anomali positioning lewat analitik **statistik z-score 30 hari** + *score-velocity tracking*, lalu menyajikannya di dashboard real-time. *(Riset & paper-test only.)*
+`Node.js` `Next.js 14` `Prisma` `PostgreSQL` `PM2`
 
-**Highlight:**
-- ⚡ Scanner **24/7** memproses puluhan instrumen, refresh dashboard tiap 5–15 detik
-- 📊 Anomaly engine berbasis z-score (statistik 30 hari) + scoring & grading otomatis
-- 🗄️ **7 halaman dashboard** (overview, screener, signals, positions, analytics) + persistensi PostgreSQL via Prisma
-- 🔔 Notifikasi real-time (Telegram) + recap terjadwal otomatis
+</td>
+<td width="50%" valign="top">
 
-**Tech Stack:** `Node.js · CCXT · Next.js 14 · Prisma · PostgreSQL (Supabase) · Recharts · PM2`
+#### 🤖 Event-Driven Automation
+Platform otomasi **berbasis webhook** (alerting → execution API) dengan keamanan produksi: **AES-256-GCM**, constant-time compare, dedup, rate-limit, validasi Zod.
 
-### 🤖 Event-Driven Automation Platform
+`Next.js 15` `TypeScript` `Prisma` `TanStack Query` `Zustand`
 
-> Platform otomasi **berbasis webhook** yang merutekan sinyal dari alerting eksternal ke execution API — dengan fokus **keamanan tingkat produksi**.
+</td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
 
-**Highlight:**
-- 🔐 Enkripsi kredensial **AES-256-GCM** at-rest, secret comparison **constant-time**
-- 🛡️ Deduplikasi deterministik (window 60s), rate-limiting per IP, validasi **Zod** di tiap route
-- 🔄 Time-sync server, retry-with-backoff, idempotent calls, health endpoint monitoring
-- 📈 Dashboard real-time (WebSocket feed) + PnL chart 7/30/90 hari
+#### 📊 Investment Planning Simulator
+Web interaktif **simulasi investasi jangka panjang (DCA)** — proyeksi compound-growth 20 tahun, 3 skenario, chart interaktif yang update real-time.
 
-**Tech Stack:** `Next.js 15 · TypeScript · Prisma · PostgreSQL · TanStack Query · Zustand · Zod`
+`JavaScript` `Chart.js` `SVG`
 
-### 📊 Investment Planning Simulator — *DCA Master Plan*
+</td>
+<td width="50%" valign="top">
 
-> Web interaktif **simulasi investasi jangka panjang (DCA)** — proyeksi compound-growth 20 tahun dengan 3 skenario (optimis/moderat/pesimis), responsif di semua perangkat.
+#### 📡 Real-Time Data Stream Monitor
+Monitor **stream data pasar via WebSocket** latensi rendah — agregasi & deteksi event volume besar secara live, langsung dari terminal.
 
-**Highlight:**
-- 🥧 Pie/bar/line chart yang **update real-time** saat alokasi diubah (Chart.js + SVG)
-- 🧮 Kalkulator Future Value `FV = P·[(1+r)ⁿ−1]/r` + tabel ringkasan 20 tahun
+`Python` `WebSocket` `asyncio`
 
-**Tech Stack:** `HTML5 · CSS3 · JavaScript · Chart.js · SVG`
+</td>
+  </tr>
+</table>
 
 ---
 
