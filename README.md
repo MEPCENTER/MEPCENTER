@@ -5,7 +5,7 @@
 
 <!-- ===================== TYPING ANIMASI ===================== -->
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=800&color=00E676&center=true&vCenter=true&width=650&lines=Mechanical+%C2%B7+Electrical+%C2%B7+Plumbing+Engineer;Detail+Engineering+Design+(DED)+%26+BIM;Dari+lapangan+konstruksi+ke+baris+kode;Engineering+mindset%2C+developer+spirit." alt="typing" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=800&color=00E676&center=true&vCenter=true&width=650&lines=Mechanical+%C2%B7+Electrical+%C2%B7+Plumbing+Engineer;Full-Stack%3A+React+%C2%B7+Supabase+%C2%B7+Realtime+Data;Detail+Engineering+Design+(DED)+%26+BIM;Dari+lapangan+konstruksi+ke+baris+kode." alt="typing" />
 </p>
 
 <p align="center">
@@ -31,7 +31,7 @@
 
 Seorang **MEP Engineer** dengan 10+ tahun pengalaman di proyek gedung komersial, apartemen, hotel, rumah sakit, dan industri pabrik. Terbiasa mengerjakan sistem Mekanikal, Elektrikal, Plumbing, Fire Fighting, dan Elektronik dari tahap **Detail Engineering Design (DED)** hingga komisioning lapangan.
 
-Di luar dunia engineering, saya mulai belajar **coding dan web development dari nol** — didorong oleh rasa penasaran pada teknologi dan AI. Hasilnya: **MEP Center**, platform freelance + kalkulator engineering berbasis web yang saya bangun sendiri tanpa framework — murni HTML, CSS, dan JavaScript.
+Di luar dunia engineering, saya membangun **aplikasi web full-stack** — didorong rasa penasaran pada teknologi dan AI. Berawal dari HTML/CSS/JS murni (platform **MEP Center**), kini berkembang ke ekosistem modern: **React + Tailwind + shadcn/ui** di front-end, **Supabase (PostgreSQL, Auth, Realtime)** di back-end, plus pipeline **data real-time berbasis WebSocket** dan integrasi **AI/LLM** untuk otomasi dan analitik.
 
 > *"Dari lapangan konstruksi ke baris kode — engineering mindset, developer spirit."*
 
@@ -50,13 +50,30 @@ Di luar dunia engineering, saya mulai belajar **coding dan web development dari 
 
 ## 💻 Web Development
 
+![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-06B6D4?style=flat&logo=tailwindcss&logoColor=white)
+![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-000000?style=flat&logo=shadcnui&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla%20JS-F7DF1E?style=flat&logo=javascript&logoColor=black)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla%20JS-F7DF1E?style=flat&logo=javascript&logoColor=black)
 ![Bootstrap](https://img.shields.io/badge/Bootstrap-5-7952B3?style=flat&logo=bootstrap&logoColor=white)
+
+## 🗄️ Backend · Data · Realtime
+
+![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=flat&logo=supabase&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![WebSocket](https://img.shields.io/badge/WebSocket-Realtime-010101?style=flat&logo=socketdotio&logoColor=white)
+![REST API](https://img.shields.io/badge/REST%20API-005571?style=flat&logo=fastapi&logoColor=white)
+![AI / LLM](https://img.shields.io/badge/AI%20%2F%20LLM-Integration-a855f7?style=flat&logo=openai&logoColor=white)
+
+## 🧰 Workflow
+
+![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)
 ![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=flat&logo=visual-studio-code&logoColor=white)
 ![Photoshop](https://img.shields.io/badge/Photoshop-31A8FF?style=flat&logo=adobe-photoshop&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)
 
 ---
 
@@ -100,6 +117,18 @@ HTML5 · CSS3 · Vanilla JavaScript · Bootstrap 5 · AOS.js · Font Awesome · 
 ```
 
 🔗 **Live:** [MEPCENTER/MEP](https://github.com/MEPCENTER/MEP)
+
+### 📡 Real-Time Market Data Analytics
+
+> Engine pemantauan **data pasar finansial secara live** via streaming WebSocket — mendeteksi pergerakan volume besar, menghitung statistik sesi, dan menyajikan sinyal secara real-time.
+
+**Highlight:**
+- ⚡ Streaming **WebSocket** latensi rendah, proses ribuan event/menit
+- 📊 Agregasi & analitik on-the-fly (volume, rasio, deteksi anomali transaksi besar)
+- 🗄️ Persistensi & dashboard berbasis **Supabase**, dengan opsi alert real-time
+- 🐍 Inti engine **Python**, terminal output berwarna untuk monitoring cepat
+
+**Tech Stack:** `Python · WebSocket · Supabase · React · Tailwind`
 
 ---
 
