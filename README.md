@@ -193,24 +193,6 @@ Monitor **stream data pasar via WebSocket** latensi rendah — agregasi & deteks
 
 ---
 
-## 📈 GitHub Stats
-
-<p align="center">
-  <img height="165em" src="https://github-readme-stats.vercel.app/api?username=MEPCENTER&show_icons=true&include_all_commits=true&count_private=true&theme=dark&hide_border=true&bg_color=0d1117&icon_color=00e676&title_color=00e676" alt="GitHub Stats" />
-  &nbsp;
-  <img height="165em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=MEPCENTER&layout=compact&theme=dark&hide_border=true&bg_color=0d1117&title_color=00e676" alt="Top Languages" />
-</p>
-
-<p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=MEPCENTER&theme=dark&hide_border=true&background=0d1117&ring=00e676&fire=06b6d4&currStreakLabel=00e676" alt="streak" />
-</p>
-
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=MEPCENTER&theme=matrix&no-frame=true&column=7&margin-w=8&title_color=00e676" alt="trophy" />
-</p>
-
----
-
 ## 📬 Hubungi Saya
 
 <p align="center">
