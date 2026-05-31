@@ -51,9 +51,11 @@ Di luar dunia engineering, saya membangun **aplikasi web full-stack** — didoro
 ## 💻 Web Development
 
 ![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=61DAFB)
+![Next.js](https://img.shields.io/badge/Next.js-15-000000?style=flat&logo=nextdotjs&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-06B6D4?style=flat&logo=tailwindcss&logoColor=white)
 ![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-000000?style=flat&logo=shadcnui&logoColor=white)
+![TanStack Query](https://img.shields.io/badge/TanStack%20Query-FF4154?style=flat&logo=reactquery&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-Vanilla%20JS-F7DF1E?style=flat&logo=javascript&logoColor=black)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)
@@ -61,11 +63,14 @@ Di luar dunia engineering, saya membangun **aplikasi web full-stack** — didoro
 
 ## 🗄️ Backend · Data · Realtime
 
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white)
 ![Supabase](https://img.shields.io/badge/Supabase-3FCF8E?style=flat&logo=supabase&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat&logo=postgresql&logoColor=white)
+![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=flat&logo=prisma&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
 ![WebSocket](https://img.shields.io/badge/WebSocket-Realtime-010101?style=flat&logo=socketdotio&logoColor=white)
 ![REST API](https://img.shields.io/badge/REST%20API-005571?style=flat&logo=fastapi&logoColor=white)
+![Zod](https://img.shields.io/badge/Zod-3E67B1?style=flat&logo=zod&logoColor=white)
 ![AI / LLM](https://img.shields.io/badge/AI%20%2F%20LLM-Integration-a855f7?style=flat&logo=openai&logoColor=white)
 
 ## 🧰 Workflow
@@ -92,7 +97,7 @@ Di luar dunia engineering, saya membangun **aplikasi web full-stack** — didoro
 
 ---
 
-## 🚀 Featured Project
+## 🚀 Featured Projects
 
 ### ⚙️ MEP Center — Platform Teknik & Kalkulator Engineering
 
@@ -118,17 +123,45 @@ HTML5 · CSS3 · Vanilla JavaScript · Bootstrap 5 · AOS.js · Font Awesome · 
 
 🔗 **Live:** [MEPCENTER/MEP](https://github.com/MEPCENTER/MEP)
 
-### 📡 Real-Time Market Data Analytics
+### 🏗️ MEP Project Monitoring Dashboard
 
-> Engine pemantauan **data pasar finansial secara live** via streaming WebSocket — mendeteksi pergerakan volume besar, menghitung statistik sesi, dan menyajikan sinyal secara real-time.
+> Dashboard pemantauan **progres & status pekerjaan proyek MEP** — visualisasi real-time untuk kontrol lapangan dan reporting.
+
+**Tech Stack:** `Next.js · React · Tailwind · PostgreSQL`
+
+### 📡 Real-Time Market Anomaly Screener
+
+> Engine screening **data pasar secara live** — mendeteksi anomali positioning lewat analitik **statistik z-score 30 hari** + *score-velocity tracking*, lalu menyajikannya di dashboard real-time. *(Riset & paper-test only.)*
 
 **Highlight:**
-- ⚡ Streaming **WebSocket** latensi rendah, proses ribuan event/menit
-- 📊 Agregasi & analitik on-the-fly (volume, rasio, deteksi anomali transaksi besar)
-- 🗄️ Persistensi & dashboard berbasis **Supabase**, dengan opsi alert real-time
-- 🐍 Inti engine **Python**, terminal output berwarna untuk monitoring cepat
+- ⚡ Scanner **24/7** memproses puluhan instrumen, refresh dashboard tiap 5–15 detik
+- 📊 Anomaly engine berbasis z-score (statistik 30 hari) + scoring & grading otomatis
+- 🗄️ **7 halaman dashboard** (overview, screener, signals, positions, analytics) + persistensi PostgreSQL via Prisma
+- 🔔 Notifikasi real-time (Telegram) + recap terjadwal otomatis
 
-**Tech Stack:** `Python · WebSocket · Supabase · React · Tailwind`
+**Tech Stack:** `Node.js · CCXT · Next.js 14 · Prisma · PostgreSQL (Supabase) · Recharts · PM2`
+
+### 🤖 Event-Driven Automation Platform
+
+> Platform otomasi **berbasis webhook** yang merutekan sinyal dari alerting eksternal ke execution API — dengan fokus **keamanan tingkat produksi**.
+
+**Highlight:**
+- 🔐 Enkripsi kredensial **AES-256-GCM** at-rest, secret comparison **constant-time**
+- 🛡️ Deduplikasi deterministik (window 60s), rate-limiting per IP, validasi **Zod** di tiap route
+- 🔄 Time-sync server, retry-with-backoff, idempotent calls, health endpoint monitoring
+- 📈 Dashboard real-time (WebSocket feed) + PnL chart 7/30/90 hari
+
+**Tech Stack:** `Next.js 15 · TypeScript · Prisma · PostgreSQL · TanStack Query · Zustand · Zod`
+
+### 📊 Investment Planning Simulator — *DCA Master Plan*
+
+> Web interaktif **simulasi investasi jangka panjang (DCA)** — proyeksi compound-growth 20 tahun dengan 3 skenario (optimis/moderat/pesimis), responsif di semua perangkat.
+
+**Highlight:**
+- 🥧 Pie/bar/line chart yang **update real-time** saat alokasi diubah (Chart.js + SVG)
+- 🧮 Kalkulator Future Value `FV = P·[(1+r)ⁿ−1]/r` + tabel ringkasan 20 tahun
+
+**Tech Stack:** `HTML5 · CSS3 · JavaScript · Chart.js · SVG`
 
 ---
 
