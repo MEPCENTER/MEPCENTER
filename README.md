@@ -82,18 +82,14 @@ Di luar dunia engineering, saya membangun **aplikasi web full-stack** — didoro
 
 ---
 
-<!-- ===================== SNAKE KONTRIBUSI (ANIMASI) ===================== -->
-## 🐍 Kontribusi (Animasi)
+<!-- ===================== CONTRIBUTION ACTIVITY — MARKET CHART ===================== -->
+## 📈 Contribution Activity — *Live Chart*
 
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/MEPCENTER/MEPCENTER/output/github-snake-neon.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/MEPCENTER/MEPCENTER/output/github-contribution-grid-snake.svg" />
-    <img alt="snake animation" src="https://raw.githubusercontent.com/MEPCENTER/MEPCENTER/output/github-snake-neon.svg" />
-  </picture>
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=MEPCENTER&custom_title=Kontribusi%20Harian%20%E2%80%94%20Order%20Flow&bg_color=0d1117&color=00e676&line=00e676&point=ffffff&area=true&area_color=065f46&title_color=00e676&hide_border=true&radius=10" alt="contribution activity graph" />
 </p>
 
-<sub align="center">⚙️ Snake bertema neon — "memakan" grid kontribusi, di-generate otomatis oleh GitHub Actions tiap 12 jam.</sub>
+<sub align="center">📊 Aktivitas kontribusi harian — divisualisasikan ala <i>chart pergerakan harga</i>. Update otomatis mengikuti data real.</sub>
 
 ---
 
