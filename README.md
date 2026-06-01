@@ -93,7 +93,7 @@ Platform teknik MEP + **21 kalkulator engineering** (SNI/NFPA/ASHRAE/PUIL): HVAC
 
 `HTML` `CSS` `Vanilla JS` `Bootstrap 5` `Canvas API`
 
-🔗 [Live site](https://github.com/MEPCENTER/MEP)
+🔗 [Live site]([mepcenter.web.id](https://www.mepcenter.web.id))
 
 </td>
 <td width="50%" valign="top">
