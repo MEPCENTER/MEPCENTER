@@ -10,7 +10,7 @@
 
 <p align="center">
   <b>MEP Engineer · Freelance · Nganjuk, Jawa Timur 🇮🇩</b><br/>
-  <sub>📧 Mepcenter.as@gmail.com &nbsp;|&nbsp; 📱 0895370734896</sub>
+  <sub>🌐 <a href="https://www.mepcenter.web.id">mepcenter.web.id</a> &nbsp;|&nbsp; 📧 Mepcenter.as@gmail.com &nbsp;|&nbsp; 📱 0895370734896</sub>
 </p>
 
 <p align="center">
@@ -93,7 +93,7 @@ Platform teknik MEP + **21 kalkulator engineering** (SNI/NFPA/ASHRAE/PUIL): HVAC
 
 `HTML` `CSS` `Vanilla JS` `Bootstrap 5` `Canvas API`
 
-🔗 [Live site]([mepcenter.web.id](https://www.mepcenter.web.id))
+🔗 [mepcenter.web.id](https://www.mepcenter.web.id)
 
 </td>
 <td width="50%" valign="top">
@@ -196,8 +196,12 @@ Monitor **stream data pasar via WebSocket** latensi rendah — agregasi & deteks
 ## 📬 Hubungi Saya
 
 <p align="center">
+  <a href="https://www.mepcenter.web.id">
+    <img src="https://img.shields.io/badge/Website-mepcenter.web.id-00e676?style=for-the-badge&logo=googlechrome&logoColor=white"/>
+  </a>
+  &nbsp;
   <a href="mailto:Mepcenter.as@gmail.com">
-    <img src="https://img.shields.io/badge/Email-Mepcenter.as%40gmail.com-00e676?style=for-the-badge&logo=gmail&logoColor=white"/>
+    <img src="https://img.shields.io/badge/Email-Mepcenter.as%40gmail.com-1a7f4b?style=for-the-badge&logo=gmail&logoColor=white"/>
   </a>
   &nbsp;
   <a href="https://www.instagram.com/otnaidnasus">
